@@ -6,6 +6,7 @@ const Routes = {
         HISTORY: 'History',
         WORLDCUP: 'WorldCup',
         OLYMPIC: 'Olympic',
+        OLYMPICDASHBOARD: 'OlympicDashboard',
         CHAMPIONSHIP: 'Championship',
         SHOP: 'Shop',
     }

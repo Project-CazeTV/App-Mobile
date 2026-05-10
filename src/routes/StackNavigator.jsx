@@ -1,5 +1,9 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Routes from '.';
+import HomeScreen from '../screens/Home';
+import SignUpScreen from '../screens/SignUp';
+import LoginScreen from '../screens/HomeLogin';
+import DashboardOlympicNavigator from './DashboardOlympicNavigator';
 
 const Stack = createNativeStackNavigator()
 
@@ -12,8 +16,15 @@ export default function StackNavigation() {
             headerShown: false,
         }}>
             <Stack.Screen
+                name={Routes.HOME}
+                component={HomeScreen}
+                options={{ 
+                    headerTitle: 'Início' 
+                }}
+            />
+            <Stack.Screen
                 name={Routes.LOGIN}
-                component={SignInScreen}
+                component={LoginScreen}
                 options={{ 
                     headerTitle: 'Autenticação' 
                 }}
@@ -23,6 +34,13 @@ export default function StackNavigation() {
                 component={SignUpScreen}
                 options={{ 
                     headerTitle: 'Cadastro' 
+                }}
+            />
+            <Stack.Screen
+                name={Routes.OLYMPICDASHBOARD}
+                component={DashboardOlympicNavigator}
+                options={{ 
+                    headerShown: false 
                 }}
             />
         </Stack.Navigator>
