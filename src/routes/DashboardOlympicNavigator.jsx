@@ -1,6 +1,4 @@
-import { View, Text } from "react-native";
 import Routes from ".";
-import ColorTypes from "../assets/ColorTypes";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import FontAwesome from '@expo/vector-icons/FontAwesome';

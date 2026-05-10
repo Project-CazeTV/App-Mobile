@@ -1,4 +1,5 @@
 const Routes = {
+        DRAWER: 'Drawer',
         HOME: 'Home',
         SIGNUP: 'SignUp',
         LOGIN: 'Login',
