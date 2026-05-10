@@ -3,6 +3,7 @@ import Routes from '.';
 import HomeScreen from '../screens/Home';
 import SignUpScreen from '../screens/SignUp';
 import LoginScreen from '../screens/Login';
+import ProfileScreen from '../screens/Profile';
 import DrawerNavigator from './DrawerNagivator';
 import DashboardOlympicNavigator from './DashboardOlympicNavigator';
 import DashboardShopNavigator from './DashboardShopNavigator';
@@ -40,6 +41,13 @@ export default function StackNavigation() {
                 component={SignUpScreen}
                 options={{ 
                     headerTitle: 'Cadastro' 
+                }}
+            />
+            <Stack.Screen
+                name={Routes.PROFILE}
+                component={ProfileScreen}
+                options={{ 
+                    headerTitle: 'Perfil' 
                 }}
             />
             <Stack.Screen
