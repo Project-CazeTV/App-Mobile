@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import OlympicCategories from '../enumsCategories/Olympics';
+import ColorTypes from '../enumsCategories/ColorTypes';
 
 export default function Olympic({ route }) {
 const { category } = route.params;
@@ -15,7 +16,7 @@ const { category } = route.params;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: ColorTypes.BACKGROUNDWHITE,
     alignItems: 'center',
     justifyContent: 'center',
   },

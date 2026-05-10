@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import ColorTypes from '../enumsCategories/ColorTypes';
 
 export default function WorldCup() {
   return (
@@ -13,7 +14,7 @@ export default function WorldCup() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: ColorTypes.BACKGROUNDWHITE,
     alignItems: 'center',
     justifyContent: 'center',
   },

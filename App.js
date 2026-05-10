@@ -3,6 +3,7 @@ import StackNavigation from './src/routes/StackNavigator';
 import { useEffect, useState } from 'react';
 import { View, StyleSheet, Image} from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
+import ColorTypes from './src/enumsCategories/ColorTypes';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#008AFF',
+    backgroundColor: ColorTypes.BLUE,
   },
   logo: {
     position: 'absolute',
