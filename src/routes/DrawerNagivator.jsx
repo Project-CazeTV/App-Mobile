@@ -6,7 +6,7 @@ import HomeScreen from '../screens/Home';
 import WorldcupScreen from '../screens/WorldCup';
 import DashboardOlympicNavigator from './DashboardOlympicNavigator';
 import ChampionshipScreen  from '../screens/Championship';
-import ShopScreen from '../screens/Shop';
+import DashboardShopNavigator from './DashboardShopNavigator';
 import HistoryScreen from '../screens/History';
 
 const Drawer = createDrawerNavigator();
@@ -35,8 +35,8 @@ export default function DrawerNavigator() {
                 component={ChampionshipScreen} 
             />
             <Drawer.Screen 
-                name={Routes.SHOP} 
-                component={ShopScreen} 
+                name={Routes.SHOPDASHBOARD} 
+                component={DashboardShopNavigator} 
             />
             <Drawer.Screen
                 name={Routes.HISTORY}

@@ -4,6 +4,7 @@ import HomeScreen from '../screens/Home';
 import SignUpScreen from '../screens/SignUp';
 import LoginScreen from '../screens/HomeLogin';
 import DashboardOlympicNavigator from './DashboardOlympicNavigator';
+import DashboardShopNavigator from './DashboardShopNavigator';
 
 const Stack = createNativeStackNavigator()
 
@@ -39,6 +40,13 @@ export default function StackNavigation() {
             <Stack.Screen
                 name={Routes.OLYMPICDASHBOARD}
                 component={DashboardOlympicNavigator}
+                options={{ 
+                    headerShown: false 
+                }}
+            />
+            <Stack.Screen
+                name={Routes.SHOPDASHBOARD}
+                component={DashboardShopNavigator}
                 options={{ 
                     headerShown: false 
                 }}

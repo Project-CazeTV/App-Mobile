@@ -9,6 +9,7 @@ const Routes = {
         OLYMPICDASHBOARD: 'OlympicDashboard',
         CHAMPIONSHIP: 'Championship',
         SHOP: 'Shop',
+        SHOPDASHBOARD: 'ShopDashboard',
     }
 
 export default Routes;

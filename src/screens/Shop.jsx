@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Shop() {
+export default function Shop({ route }) {
+const { category } = route.params;
   return (
-    <View style={styles.container}>
-      <Text>Shop Screen!</Text>
+    <View style={styles.container}>  
+      <Text>Shop {category} Screen!</Text>
       <StatusBar style="auto" />
     </View>
   );
