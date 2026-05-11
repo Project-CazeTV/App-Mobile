@@ -6,43 +6,58 @@ import Entypo from '@expo/vector-icons/Entypo';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import ShopScreen from "../screens/Shop";
 import ShopCategories from "../enumsCategories/Shops";
+import ColorTypes from "../enumsCategories/ColorTypes";
 
 const Tabs = createBottomTabNavigator()
 
 export default function DashboardShopNavigator() {
     return (
         <Tabs.Navigator screenOptions={{
-        headerShown: false}}>
+            headerShown: false,
+            tabBarStyle: {
+                backgroundColor: ColorTypes.BACKGROUNDWHITE,
+                height: 65,
+                borderTopWidth: 1,
+                elevation: 0,
+            },
+            tabBarLabelStyle: {
+                fontSize: 12,
+                fontWeight: 'bold',
+            },
+            tabBarActiveTintColor: ColorTypes.DARK,
+            tabBarInactiveTintColor: ColorTypes.GRAY,
+            tabBarActiveBackgroundColor: ColorTypes.GRAY,
+        }}>
             <Tabs.Screen 
             name="Produtos" component={ShopScreen}
             initialParams={{ category: ShopCategories.PRODUCTS }}
             options={{
-                tabBarIcon: () => (
-                <AntDesign name="product" size={24} color="black" />
+                tabBarIcon: ({ focused }) => (
+                <AntDesign name="product" size={24} color={focused ? ColorTypes.DARK : ColorTypes.GRAY} />
                 ),
             }}/>
             <Tabs.Screen 
             name="Pesquisar" component={ShopScreen}
             initialParams={{ category: ShopCategories.SEARCH }}
             options={{
-                    tabBarIcon: () => (
-                        <FontAwesome name="search" size={24} color="black" />
+                    tabBarIcon: ({ focused }) => (
+                        <FontAwesome name="search" size={24} color={focused ? ColorTypes.DARK : ColorTypes.GRAY} />
                     )
                 }}/>
             <Tabs.Screen 
             name="Pedidos" component={ShopScreen}
             initialParams={{ category: ShopCategories.ORDER }}
             options={{
-                    tabBarIcon: () => (
-                        <Ionicons name="newspaper-outline" size={24} color="black" />
+                    tabBarIcon: ({ focused }) => (
+                        <Ionicons name="newspaper-outline" size={24} color={focused ? ColorTypes.DARK : ColorTypes.GRAY} />
                     )
                 }}/>
             <Tabs.Screen 
             name="Carrinho" component={ShopScreen}
             initialParams={{ category: ShopCategories.CART }}
             options={{
-                    tabBarIcon: () => (
-                        <AntDesign name="shopping-cart" size={24} color="black" />
+                    tabBarIcon: ({ focused }) => (
+                        <AntDesign name="shopping-cart" size={24} color={focused ? ColorTypes.DARK : ColorTypes.GRAY} />
                     )
                 }}/>
         </Tabs.Navigator>
