@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import ColorTypes from '../enumsCategories/ColorTypes';
+import AppText from '../components/AppText';
 
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Text>Home Screen!</Text>
+      <AppText>Home Screen!</AppText>
       <StatusBar style="auto" />
     </View>
   );

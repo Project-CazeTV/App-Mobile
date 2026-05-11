@@ -3,11 +3,18 @@ import StackNavigation from './src/routes/StackNavigator';
 import { useEffect, useState } from 'react';
 import { View, StyleSheet, Image} from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
+import { useFonts } from 'expo-font';
 import ColorTypes from './src/enumsCategories/ColorTypes';
+import FontTypes from './src/enumsCategories/FontTypes';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function App() {
+    const [fontsLoaded] = useFonts({
+      [FontTypes.COPA]: require('./src/assets/fonts/fifa-26.otf'),
+      [FontTypes.SORA]: require('./src/assets/fonts/Sora-VariableFont_wght.ttf'),
+  });
+
   const [showLoadingScreen, setLoadingScreen] = useState(true);
   useEffect(() => {
     const endLoadingScreen = setTimeout(async () => {
@@ -18,6 +25,10 @@ export default function App() {
       clearTimeout(endLoadingScreen);
     };
   }, []);
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   if (!showLoadingScreen) {
     return (
