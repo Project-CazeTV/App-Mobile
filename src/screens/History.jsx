@@ -1,21 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import ColorTypes from '../enumsCategories/ColorTypes';
+import FontTypes from '../enumsCategories/FontTypes';
+import HeroBanner from '../features/History/HeroBanner';
+import HistoryContent from '../features/History/HistoryContent';
 
 export default function History() {
   return (
-    <View style={styles.container}>
-      <Text>History Screen!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ScrollView style={styles.container}>
+      <HeroBanner />
+      <HistoryContent />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: ColorTypes.BACKGROUNDWHITE,
-    alignItems: 'center',
-    justifyContent: 'center',
+    fontFamily: `${FontTypes.SORA}, sans-serif`,
   },
 });

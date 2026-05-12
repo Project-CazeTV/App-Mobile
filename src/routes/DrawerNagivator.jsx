@@ -151,7 +151,7 @@ function CustomDrawerContent(props) {
             <View style={stylesDrawerContent.divider} />
             <DrawerItem
                 label="HISTÓRIA"
-                onPress={() => props.navigation.navigate(Routes.HOME)}
+                onPress={() => props.navigation.navigate(Routes.HISTORY)}
             />
             <View style={stylesDrawerContent.divider} />
 
