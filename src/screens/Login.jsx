@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, View, Image, Pressable, TextInput } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import Fontisto from '@expo/vector-icons/Fontisto';
 import ColorTypes from '../enumsCategories/ColorTypes';
 import AppText from '../components/common/AppText';
+import AppInput from '../components/common/AppInput';
 import FontTypes from '../enumsCategories/FontTypes';
 
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
@@ -74,22 +76,20 @@ export default function LoginPage({ navigation }) {
         </AppText>
 
         <View style={styles.form}>
-          <TextInput
-            type="email"
+          <AppInput
+            icon={<Fontisto name="email" size={20} color={ColorTypes.GRAYTEXT} />}
             placeholder="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChangeText={(e) => setEmail(e)}
             style={styles.input}
-            required
           />
-          <TextInput
-            type="password"
+          <AppInput
+            icon={<AntDesign name="lock" size={20} color={ColorTypes.GRAYTEXT} />}
             placeholder="Senha"
             value={senha}
-            onChange={(e) => setSenha(e.target.value)}
+            onChangeText={(e) => setSenha(e)}
             secureTextEntry={true}
             style={styles.input}
-            required
           />
 
           <Pressable style={styles.submitBtn} onPress={() => handleLogin()}>
@@ -209,8 +209,8 @@ const styles = StyleSheet.create({
   },
 
   submitBtn: {
-    width: '100%',
-    padding: '15px',
+    width: '80%',
+    padding: '10px',
     backgroundColor: '#212121',
     color: 'white',
     border: 'none',
@@ -240,7 +240,6 @@ const styles = StyleSheet.create({
   },
 
   socialLogin: {
-    width: '100%',
     marginTop: '30px',
     display: 'flex',
     justifyContent: 'center',
@@ -272,7 +271,7 @@ const styles = StyleSheet.create({
   },
 
   borderGoogleBtn: {
-    width: '100%',
+    width: '80%',
     borderRadius: '10px',
     borderWidth: '2px',
     borderColor: 'transparent',
