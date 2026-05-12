@@ -6,6 +6,7 @@ const Routes = {
         PROFILE: 'Profile',
         HISTORY: 'History',
         WORLDCUP: 'WorldCup',
+        WORLDCUPDASHBOARD: 'WorldCupDashboard',
         OLYMPIC: 'Olympic',
         OLYMPICDASHBOARD: 'OlympicDashboard',
         CHAMPIONSHIP: 'Championship',
