@@ -8,6 +8,7 @@ import AppText from '../components/common/AppText';
 import HeaderSign from '../components/common/HeaderSign';
 import AppInput from '../components/common/AppInput';
 import ButtonGoogle from '../components/common/ButtonGoogle';
+import ButtonSign from '../components/common/ButtonSign';
 import FontTypes from '../enumsCategories/FontTypes';
 
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
@@ -74,7 +75,6 @@ export default function LoginPage({ navigation }) {
             placeholder="Email"
             value={email}
             onChangeText={(e) => setEmail(e)}
-            style={styles.input}
           />
           <AppInput
             icon={<AntDesign name="lock" size={20} color={ColorTypes.GRAYTEXT} />}
@@ -82,12 +82,9 @@ export default function LoginPage({ navigation }) {
             value={senha}
             onChangeText={(e) => setSenha(e)}
             secureTextEntry={true}
-            style={styles.input}
           />
 
-          <Pressable style={styles.submitBtn} onPress={() => handleLogin()}>
-            <AntDesign name="arrow-right" size={24} color="white" />
-          </Pressable>
+          <ButtonSign function={handleLogin}></ButtonSign>
         </View>
 
         <View style={styles.switchArea}>
@@ -140,32 +137,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     gap: '15px',
     alignItems: 'center',
-  },
-
-  input: {
-    width: '100%',
-    padding: '15px 20px',
-    paddingInline: '20px',
-    paddingVertical: '15px',
-    placeholderTextColor: ColorTypes.GRAYTEXT,
-    backgroundColor: ColorTypes.GRAY,
-    border: 'none',
-    borderRadius: '12px',
-    fontSize: '16px',
-    color: ColorTypes.DARK,
-  },
-
-  submitBtn: {
-    width: '80%',
-    padding: '10px',
-    backgroundColor: '#212121',
-    color: 'white',
-    border: 'none',
-    borderRadius: '12px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: '15px',
   },
 
   switchArea: {

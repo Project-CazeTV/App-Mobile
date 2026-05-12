@@ -2,7 +2,7 @@ import { StyleSheet, View, Image } from 'react-native';
 import ColorTypes from '../../enumsCategories/ColorTypes';
 import AppText from '../../components/common/AppText';
 
-export default function AppInput(props) {
+export default function HeaderSign(props) {
 
     return (
         <View style={styles.header}>

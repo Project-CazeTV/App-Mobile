@@ -3,7 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import ColorTypes from '../../enumsCategories/ColorTypes';
 import FontTypes from '../../enumsCategories/FontTypes';
 
-export default function AppInput(props) {
+export default function ButtonGoogle(props) {
     return (
         <LinearGradient
           colors={[ColorTypes.RED, ColorTypes.BLUE, ColorTypes.GREEN, ColorTypes.YELLOW]}
