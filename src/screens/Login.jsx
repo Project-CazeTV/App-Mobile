@@ -5,6 +5,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import ColorTypes from '../enumsCategories/ColorTypes';
 import AppText from '../components/common/AppText';
+import HeaderSign from '../components/common/HeaderSign';
 import AppInput from '../components/common/AppInput';
 import ButtonGoogle from '../components/common/ButtonGoogle';
 import FontTypes from '../enumsCategories/FontTypes';
@@ -66,16 +67,7 @@ export default function LoginPage({ navigation }) {
         <AntDesign name="arrow-left" size={24} color="black" />
       </Pressable>
       <View style={styles.loginContainer}>
-        <View style={styles.headerLogos}>
-
-          <Image source={require('../assets/images/logos/CazéTVNomePreto.png')} alt="Cazé TV" style={styles.logoCaze} />
-          <View style={styles.divider} />
-          <Image source={require('../assets/images/logos/logo-copa-escuro.png')} alt="FIFA 26" style={styles.logoFifa} />
-        </View>
-        <AppText style={styles.welcomeText}>
-          Seja bem-vindo a <AppText style={{ fontWeight: 'bold' }}>Cazé TV</AppText>. Entre com seus dados abaixo para continuar.
-        </AppText>
-
+        <HeaderSign text={'Entre com seus dados abaixo para continuar.'}></HeaderSign>
         <View style={styles.form}>
           <AppInput
             icon={<Fontisto name="email" size={20} color={ColorTypes.GRAYTEXT} />}
@@ -104,7 +96,7 @@ export default function LoginPage({ navigation }) {
             <AppText style={styles.registerLink}>Cadastre-se</AppText>
           </Pressable>
         </View>
-        <ButtonGoogle></ButtonGoogle>
+        <ButtonGoogle function={loginWithGoogle}></ButtonGoogle>
       </View>
     </View>
   );
@@ -112,13 +104,12 @@ export default function LoginPage({ navigation }) {
 
 const styles = StyleSheet.create({
   pageWrapper: {
+    flex: 1,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: '100vh',
     backgroundColor: ColorTypes.BACKGROUNDWHITE,
     color: ColorTypes.TEXTDARK,
-    padding: '20px',
   },
 
   backButton: {
@@ -141,38 +132,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  },
-
-  headerLogos: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: '20px',
-    marginBottom: '30px',
-  },
-
-  logoCaze: {
-    height: 60,
-    width: 120,
-    resizeMode: 'contain',
-  },
-
-  logoFifa: {
-    height: 60,
-    width: 60,
-  },
-
-  divider: {
-    width: '2px',
-    height: '50px',
-    backgroundColor: ColorTypes.GRAY,
-  },
-
-  welcomeText: {
-    fontSize: '13px',
-    textAlign: 'center',
-    marginBottom: '30px',
-    maxWidth: '300px',
   },
 
   form: {

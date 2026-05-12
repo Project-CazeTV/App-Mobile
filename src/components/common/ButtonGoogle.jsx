@@ -3,7 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import ColorTypes from '../../enumsCategories/ColorTypes';
 import FontTypes from '../../enumsCategories/FontTypes';
 
-export default function AppInput() {
+export default function AppInput(props) {
     return (
         <LinearGradient
           colors={[ColorTypes.RED, ColorTypes.BLUE, ColorTypes.GREEN, ColorTypes.YELLOW]}
@@ -12,8 +12,8 @@ export default function AppInput() {
           end={{ x: 1, y: 0 }}
           style={styles.borderGoogleBtn}
         >
-          <Pressable style={styles.googleBtn} onPress={() => loginWithGoogle()}>
-            <Image source={require('../../assets/images/logos/logoGoogle.png')} style={styles.googleLogo} alt="Google" />
+          <Pressable style={styles.googleBtn} onPress={props.function}>
+            <Image source={require('../../assets/images/logos/logoGoogle.png')} style={styles.googleLogo}/>
             Entrar com Google
           </Pressable>
         </LinearGradient>
