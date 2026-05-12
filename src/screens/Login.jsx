@@ -81,7 +81,7 @@ export default function LoginPage({ navigation }) {
             placeholder="Senha"
             value={senha}
             onChangeText={(e) => setSenha(e)}
-            secureTextEntry={true}
+            secure={true}
           />
 
           <ButtonSign function={handleLogin}></ButtonSign>
@@ -93,7 +93,7 @@ export default function LoginPage({ navigation }) {
             <AppText style={styles.registerLink}>Cadastre-se</AppText>
           </Pressable>
         </View>
-        <ButtonGoogle function={loginWithGoogle}></ButtonGoogle>
+        <ButtonGoogle hasAccount={true} function={loginWithGoogle}></ButtonGoogle>
       </View>
     </View>
   );
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
 
   backButton: {
     position: 'absolute',
+    zIndex: 10,
     top: '20px',
     left: '20px',
     background: 'transparent',
