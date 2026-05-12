@@ -6,6 +6,7 @@ import Fontisto from '@expo/vector-icons/Fontisto';
 import ColorTypes from '../enumsCategories/ColorTypes';
 import AppText from '../components/common/AppText';
 import AppInput from '../components/common/AppInput';
+import ButtonGoogle from '../components/common/ButtonGoogle';
 import FontTypes from '../enumsCategories/FontTypes';
 
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
@@ -66,7 +67,7 @@ export default function LoginPage({ navigation }) {
       </Pressable>
       <View style={styles.loginContainer}>
         <View style={styles.headerLogos}>
-          
+
           <Image source={require('../assets/images/logos/CazéTVNomePreto.png')} alt="Cazé TV" style={styles.logoCaze} />
           <View style={styles.divider} />
           <Image source={require('../assets/images/logos/logo-copa-escuro.png')} alt="FIFA 26" style={styles.logoFifa} />
@@ -103,20 +104,7 @@ export default function LoginPage({ navigation }) {
             <AppText style={styles.registerLink}>Cadastre-se</AppText>
           </Pressable>
         </View>
-
-        <View style={styles.socialLogin}></View>
-        <LinearGradient
-          colors={[ColorTypes.RED, ColorTypes.BLUE, ColorTypes.GREEN, ColorTypes.YELLOW]}
-          locations={[0, 0.33, 0.66, 1]}
-          start={{ x: 1, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          style={styles.borderGoogleBtn}
-        >
-          <Pressable style={styles.googleBtn} onPress={() => loginWithGoogle()}>
-            <Image source={require('../assets/images/logos/logoGoogle.png')} style={styles.googleLogo} alt="Google" />
-            Entrar com Google
-          </Pressable>
-        </LinearGradient>
+        <ButtonGoogle></ButtonGoogle>
       </View>
     </View>
   );
@@ -237,49 +225,5 @@ const styles = StyleSheet.create({
     fontWeight: 700,
     padding: '0',
     fontSize: '12px',
-  },
-
-  socialLogin: {
-    marginTop: '30px',
-    display: 'flex',
-    justifyContent: 'center',
-  },
-
-  googleBtn: {
-    width: '100%',
-    padding: '12px',
-    paddingInline: '40px',
-    backgroundColor: ColorTypes.WHITE,
-    borderRadius: '10px',
-    display: 'flex',
-    flexDirection: 'row',
-    fontFamily: 'System',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '10px',
-    fontWeight: 600,
-    fontSize: '13px',
-    color: '#333',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.05,
-    shadowRadius: 5,
-    elevation: 3,
-  },
-
-  borderGoogleBtn: {
-    width: '80%',
-    borderRadius: '10px',
-    borderWidth: '2px',
-    borderColor: 'transparent',
-    borderStyle: 'solid',
-  },
-
-  googleLogo: {
-    height: 20,
-    width: 20,
   },
 });

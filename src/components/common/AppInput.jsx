@@ -39,11 +39,3 @@ const styles = StyleSheet.create({
         placeholderTextColor: ColorTypes.GRAYTEXT,
     },
 });
-
-//                     placeholderTextColor: ColorTypes.GRAYTEXT,
-//                         backgroundColor: ColorTypes.GRAY,
-//                             border: 'none',
-//                                 borderRadius: '12px',
-//                                     fontSize: '16px',
-//                                         color: ColorTypes.DARK,
-//   },
