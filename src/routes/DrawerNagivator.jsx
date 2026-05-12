@@ -6,6 +6,7 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import ColorTypes from '../enumsCategories/ColorTypes';
 import Routes from '.';
 import ProfileScreen from '../screens/Profile';
+import LoginScreen from '../screens/Login';
 import HomeScreen from '../screens/Home';
 import WorldcupScreen from '../screens/WorldCup';
 import DashboardOlympicNavigator from './DashboardOlympicNavigator';
@@ -85,7 +86,7 @@ function CustomHeader({ navigation }) {
 
                 <View style={stylesHeader.rightIcons}>
                     <Pressable style={stylesHeader.profileButton}
-                        onPress={() => navigation.navigate(Routes.PROFILE)}>
+                        onPress={() => navigation.navigate(Routes.LOGIN)}>
                         <Ionicons name="person" size={25} color="black" />
                     </Pressable>
 

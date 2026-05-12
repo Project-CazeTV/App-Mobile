@@ -24,6 +24,9 @@
     },
     "web": {
       "favicon": "./src/assets/images/logos/caze.png"
-    }
+    },
+    "plugins": [
+      "expo-web-browser"
+    ]
   }
 }
