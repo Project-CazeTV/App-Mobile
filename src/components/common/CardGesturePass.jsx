@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     carouselWrapper: {
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: 50,
-        paddingBottom: 50,
+        paddingTop: 30,
+        paddingBottom: 30,
     },
 
     carouselCard: {

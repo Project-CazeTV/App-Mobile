@@ -7,14 +7,14 @@ import WorldCupCategories from '../enumsCategories/WorldCup';
 import CountdownCard from '../features/WorlCup/CountdownCard';
 import CopaSede from '../features/WorlCup/CopaSede';
 import FeaturedPlayers from '../features/WorlCup/FeaturedPlayers';
+import CountriesGroup from '../features/WorlCup/CountriesGroup';
 import NewsList from '../components/common/NewsList';
 import { sedes } from '../mocks/sedesWorldCup2026';
 import { players } from '../mocks/players';
 import { newsWorldCup } from '../mocks/newsWorldCup';
+import { groups } from '../mocks/groups';
 
 // import NextMatches from '../../features/WorldCup/components/NextMatches/NextMatches';
-
-// import { groups } from '../../mocks/groups';
 // import { octaves, quarters, semis, final } from '../../mocks/roundsWorldCup';
 
 export default function WorldCup({ route }) {
@@ -32,6 +32,8 @@ export default function WorldCup({ route }) {
         <FeaturedPlayers players={players} />
       </>)}
       {category === WorldCupCategories.GROUPS && (<>
+        <AppText style={styles.titleSection}>Grupos</AppText>
+        <CountriesGroup groups={groups} />
       </>)}
       <NewsList
         title="O que ta rolando por aí?"
@@ -47,4 +49,13 @@ const styles = StyleSheet.create({
   pageContainer: {
     backgroundColor: ColorTypes.BACKGROUNDWHITE,
   },
+  titleSection: {
+    marginTop: 20,
+    fontFamily: FontTypes.COPA,
+    fontSize: 50,
+    fontWeight: '900',
+    color: ColorTypes.YELLOW,
+    letterSpacing: 3,
+    textAlign: 'center',
+  }
 });

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { GestureDetector, Gesture, GestureHandlerRootView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, View, Image, Pressable } from 'react-native';
 import AppText from '../../components/common/AppText';
@@ -26,11 +27,37 @@ export default function FeaturedPlayers({ players }) {
     );
 
     return (
-        <CardGesturePass list={players} CardComponent={PlayerCard}/>
+        <View>            
+            <View style={styles.container}>
+                <AppText style={styles.title}>JOGADORES DE DESTAQUE</AppText>
+                <AppText style={styles.subtitle}>Os craques que vão fazer história na Copa do Mundo 2026</AppText>
+            </View>
+            <CardGesturePass list={players} CardComponent={PlayerCard}/>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        paddingHorizontal: 16,
+        marginTop: 20,
+        width: '100%',
+    },
+
+    title: {
+        textAlign: 'center',
+        fontSize: 14,
+        fontWeight: '700',
+        letterSpacing: 1.5,
+        marginBottom: 6,
+    },
+
+    subtitle: {
+        textAlign: 'center',
+        fontSize: 13,
+        color: ColorTypes.GRAYTEXT,
+        marginBottom: 24,
+    },
 
     playerCard: {
         borderRadius: 16,
