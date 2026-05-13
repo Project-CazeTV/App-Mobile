@@ -4,9 +4,10 @@ import AppText from '../components/common/AppText';
 import ColorTypes from '../enumsCategories/ColorTypes';
 import FontTypes from '../enumsCategories/FontTypes';
 import CountdownCard from '../features/WorlCup/CountdownCard';
+import CopaSede from '../features/WorlCup/CopaSede';
+import { sedes } from '../mocks/sedesWorldCup2026'
 // import NextMatches from '../../features/WorldCup/components/NextMatches/NextMatches';
 // import FeaturedPlayers from '../../features/WorldCup/components/FeaturedPlayers/FeaturedPlayers';
-// import CopaSede from '../../features/WorldCup/components/CopaSede/CopaSede';
 
 // import NewsList from '../../components/Common/NewsList/NewsList';
 // import FilterSection from '../../components/Common/FilterSection/FilterSection';
@@ -25,7 +26,7 @@ export default function WorldCup() {
     <ScrollView style={styles.container}>
       <View style={styles.mainContent}>
         <CountdownCard />
-        {/* <CopaSede /> */}
+        <CopaSede sedes={sedes}/>
       </View>
     </ScrollView>
   );

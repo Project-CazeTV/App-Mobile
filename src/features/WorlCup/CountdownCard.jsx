@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
         DetailsBackground: {
         position: 'absolute',
         overflow: 'hidden',
-        width: 1000,
-        height: 1000,
+        width: '100%',
+        height: 250,
         zIndex: 2,
     },
 
