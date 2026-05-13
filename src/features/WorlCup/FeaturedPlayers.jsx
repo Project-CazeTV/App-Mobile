@@ -1,33 +1,15 @@
 import { useState } from "react";
-import { GestureDetector, Gesture, GestureHandlerRootView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, View, Image, Pressable } from 'react-native';
 import AppText from '../../components/common/AppText';
 import ColorTypes from '../../enumsCategories/ColorTypes';
-import AntDesign from '@expo/vector-icons/AntDesign';
-
-const CARD_WIDTH = 220;
-const SWIPE_THRESHOLD = 50;
+import CardGesturePass from '../../components/common/CardGesturePass';
 
 export default function FeaturedPlayers({ players }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const goTo = (index) => {
-        if (index < 0 || index > players.length - 1) return;
-        setCurrentIndex(index);
-    };
-
-    const swipeGesture = Gesture.Pan()
-        .runOnJS(true)
-        .onEnd((event) => {
-            if (event.translationX < -SWIPE_THRESHOLD) goTo(currentIndex + 1);
-            if (event.translationX > SWIPE_THRESHOLD) goTo(currentIndex - 1);
-        });
-
-    const PlayerCard = ({ player }) => (
+    const PlayerCard = ({ object }) => (
         <View style={styles.playerCard}>
             <Image
-                source={player.imagem}
+                source={object.imagem}
                 style={styles.playerPhoto}
             />
             <LinearGradient style={styles.playerOverlay}
@@ -36,68 +18,19 @@ export default function FeaturedPlayers({ players }) {
                 'rgba(0,0,0,0.75)',
                 'rgba(0,0,0,0.85)',
             ]}>
-                <AppText style={styles.playerPosition}>{player.posicao}</AppText>
-                <AppText style={styles.playerName}>{player.nome}</AppText>
-                <AppText style={styles.playerCountry}>{player.pais} · {player.clube}</AppText>
+                <AppText style={styles.playerPosition}>{object.posicao}</AppText>
+                <AppText style={styles.playerName}>{object.nome}</AppText>
+                <AppText style={styles.playerCountry}>{object.pais} · {object.clube}</AppText>
             </LinearGradient>
         </View>
     );
 
     return (
-        <GestureHandlerRootView>
-            <View style={styles.container}>
-                <AppText style={styles.title}>JOGADORES DE DESTAQUE</AppText>
-                <AppText style={styles.subtitle}>Os craques que vão fazer história na Copa do Mundo 2026</AppText>
-
-                <View style={styles.carouselWrapper}>
-                    <Pressable
-                        onPress={() => goTo(currentIndex - 1)}
-                        disabled={currentIndex === 0}
-                        style={[styles.navBtn, styles.prev]}
-                    >
-                        <AntDesign name="caret-left" size={24} color="black" />
-                    </Pressable>
-
-                    <GestureDetector gesture={swipeGesture}>
-                        <View style={styles.carouselCard}>
-                            <PlayerCard player={players[currentIndex]} />
-                        </View>
-                    </GestureDetector>
-
-                    <Pressable
-                        onPress={() => goTo(currentIndex + 1)}
-                        disabled={currentIndex === players.length - 1}
-                        style={[styles.navBtn, styles.next]}
-                    >
-                        <AntDesign name="caret-right" size={24} color="black" />
-                    </Pressable>
-                </View>
-            </View>
-        </GestureHandlerRootView>
+        <CardGesturePass list={players} CardComponent={PlayerCard}/>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        paddingHorizontal: 16,
-        marginTop: 20,
-        width: '100%',
-    },
-
-    title: {
-        textAlign: 'center',
-        fontSize: 14,
-        fontWeight: '700',
-        letterSpacing: 1.5,
-        marginBottom: 6,
-    },
-
-    subtitle: {
-        textAlign: 'center',
-        fontSize: 13,
-        color: ColorTypes.GRAYTEXT,
-        marginBottom: 24,
-    },
 
     playerCard: {
         borderRadius: 16,
