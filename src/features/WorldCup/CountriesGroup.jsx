@@ -15,10 +15,10 @@ export default function CountriesGroup({ groups }) {
             <View style={styles.countriesList}>
                 {object.paises.map((pais) => (
                     <View
-                        style={[styles.countryRow, pais == 'Brasil' && styles.countryRowBrasil]}
+                        style={[styles.countryRow, pais.nome == 'Brasil' && styles.countryRowBrasil]}
                     >
-                        <Image source={pais.imagem} style={[styles.flag, pais == 'Brasil' && styles.flagBrasil]} />
-                        <AppText style={[styles.countryName, pais == 'Brasil' && styles.countryNameBrasil]}>{pais.nome.toUpperCase()}</AppText>
+                        <Image source={pais.imagem} style={[styles.flag, pais.nome == 'Brasil' && styles.flagBrasil]} />
+                        <AppText style={[styles.countryName, pais.nome == 'Brasil' && styles.countryNameBrasil]}>{pais.nome.toUpperCase()}</AppText>
                     </View>
                 ))}
             </View>
