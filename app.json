@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Cazé TV",
-    "slug": "Cazé TV",
+    "slug": "caze-tv",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/images/logos/caze.png",
@@ -20,13 +20,19 @@
         "foregroundImage": "./src/assets/images/logos/caze.png",
         "backgroundColor": "#0047BB"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.cazetv"
     },
     "web": {
       "favicon": "./src/assets/images/logos/caze.png"
     },
     "plugins": [
       "expo-web-browser"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "20085498-48fb-4f60-a36a-5bfceb97c28c"
+      }
+    }
   }
 }
