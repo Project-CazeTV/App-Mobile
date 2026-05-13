@@ -60,6 +60,24 @@ export default function WorldCup({ route }) {
           pendente={true}
         />
       </>)}
+        {category === WorldCupCategories.FINALS && (<>
+        <AppText style={styles.titleSection}>Finais</AppText>
+        <NextMatches
+          groups={semis}
+          title="SEMIFINAL"
+          subtitle="2 jogos · 4 seleções"
+          description="As quatro seleções que restaram disputam as duas vagas na grande final. Um passo para a eternidade."
+          pendente={true}
+        />
+        <View style={{ height: 100 }}></View>
+        <NextMatches
+          groups={final}
+          title="FINAL"
+          subtitle="1 jogo · 2 seleções · 1 campeão"
+          description="O jogo mais esperado do planeta. As duas seleções que sobreviveram a todo o torneio se enfrentam pelo título de campeão do mundo."
+          pendente={true}
+        />
+      </>)}
       <NewsList
         title="O que ta rolando por aí?"
         subtitle={"Acompanhe os principais acontecimentos do futebol nacional e internacional."}
