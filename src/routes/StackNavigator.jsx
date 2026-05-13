@@ -5,6 +5,7 @@ import SignUpScreen from '../screens/SignUp';
 import LoginScreen from '../screens/Login';
 import ProfileScreen from '../screens/Profile';
 import DrawerNavigator from './DrawerNagivator';
+import DashboardWorldcupNavigator from './DashboardWorldCupNavigator';
 import DashboardOlympicNavigator from './DashboardOlympicNavigator';
 import DashboardShopNavigator from './DashboardShopNavigator';
 
@@ -48,6 +49,13 @@ export default function StackNavigation() {
                 component={ProfileScreen}
                 options={{ 
                     headerTitle: 'Perfil' 
+                }}
+            />
+            <Stack.Screen
+                name={Routes.WORLDCUPDASHBOARD}
+                component={DashboardOlympicNavigator}
+                options={{ 
+                    headerShown: false 
                 }}
             />
             <Stack.Screen

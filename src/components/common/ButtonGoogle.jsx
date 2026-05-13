@@ -14,7 +14,7 @@ export default function ButtonGoogle(props) {
         >
           <Pressable style={styles.googleBtn} onPress={props.function}>
             <Image source={require('../../assets/images/logos/logoGoogle.png')} style={styles.googleLogo}/>
-            Entrar com Google
+            {props.hasAccount ? "Logar" : "Cadastrar"} com Google
           </Pressable>
         </LinearGradient>
     );

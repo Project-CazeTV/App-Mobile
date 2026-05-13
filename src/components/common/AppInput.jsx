@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import ColorTypes from '../../enumsCategories/ColorTypes';
-import AppText from '../../components/common/AppText';
 
 export default function AppInput({
     icon,
@@ -9,13 +8,23 @@ export default function AppInput({
     onChangeText,
     secure = false,
     maxLength = 30,
+    editable = true,
     ...props
 }) {
-
     return (
-        <View style={styles.inputContainer}>
+        <View style={[styles.inputContainer, { opacity: editable ? 1 : 0.5 }]}>
             {icon}
-            <TextInput style={styles.inputText} value={value} onChangeText={onChangeText} maxLength={maxLength} placeholder={placeholder} secureTextEntry={secure}></TextInput>
+            <TextInput
+                style={styles.inputText}
+                value={value}
+                editable={editable}
+                onChangeText={onChangeText}
+                maxLength={maxLength}
+                placeholder={placeholder}
+                secureTextEntry={secure}
+                placeholderTextColor={ColorTypes.GRAYTEXT}
+                {...props}
+            />
         </View>
     );
 }
@@ -36,6 +45,5 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         outlineStyle: 'none',
         color: ColorTypes.DARK,
-        placeholderTextColor: ColorTypes.GRAYTEXT,
     },
 });

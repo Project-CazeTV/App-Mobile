@@ -8,7 +8,7 @@ import Routes from '.';
 import ProfileScreen from '../screens/Profile';
 import LoginScreen from '../screens/Login';
 import HomeScreen from '../screens/Home';
-import WorldcupScreen from '../screens/WorldCup';
+import DashboardWorldcupNavigator from './DashboardWorldCupNavigator';
 import DashboardOlympicNavigator from './DashboardOlympicNavigator';
 import ChampionshipScreen from '../screens/Championship';
 import DashboardShopNavigator from './DashboardShopNavigator';
@@ -45,8 +45,8 @@ export default function DrawerNavigator() {
                 component={HomeScreen}
             />
             <Drawer.Screen
-                name={Routes.WORLDCUP}
-                component={WorldcupScreen}
+                name={Routes.WORLDCUPDASHBOARD}
+                component={DashboardWorldcupNavigator}
             />
             <Drawer.Screen
                 name={Routes.OLYMPICDASHBOARD}
@@ -128,7 +128,7 @@ function CustomDrawerContent(props) {
             <View style={stylesDrawerContent.divider} />
             <DrawerItem
                 label="COPA DO MUNDO 2026 FIFA"
-                onPress={() => props.navigation.navigate(Routes.WORLDCUP)}
+                onPress={() => props.navigation.navigate(Routes.WORLDCUPDASHBOARD)}
             />
 
             <View style={stylesDrawerContent.divider} />
