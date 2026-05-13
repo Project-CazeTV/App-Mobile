@@ -5,7 +5,9 @@ import ColorTypes from '../enumsCategories/ColorTypes';
 import FontTypes from '../enumsCategories/FontTypes';
 import CountdownCard from '../features/WorlCup/CountdownCard';
 import CopaSede from '../features/WorlCup/CopaSede';
-import { sedes } from '../mocks/sedesWorldCup2026'
+import FeaturedPlayers from '../features/WorlCup/FeaturedPlayers';
+import { sedes } from '../mocks/sedesWorldCup2026';
+import { players } from '../mocks/players';
 // import NextMatches from '../../features/WorldCup/components/NextMatches/NextMatches';
 // import FeaturedPlayers from '../../features/WorldCup/components/FeaturedPlayers/FeaturedPlayers';
 
@@ -28,6 +30,7 @@ export default function WorldCup() {
         <CountdownCard />
         <CopaSede sedes={sedes}/>
       </View>
+      <FeaturedPlayers players={players} />
     </ScrollView>
   );
 }
