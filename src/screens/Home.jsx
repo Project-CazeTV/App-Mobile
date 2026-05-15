@@ -1,14 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
+import HomeNews from '../components/carrousel/HomeBanner';
+import { mainNewsMock } from '../mocks/news';
 import ColorTypes from '../enumsCategories/ColorTypes';
 import AppText from '../components/common/AppText';
 
 export default function Home() {
   return (
-    <View style={styles.container}>
-      <AppText>Home Screen!</AppText>
+    <ScrollView style={styles.container}>
+      <HomeNews news={mainNewsMock}/>
       <StatusBar style="auto" />
-    </View>
+    </ScrollView>
   );
 }
 
@@ -16,7 +18,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: ColorTypes.BACKGROUNDWHITE,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
