@@ -1,19 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import ColorTypes from '../enumsCategories/ColorTypes';
+import { StyleSheet, View, ScrollView, Image } from 'react-native';
 import AppText from '../components/common/AppText';
+import ColorTypes from '../enumsCategories/ColorTypes';
 
 // import ListaDeJogos from "../../features/Championships/components/ListaDeJogos/ListaDeJogos";
 // import TabelaGrupo from "../../features/Championships/components/TabelaGrupo/TabelaGrupo";
-// import TabelaClassificacao from "../../features/Championships/components/TabelaClassificacao/TabelaClassificacao";
+// import TabelaClassificacao from "../features/Championships/TabelaClassificacao";
 // import SectionTitle from "../../components/Common/SectionTitle/SectionTitle";
 // import MainHeader from "../../components/Layout/MainHeader/MainHeader";
 
-export default function Championship({ campeonato }) {
+export default function Championship({ route }) {
+    const { campeonato } = route.params;
 
     if (!campeonato) {
         return (
-            <AppText className={styles.vazio}>
+            <AppText style={styles.vazio}>
                 Campeonato não encontrado.
             </AppText>
         );
@@ -34,65 +35,64 @@ export default function Championship({ campeonato }) {
     ];
 
     return (
-        <div className={styles.pagina}>
-            <div
-                className={styles.cabecalho}
-                style={{ borderColor: cor }}>
+        <ScrollView style={styles.pagina}>
+            <View
+                style={[styles.cabecalho, { borderColor: cor }]}>
                 {campeonato.logo && (
-                    <img src={campeonato.logo} alt={campeonato.nome} className={styles.logoCampeonato} />
+                    <Image  source={campeonato.logo} style={styles.logoCampeonato} />
                 )}
-                <div className={styles.infoCabecalho}>
-                    <h2 className={styles.nomeCampeonato}>{campeonato.nomeCompleto || campeonato.nome}</h2>
-                    <span className={styles.faseAtual}>{campeonato.fase}</span>
+                <View style={styles.infoCabecalho}>
+                    <AppText style={styles.nomeCampeonato}>{campeonato.nomeCompleto || campeonato.nome}</AppText>
+                    <AppText style={styles.faseAtual}>{campeonato.fase}</AppText>
                     {campeonato.campeao && (
-                        <span className={styles.badgeCampeao}>
+                        <AppText style={styles.badgeCampeao}>
                             🏆 Campeão {campeonato.campeao}
-                        </span>
+                        </AppText>
                     )}
-                </div>
-            </div>
+                </View>
+            </View>
 
-            {/* <div className={styles.conteudo}>
+            {/* <View style={styles.conteudo}>
                 {campeonato.tabela && (
-                    <section className={styles.secao}>
+                    <section style={styles.secao}>
                         <SectionTitle title="Tabela" color={cor} number={"00"} inline />
                         <TabelaClassificacao tabela={campeonato.tabela} mostrarLegenda={campeonato.id === "brasileirao-2026"}/>
                     </section>
                 )}
 
                 {campeonato.grupos && (
-                    <section className={styles.secao}>
+                    <section style={styles.secao}>
                         <SectionTitle title="Grupos" color={cor} number={"00"} inline />
-                        <div className={styles.gradeGrupos}>
+                        <View style={styles.gradeGrupos}>
                             {campeonato.grupos.map((grupo, indice) => (
                                 <TabelaGrupo key={indice} grupo={grupo} cor={cor} />
                             ))}
-                        </div>
+                        </View>
                     </section>
                 )}
 
                 {proximosJogos.length > 0 && (
-                    <section className={styles.secao}>
+                    <section style={styles.secao}>
                         <SectionTitle title="Próximos jogos" color={cor} number={"00"} inline />
                         <ListaDeJogos jogos={proximosJogos} />
                     </section>
                 )}
 
                 {jogosPassados.length > 0 && (
-                    <section className={styles.secao}>
+                    <section style={styles.secao}>
                         <SectionTitle title="Jogos passados" color={cor} number={"00"} inline />
                         <ListaDeJogos jogos={jogosPassados} />
                     </section>
                 )}
 
                 {campeonato.confrontos?.length > 0 && (
-                    <section className={styles.secao}>
+                    <section style={styles.secao}>
                         <SectionTitle title="Confrontos" color={cor} number={"00"} inline />
                         <ListaDeJogos jogos={campeonato.confrontos} />
                     </section>
                 )}
-            </div> */}
-        </div>
+            </View> */}
+        </ScrollView>
     );
 }
 
