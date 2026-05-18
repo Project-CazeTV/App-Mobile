@@ -2,11 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ScrollView, Image } from 'react-native';
 import AppText from '../components/common/AppText';
 import ColorTypes from '../enumsCategories/ColorTypes';
+import SectionTitle from '../components/common/SectionTitle'
+import TabelaClassificacao from "../features/Championships/TabelaClassificacao";
 
 // import ListaDeJogos from "../../features/Championships/components/ListaDeJogos/ListaDeJogos";
 // import TabelaGrupo from "../../features/Championships/components/TabelaGrupo/TabelaGrupo";
-// import TabelaClassificacao from "../features/Championships/TabelaClassificacao";
-// import SectionTitle from "../../components/Common/SectionTitle/SectionTitle";
 // import MainHeader from "../../components/Layout/MainHeader/MainHeader";
 
 export default function Championship({ route }) {
@@ -52,15 +52,15 @@ export default function Championship({ route }) {
                 </View>
             </View>
 
-            {/* <View style={styles.conteudo}>
+            <View style={styles.conteudo}>
                 {campeonato.tabela && (
                     <section style={styles.secao}>
-                        <SectionTitle title="Tabela" color={cor} number={"00"} inline />
+                        <SectionTitle title="Tabela" color={cor} number={"00"} inline/>
                         <TabelaClassificacao tabela={campeonato.tabela} mostrarLegenda={campeonato.id === "brasileirao-2026"}/>
                     </section>
                 )}
 
-                {campeonato.grupos && (
+                {/* {campeonato.grupos && (
                     <section style={styles.secao}>
                         <SectionTitle title="Grupos" color={cor} number={"00"} inline />
                         <View style={styles.gradeGrupos}>
@@ -90,8 +90,8 @@ export default function Championship({ route }) {
                         <SectionTitle title="Confrontos" color={cor} number={"00"} inline />
                         <ListaDeJogos jogos={campeonato.confrontos} />
                     </section>
-                )}
-            </View> */}
+                )} */}
+            </View>
         </ScrollView>
     );
 }
