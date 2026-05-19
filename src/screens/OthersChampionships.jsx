@@ -5,7 +5,7 @@ import ColorTypes from '../enumsCategories/ColorTypes';
 import FontTypes from '../enumsCategories/FontTypes';
 import SectionTitle from '../components/common/SectionTitle';
 import CardCampeonato from '../features/Championships/CardCampeonato';
-import { paulista, carioca, mineiro, gauchao, brasileirao, copaDoBrasil, libertadores, sulAmericana } from '../mocks/championships';
+import { paulista, carioca, mineiro, gauchao, championsLeague, premierLeague, laLiga, bundesliga, serieA, brasileirao, copaDoBrasil, libertadores, sulAmericana } from '../mocks/championships';
 
 export default function OthersChampionships({ navigation }) {
 
@@ -23,13 +23,20 @@ export default function OthersChampionships({ navigation }) {
             <CardCampeonato navigation={navigation} campeonato={mineiro} />
             <CardCampeonato navigation={navigation} campeonato={gauchao} />
             <View style={styles.space} />
+
             <SectionTitle
                 title={'Europeus'}
                 color={ColorTypes.RED}
                 number={"00"}
                 inline
             />
-            <AppText style={styles.serImplementado}>Ainda será implementado</AppText>
+            <CardCampeonato navigation={navigation} campeonato={championsLeague} />
+            <CardCampeonato navigation={navigation} campeonato={premierLeague} />
+            <CardCampeonato navigation={navigation} campeonato={laLiga} />
+            <CardCampeonato navigation={navigation} campeonato={bundesliga} />
+            <CardCampeonato navigation={navigation} campeonato={serieA} />
+            <View style={styles.space} />
+            
             <SectionTitle
                 title={'Outros'}
                 color={ColorTypes.YELLOW}
