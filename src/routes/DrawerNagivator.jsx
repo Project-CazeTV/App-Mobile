@@ -14,7 +14,7 @@ import ChampionshipScreen from '../screens/Championship';
 import DashboardShopNavigator from './DashboardShopNavigator';
 import HistoryScreen from '../screens/History';
 
-import { brasileirao } from '../mocks/championships';
+import { libertadores } from '../mocks/championships';
 
 const Drawer = createDrawerNavigator();
 
@@ -57,7 +57,7 @@ export default function DrawerNavigator() {
             <Drawer.Screen
                 name={Routes.CHAMPIONSHIP}
                 component={ChampionshipScreen}
-                initialParams={{ campeonato: brasileirao }}
+                initialParams={{ campeonato: libertadores }}
             />
             <Drawer.Screen
                 name={Routes.SHOPDASHBOARD}

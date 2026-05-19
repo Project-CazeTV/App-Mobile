@@ -6,7 +6,7 @@ import SectionTitle from '../components/common/SectionTitle'
 import TabelaClassificacao from "../features/Championships/TabelaClassificacao";
 
 // import ListaDeJogos from "../../features/Championships/components/ListaDeJogos/ListaDeJogos";
-// import TabelaGrupo from "../../features/Championships/components/TabelaGrupo/TabelaGrupo";
+import TabelaGrupo from "../features/Championships/TabelaGrupo";
 // import MainHeader from "../../components/Layout/MainHeader/MainHeader";
 
 export default function Championship({ route }) {
@@ -60,7 +60,7 @@ export default function Championship({ route }) {
                     </section>
                 )}
 
-                {/* {campeonato.grupos && (
+                {campeonato.grupos && (
                     <section style={styles.secao}>
                         <SectionTitle title="Grupos" color={cor} number={"00"} inline />
                         <View style={styles.gradeGrupos}>
@@ -71,7 +71,7 @@ export default function Championship({ route }) {
                     </section>
                 )}
 
-                {proximosJogos.length > 0 && (
+                {/* {proximosJogos.length > 0 && (
                     <section style={styles.secao}>
                         <SectionTitle title="Próximos jogos" color={cor} number={"00"} inline />
                         <ListaDeJogos jogos={proximosJogos} />

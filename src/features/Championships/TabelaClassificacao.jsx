@@ -1,7 +1,6 @@
 import { StyleSheet, View, ScrollView } from 'react-native';
 import AppText from '../../components/common/AppText';
 import ColorTypes from '../../enumsCategories/ColorTypes';
-import ImagemHero from '../../assets/images/banners/caze-tv-historia.jpg'
 import corDaZona from "../Championships/utils/zoneColor";
 
 export default function TabelaClassificacao({ tabela, mostrarLegenda = true }) {
