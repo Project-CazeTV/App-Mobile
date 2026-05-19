@@ -10,11 +10,9 @@ import LoginScreen from '../screens/Login';
 import HomeScreen from '../screens/Home';
 import DashboardWorldcupNavigator from './DashboardWorldCupNavigator';
 import DashboardOlympicNavigator from './DashboardOlympicNavigator';
-import ChampionshipScreen from '../screens/Championship';
+import OthersChampionshipsScreen from '../screens/OthersChampionships';
 import DashboardShopNavigator from './DashboardShopNavigator';
 import HistoryScreen from '../screens/History';
-
-import { libertadores } from '../mocks/championships';
 
 const Drawer = createDrawerNavigator();
 
@@ -55,9 +53,8 @@ export default function DrawerNavigator() {
                 component={DashboardOlympicNavigator}
             />
             <Drawer.Screen
-                name={Routes.CHAMPIONSHIP}
-                component={ChampionshipScreen}
-                initialParams={{ campeonato: libertadores }}
+                name={Routes.OTHERSCHAMPIONSHIPS}
+                component={OthersChampionshipsScreen}
             />
             <Drawer.Screen
                 name={Routes.SHOPDASHBOARD}
@@ -143,7 +140,7 @@ function CustomDrawerContent(props) {
             <View style={stylesDrawerContent.divider} />
             <DrawerItem
                 label="CAMPEONATOS"
-                onPress={() => props.navigation.navigate(Routes.CHAMPIONSHIP)}
+                onPress={() => props.navigation.navigate(Routes.OTHERSCHAMPIONSHIPS)}
             />
 
             <View style={stylesDrawerContent.divider} />

@@ -7,6 +7,7 @@ import ProfileScreen from '../screens/Profile';
 import DrawerNavigator from './DrawerNagivator';
 import DashboardWorldcupNavigator from './DashboardWorldCupNavigator';
 import DashboardOlympicNavigator from './DashboardOlympicNavigator';
+import OthersChampionshipsScreen from '../screens/OthersChampionships';
 import DashboardShopNavigator from './DashboardShopNavigator';
 
 const Stack = createNativeStackNavigator()
@@ -61,6 +62,13 @@ export default function StackNavigation() {
             <Stack.Screen
                 name={Routes.OLYMPICDASHBOARD}
                 component={DashboardOlympicNavigator}
+                options={{ 
+                    headerShown: false 
+                }}
+            />
+            <Stack.Screen
+                name={Routes.OTHERSCHAMPIONSHIPS}
+                component={OthersChampionshipsScreen}
                 options={{ 
                     headerShown: false 
                 }}

@@ -10,6 +10,7 @@ const Routes = {
         OLYMPIC: 'Olympic',
         OLYMPICDASHBOARD: 'OlympicDashboard',
         CHAMPIONSHIP: 'Championship',
+        OTHERSCHAMPIONSHIPS: 'OthersChampionships',
         SHOP: 'Shop',
         SHOPDASHBOARD: 'ShopDashboard',
     }
