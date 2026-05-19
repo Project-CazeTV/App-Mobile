@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
 
  wrapperInline: {
   display: 'flex',
+  flexDirection: 'row',
   alignItems: 'center',
   gap: '16px',
   marginBottom: '20px',
@@ -99,6 +100,7 @@ const styles = StyleSheet.create({
 },
 
  separadorLinhaInline: {
+  flex: 1,
   height: '3px',
   borderRadius: '999px',
   display: 'block',
