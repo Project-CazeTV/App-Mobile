@@ -11,6 +11,7 @@ import HomeScreen from '../screens/Home';
 import DashboardWorldcupNavigator from './DashboardWorldCupNavigator';
 import DashboardOlympicNavigator from './DashboardOlympicNavigator';
 import OthersChampionshipsScreen from '../screens/OthersChampionships';
+import ChampionshipScreen from '../screens/Championship';
 import DashboardShopNavigator from './DashboardShopNavigator';
 import HistoryScreen from '../screens/History';
 
@@ -55,6 +56,10 @@ export default function DrawerNavigator() {
             <Drawer.Screen
                 name={Routes.OTHERSCHAMPIONSHIPS}
                 component={OthersChampionshipsScreen}
+            />
+            <Drawer.Screen
+                name={Routes.CHAMPIONSHIP}
+                component={ChampionshipScreen}
             />
             <Drawer.Screen
                 name={Routes.SHOPDASHBOARD}

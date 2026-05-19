@@ -7,7 +7,7 @@ import SectionTitle from '../components/common/SectionTitle';
 import CardCampeonato from '../features/Championships/CardCampeonato';
 import { paulista, carioca, mineiro, gauchao, brasileirao, copaDoBrasil, libertadores, sulAmericana } from '../mocks/championships';
 
-export default function OthersChampionships({ route }) {
+export default function OthersChampionships({ navigation }) {
 
     return (
         <ScrollView style={styles.container}>
@@ -18,10 +18,10 @@ export default function OthersChampionships({ route }) {
                 number={"00"}
                 inline
             />
-            <CardCampeonato campeonato={paulista} />
-            <CardCampeonato campeonato={carioca} />
-            <CardCampeonato campeonato={mineiro} />
-            <CardCampeonato campeonato={gauchao} />
+            <CardCampeonato navigation={navigation} campeonato={paulista} />
+            <CardCampeonato navigation={navigation} campeonato={carioca} />
+            <CardCampeonato navigation={navigation} campeonato={mineiro} />
+            <CardCampeonato navigation={navigation} campeonato={gauchao} />
             <View style={styles.space} />
             <SectionTitle
                 title={'Europeus'}
@@ -36,10 +36,10 @@ export default function OthersChampionships({ route }) {
                 number={"00"}
                 inline
             />
-            <CardCampeonato campeonato={brasileirao} />
-            <CardCampeonato campeonato={copaDoBrasil} />
-            <CardCampeonato campeonato={libertadores} />
-            <CardCampeonato campeonato={sulAmericana} />
+            <CardCampeonato navigation={navigation} campeonato={brasileirao} />
+            <CardCampeonato navigation={navigation} campeonato={copaDoBrasil} />
+            <CardCampeonato navigation={navigation} campeonato={libertadores} />
+            <CardCampeonato navigation={navigation} campeonato={sulAmericana} />
         </ScrollView>
     );
 }
