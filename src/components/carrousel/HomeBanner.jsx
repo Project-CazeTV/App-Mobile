@@ -2,8 +2,10 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, Dimensions, Animated, Pressable } from 'react-native';
 import AppText from '../../components/common/AppText';
 import ColorTypes from '../../enumsCategories/ColorTypes';
+import Routes from '../../routes/.';
 import { GestureDetector, Gesture, GestureHandlerRootView } from 'react-native-gesture-handler';
 import Reanimated, { useSharedValue, useAnimatedStyle, withTiming, runOnJS, Easing } from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeBanner({ news }) {
     const indexRef = useRef(0);
@@ -20,6 +22,11 @@ export default function HomeBanner({ news }) {
         indexRef.current = newIndex;
         setIndexState(newIndex);
     }, []);
+
+    const navigation = useNavigation();
+    function onVerMais(noticia) {
+        navigation.navigate(Routes.NEWS_DETAIL, noticia);
+    }
 
     const goTo = useCallback(
         (newIndex) => {
@@ -102,7 +109,7 @@ export default function HomeBanner({ news }) {
                         <View style={styles.textSide}>
                             <AppText style={styles.title}>{current.titulo}</AppText>
                             <AppText numberOfLines={4} style={styles.description}>{current.descricao}</AppText>
-                            <TouchableOpacity style={styles.btn} activeOpacity={0.8}>
+                            <TouchableOpacity onPress={() => onVerMais(current)} style={styles.btn} activeOpacity={0.8}>
                                 <AppText style={styles.btnText}>ver notícia completa</AppText>
                                 <AppText style={styles.btnIcon}>›</AppText>
                             </TouchableOpacity>

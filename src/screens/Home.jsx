@@ -12,7 +12,7 @@ export default function Home() {
     <ScrollView style={styles.container}>
       <HomeNews news={mainNewsMock} />
       <StatusBar style="auto" />
-      <NewsList noticias={noticiasMenoresMock} />
+      <NewsList title="Cazé News" noticias={noticiasMenoresMock} />
     </ScrollView>
   );
 }
