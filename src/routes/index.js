@@ -1,6 +1,7 @@
 const Routes = {
         DRAWER: 'Drawer',
         HOME: 'Home',
+        NEWS_DETAIL: 'NewsDetail',
         SIGNUP: 'SignUp',
         LOGIN: 'Login',
         PROFILE: 'Profile',

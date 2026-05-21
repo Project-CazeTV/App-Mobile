@@ -8,6 +8,7 @@ import Routes from '.';
 import ProfileScreen from '../screens/Profile';
 import LoginScreen from '../screens/Login';
 import HomeScreen from '../screens/Home';
+import NewsScreen from '../screens/News';
 import DashboardWorldcupNavigator from './DashboardWorldCupNavigator';
 import DashboardOlympicNavigator from './DashboardOlympicNavigator';
 import OthersChampionshipsScreen from '../screens/OthersChampionships';
@@ -44,6 +45,10 @@ export default function DrawerNavigator() {
             <Drawer.Screen
                 name={Routes.HOME}
                 component={HomeScreen}
+            />
+            <Drawer.Screen
+                name={Routes.NEWS_DETAIL}
+                component={NewsScreen}
             />
             <Drawer.Screen
                 name={Routes.WORLDCUPDASHBOARD}

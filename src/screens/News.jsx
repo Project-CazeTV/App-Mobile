@@ -1,22 +1,23 @@
-import Entypo from '@expo/vector-icons/Entypo';
-import { StyleSheet, ScrolView, View, Image } from 'react-native';
-import AppText from '../../components/common/AppText';
-import ColorTypes from '../../enumsCategories/ColorTypes';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { StyleSheet, ScrollView, View, Image } from 'react-native';
+import AppText from '../components/common/AppText';
+import ColorTypes from '../enumsCategories/ColorTypes';
 
-export default function NewsPage({ route }) {
-    const noticia = route.params;
+export default function News({ route }) {
+    const noticia  = route.params;
 
     return (
-        <ScrolView style={styles.pageContainer}>
-            <AppText style={`${styles.category} ${styles.tag}`} style={{ backgroundColor: tagColor }}>
+        <ScrollView style={styles.pageContainer}>
+            <AppText style={[styles.category, styles.tag, { backgroundColor: noticia.tagColor }]}>
                 {noticia.categoria}
             </AppText>
-            <AppText style={styles.date}><Entypo name="arrow-with-circle-right" size={16} /> {noticia.tempo}</AppText>
+            <AppText style={styles.date}><FontAwesome5 name="clock" size={14}/> {noticia.tempo}</AppText>
             <AppText style={styles.title}>{noticia.titulo}</AppText>
-            <Image source={noticia.imagem} />
+            <Image source={noticia.imagem} style={styles.image}/>
+            <View style={[styles.separator, { backgroundColor: noticia.tagColor }]} />
             <AppText style={styles.description}>{noticia.descricao}</AppText>
-            <View style={styles.body}>{corpo?.split('\n\n').map((paragrafo, index) => (<p key={index}>{paragrafo}</p>))}</View>
-        </ScrolView>
+            <View style={styles.body}>{noticia.corpo?.split('\n\n').map((paragrafo) => (<AppText style={styles.paragraph}>{paragrafo}</AppText>))}</View>
+        </ScrollView>
     );
 }
 
@@ -44,8 +45,8 @@ const styles = StyleSheet.create({
   },
 
   date: {
-    fontSize: 12,
-    color: ColorTypes.GRAY,
+    fontSize: 14,
+    color: ColorTypes.GRAYTEXT,
     marginBottom: 12,
     letterSpacing: 0.5,
     textTransform: "uppercase",
@@ -63,7 +64,6 @@ const styles = StyleSheet.create({
     letterSpacing: -0.3,
   },
 
-
   image: {
     width: "100%",
     height: 220,
@@ -72,9 +72,8 @@ const styles = StyleSheet.create({
   },
 
   separator: {
-    width: 40,
+    width: 60,
     height: 3,
-    backgroundColor: ColorTypes.YELLOW,
     borderRadius: 2,
     marginBottom: 20,
   },
@@ -92,5 +91,9 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     marginVertical: 30,
     opacity: 0.85,
+  },
+  paragraph: {
+    marginBottom: 25,
+    color: ColorTypes.GRAYTEXT,
   },
 });

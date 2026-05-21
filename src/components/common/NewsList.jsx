@@ -1,13 +1,21 @@
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Entypo from '@expo/vector-icons/Entypo';
 import { StyleSheet, View, Image, Pressable } from 'react-native';
+import Routes from '../../routes/.'
 import AppText from '../common/AppText';
 import ColorTypes from '../../enumsCategories/ColorTypes';
 import FontTypes from '../../enumsCategories/FontTypes';
+import { useNavigation } from '@react-navigation/native';
 
-export default function NewsList({ noticias = [], title, subtitle, onVerMais }) {
+export default function NewsList({ noticias = [], title, subtitle }) {
+
     if (!noticias.length) {
         return <AppText style={styles.empty}>Nenhuma notícia disponível.</AppText>;
+    }
+
+    const navigation = useNavigation();
+    function onVerMais(noticia) {
+        navigation.navigate(Routes.NEWS_DETAIL, noticia);
     }
 
     return (
@@ -40,7 +48,7 @@ export default function NewsList({ noticias = [], title, subtitle, onVerMais }) 
                                 Ver mais <Entypo name="arrow-with-circle-right" size={16} style={{ opacity: 0.8}} color={ColorTypes.DARK} />
                             </Pressable>
                             <AppText style={styles.tempo}>
-                                <FontAwesome5 name="clock" size={19} color={ColorTypes.GRAY}/> {noticia.tempo}
+                                <FontAwesome5 name="clock" size={15}/> {noticia.tempo}
                             </AppText>
                         </View>
                     </View>
@@ -60,7 +68,7 @@ const styles = StyleSheet.create({
 
     sectionTitle: {
         fontWeight: '700',
-        fontSize: 20,
+        fontSize: 24,
     },
 
     sectionSubtitle: {
@@ -133,7 +141,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 4,
         opacity: 0.6,
-        fontSize: 16,
-        color: ColorTypes.GRAY,
+        fontSize: 15,
+        color: ColorTypes.GRAYTEXT,
     },
 });
