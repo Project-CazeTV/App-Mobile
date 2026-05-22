@@ -4,7 +4,7 @@ import AppText from '../components/common/AppText';
 import OlympicCategories from '../enumsCategories/Olympics';
 import ColorTypes from '../enumsCategories/ColorTypes';
 import OlympicsStats from "../features/Olympic/OlympicStats";
-// import MedalTable from "../features/Olimpiadas/components/MedalTable/MedalTable";
+import MedalTable from "../features/Olympic/MedalTable";
 import FeaturedAthletes from "../features/Olympic/FeaturedAthletes";
 import NewsList from "../components/common/NewsList";
 
@@ -34,6 +34,7 @@ export default function Olympic({ route }) {
         </View>
       </View>
       <OlympicsStats stats={stats} />
+      <MedalTable edicao={medalData} />
       <FeaturedAthletes athletes={athletes} />
       <NewsList title="Notícias das Olimpíadas" noticias={news}/>
     </ScrollView>
