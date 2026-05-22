@@ -1,0 +1,171 @@
+export const featuredAthletes = [
+    {
+        id: 1,
+        name: "Rebeca Andrade",
+        modality: "Ginástica Artística",
+        country: "Brasil",
+        medals: ["gold", "silver", "silver", "bronze"],
+        image: "https://www.gov.br/esporte/pt-br/noticias-e-conteudos/esporte/campea-mundial-e-olimpica-no-salto-rebeca-andrade-completa-colecao-com-ouro-no-pan/@@images/image-1600-c5243fcc81e67bb5c8cefd05e779b164.jpeg",
+    },
+    {
+        id: 2,
+        name: "Beatriz Souza",
+        modality: "Judô +78kg",
+        country: "Brasil",
+        medals: ["gold"],
+        image: "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/08/GettyImages-2164980806-e1722616216467.jpg?w=1200&h=1200&crop=1",
+    },
+    {
+        id: 3,
+        name: "Rayssa Leal",
+        modality: "Skate Street",
+        country: "Brasil",
+        medals: ["bronze"],
+        image: "https://www.cob.org.br/_next/image?url=https%3A%2F%2Fadmin.cob.org.br%2Fuploads%2Frayssa_leal_d0e6d940fc.webp&w=3840&q=75",
+    },
+    {
+        id: 4,
+        name: "Ana Patrícia & Duda",
+        modality: "Vôlei de Praia",
+        country: "Brasil",
+        medals: ["gold"],
+        image: "https://praiaclube.org.br/wp-content/uploads/2024/08/Duda-e-Ana-Patricia_Luiza-MoraesCOB-17-1024x683.jpg",
+    },
+    {
+        id: 5,
+        name: "Caio Bonfim",
+        modality: "Marcha Atlética 20km",
+        country: "Brasil",
+        medals: ["silver"],
+        image: "https://conteudo.imguol.com.br/c/esporte/3f/2025/09/12/caio-bonfim-durante-prova-da-marcha-atletica-no-mundial-de-atletismo-1757723819446_v2_4x3.jpg",
+    },
+    {
+        id: 6,
+        name: "Isaquias Queiroz",
+        modality: "Canoagem de Velocidade",
+        country: "Brasil",
+        medals: ["silver"],
+        image: "https://www.cob.org.br/_next/image?url=https%3A%2F%2Fadmin.cob.org.br%2Fuploads%2FIsaquias_Queiroz_Foto_Alexandre_Loureiro_COB_5684c1bc60.jpeg&w=640&q=75",
+    },
+    {
+        id: 7,
+        name: "Tatiana Weston-Webb",
+        modality: "Surfe",
+        country: "Brasil",
+        medals: ["silver"],
+        image: "https://www.cob.org.br/_next/image?url=https%3A%2F%2Fadmin.cob.org.br%2Fuploads%2FSURF_WL_2024_08_05_0032b_3a2149bc38.webp&w=1920&q=75",
+    },
+    {
+        id: 8,
+        name: "Bia Ferreira",
+        modality: "Boxe",
+        country: "Brasil",
+        medals: ["bronze"],
+        image: "https://upload.wikimedia.org/wikipedia/commons/3/38/3%C2%BA_Sargento_Beatriz_Ferreira.jpg",
+    },
+    {
+        id: 9,
+        name: "Augusto Akio",
+        modality: "Skate Park",
+        country: "Brasil",
+        medals: ["bronze"],
+        image: "https://www.infomoney.com.br/wp-content/uploads/2024/08/2024-08-07T164041Z_1096808845_UP1EK871ABQ9I_RTRMADP_3_OLYMPICS-2024-SKATEBOARDING.jpg?fit=1280%2C853&quality=50&strip=all",
+    },
+    {
+        id: 10,
+        name: "Gabriel Medina",
+        modality: "Surfe",
+        country: "Brasil",
+        medals: ["bronze"],
+        image: "https://www.cob.org.br/_next/image?url=https%3A%2F%2Fadmin.cob.org.br%2Fuploads%2FSURF_WL_2024_08_01_4449_da8cc04c2b.webp&w=1920&q=75",
+    }
+];
+
+export const featuredAthletes2026 = [
+  {
+    id: 1,
+    name: "Lucas Pinheiro Braathen",
+    modality: "Esqui Alpino — Slalom Gigante",
+    country: "Brasil",
+    medals: ["gold"],
+    image: "https://www.bloomberglinea.com/resizer/v2/W3STI4LZLRGOZOBWO76YZRZDOI.jpg?auth=d007cfcdc69399dda4e0a8fa804b04b73c69d7a801912032bfa8df68add00674&width=800&height=516&quality=80&smart=true",
+  },
+  {
+    id: 2,
+    name: "Nicole Silveira",
+    modality: "Skeleton",
+    country: "Brasil",
+    medals: [],
+    image: "https://forbes.com.br/wp-content/uploads/2026/02/nicole-silveira-1-860x484.jpg",
+  },
+  {
+    id: 3,
+    name: "Pat Burgener",
+    modality: "Snowboard Halfpipe",
+    country: "Brasil",
+    medals: [],
+    image: "https://img.dhost.cloud/ux5o5nwK8chyALIITEOSEQ_Om84=/770x480/smart/https://tdan.nyc3.digitaloceanspaces.com/images/fea77/e242c15c8c4aeb93062e073ff71c7b47dde.png?name=pat-burgener.png",
+  },
+];
+
+export const olympicsStats = [
+    {
+        id: 1,
+        value: 206,
+        prefix: "",
+        suffix: "",
+        label: "Países participantes",
+    },
+    {
+        id: 2,
+        value: 10714,
+        prefix: "+",
+        suffix: "",
+        label: "Atletas competindo",
+    },
+    {
+        id: 3,
+        value: 329,
+        prefix: "",
+        suffix: "",
+        label: "Provas disputadas",
+    },
+    {
+        id: 4,
+        value: 32,
+        prefix: "",
+        suffix: "",
+        label: "Modalidades olímpicas",
+    },
+];
+
+export const olympicsStats2026 = [
+  {
+    id: 1,
+    value: 92,
+    prefix: "",
+    suffix: "",
+    label: "Países participantes",
+  },
+  {
+    id: 2,
+    value: 2880,
+    prefix: "",
+    suffix: "",
+    label: "Atletas competindo",
+  },
+  {
+    id: 3,
+    value: 116,
+    prefix: "",
+    suffix: "",
+    label: "Provas disputadas",
+  },
+  {
+    id: 4,
+    value: 16,
+    prefix: "",
+    suffix: "",
+    label: "Disciplinas olímpicas",
+  },
+];
