@@ -5,7 +5,7 @@ import OlympicCategories from '../enumsCategories/Olympics';
 import ColorTypes from '../enumsCategories/ColorTypes';
 import OlympicsStats from "../features/Olympic/OlympicStats";
 // import MedalTable from "../features/Olimpiadas/components/MedalTable/MedalTable";
-// import FeaturedAthletes from "../features/Olimpiadas/components/FeaturedAthletes/FeaturedAthletes.jsx";
+import FeaturedAthletes from "../features/Olympic/FeaturedAthletes";
 import NewsList from "../components/common/NewsList";
 
 import { noticiasOlimpiadasMock, noticiasOlimpiadasMock2026 } from "../mocks/news.js";
@@ -34,6 +34,7 @@ export default function Olympic({ route }) {
         </View>
       </View>
       <OlympicsStats stats={stats} />
+      <FeaturedAthletes athletes={athletes} />
       <NewsList title="Notícias das Olimpíadas" noticias={news}/>
     </ScrollView>
   );
@@ -64,4 +65,41 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "cover",
   },
+//     .container {
+//   padding: 0 16px;
+//   margin-top: 40px;
+//   width: 100%;
+//   box-sizing: border-box;
+//   margin: 40px 0;
+// }
+
+// .header {
+//   display: flex;
+//   align-items: center;
+//   gap: 12px;
+//   margin-bottom: 24px;
+// }
+
+// .titleBar {
+//   display: block;
+//   width: 4px;
+//   height: 36px;
+//   background: #3b6ef8;
+//   border-radius: 2px;
+//   flex-shrink: 0;
+// }
+
+// .title {
+//   font-size: 14px;
+//   font-weight: 700;
+//   letter-spacing: 1.5px;
+//   color: var(--text-color);
+//   margin: 0 0 4px;
+// }
+
+// .subtitle {
+//   font-size: 13px;
+//   color: #888;
+//   margin: 0;
+// }
 });
