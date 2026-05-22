@@ -1,6 +1,6 @@
 import { StyleSheet, View, Image } from 'react-native';
 import AppText from '../../components/common/AppText';
-import { useCountUp } from "../../../../hooks/useCountUp/useCountUp";
+import { useCountUp } from "../../hooks/useCountUp";
 
 function StatItem({ stat }) {
   const { value, ref } = useCountUp(stat.value);
