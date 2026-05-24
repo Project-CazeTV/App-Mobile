@@ -1,14 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, ScrollView, View } from 'react-native';
 import ColorTypes from '../enumsCategories/ColorTypes';
+import Routes from '../routes/.';
+import ShopBanner from '../features/Shop/ShopBanner';
 
 export default function Shop({ route }) {
 const { category } = route.params;
+
   return (
-    <View style={styles.container}>  
-      <Text>Shop {category} Screen!</Text>
+    <ScrollView style={styles.container}>  
+      <ShopBanner />
       <StatusBar style="auto" />
-    </View>
+    </ScrollView>
   );
 }
 
@@ -16,7 +19,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: ColorTypes.BACKGROUNDWHITE,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
