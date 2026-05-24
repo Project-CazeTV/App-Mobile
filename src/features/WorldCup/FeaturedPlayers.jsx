@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { GestureDetector, Gesture, GestureHandlerRootView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, View, Image, Pressable } from 'react-native';
 import AppText from '../../components/common/AppText';

@@ -27,7 +27,8 @@
       "favicon": "./src/assets/images/logos/caze.png"
     },
     "plugins": [
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-video"
     ],
     "extra": {
       "eas": {

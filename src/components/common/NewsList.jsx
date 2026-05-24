@@ -5,7 +5,7 @@ import Routes from '../../routes/.'
 import AppText from '../common/AppText';
 import ColorTypes from '../../enumsCategories/ColorTypes';
 import FontTypes from '../../enumsCategories/FontTypes';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 export default function NewsList({ noticias = [], title, subtitle }) {
 
@@ -14,8 +14,9 @@ export default function NewsList({ noticias = [], title, subtitle }) {
     }
 
     const navigation = useNavigation();
+    const actualRoute = useRoute()
     function onVerMais(noticia) {
-        navigation.navigate(Routes.NEWS_DETAIL, noticia);
+        navigation.navigate(Routes.NEWS_DETAIL, noticia, { returnScreen: actualRoute, });
     }
 
     return (
@@ -26,8 +27,8 @@ export default function NewsList({ noticias = [], title, subtitle }) {
             {noticias.map((noticia) => (
                 <View key={noticia.id} style={styles.newsCard}>
                     <AppText style={[styles.tag, { backgroundColor: noticia.tagColor }]}>
-                            {noticia.categoria}
-                        </AppText>
+                        {noticia.categoria}
+                    </AppText>
                     <View style={styles.imageWrapper}>
                         <Image
                             source={noticia.imagem}
@@ -45,10 +46,10 @@ export default function NewsList({ noticias = [], title, subtitle }) {
                                 style={styles.verMais}
                                 onPress={() => onVerMais?.(noticia)}
                             >
-                                Ver mais <Entypo name="arrow-with-circle-right" size={16} style={{ opacity: 0.8}} color={ColorTypes.DARK} />
+                                Ver mais <Entypo name="arrow-with-circle-right" size={16} style={{ opacity: 0.8 }} color={ColorTypes.DARK} />
                             </Pressable>
                             <AppText style={styles.tempo}>
-                                <FontAwesome5 name="clock" size={15}/> {noticia.tempo}
+                                <FontAwesome5 name="clock" size={15} /> {noticia.tempo}
                             </AppText>
                         </View>
                     </View>

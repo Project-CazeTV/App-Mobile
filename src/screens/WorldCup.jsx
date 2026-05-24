@@ -6,13 +6,15 @@ import FontTypes from '../enumsCategories/FontTypes';
 import SectionTitle from '../components/common/SectionTitle';
 import WorldCupCategories from '../enumsCategories/WorldCup';
 import CountdownCard from '../features/WorldCup/CountdownCard';
+import ConvocationCard from '../features/WorldCup/ConvocationCard'
 import CopaSede from '../features/WorldCup/CopaSede';
 import FeaturedPlayers from '../features/WorldCup/FeaturedPlayers';
+import NationalPlayers from '../features/WorldCup/NationalPlayers';
 import CountriesGroup from '../features/WorldCup/CountriesGroup';
 import NextMatches from '../features/WorldCup/NextMatches';
 import NewsList from '../components/common/NewsList';
 import { sedes } from '../mocks/sedesWorldCup2026';
-import { players } from '../mocks/players';
+import { players, convocadosBrasil } from '../mocks/players';
 import { newsWorldCup } from '../mocks/newsWorldCup';
 import { groups } from '../mocks/groups';
 import { octaves, quarters, semis, final } from '../mocks/roundsWorldCup';
@@ -20,17 +22,22 @@ import { octaves, quarters, semis, final } from '../mocks/roundsWorldCup';
 export default function WorldCup({ route }) {
   const { category } = route.params;
 
-  const handleVerMais = (noticia) => {
-    console.log("Ver mais:", noticia);
-  };
-
   return (
     <ScrollView style={styles.container}>
       <CountdownCard />
       {category === WorldCupCategories.INFORMATIONS && (<>
         <CopaSede sedes={sedes} />
         <FeaturedPlayers players={players} />
+        <View className={styles.convocadosSection}>
+          <ConvocationCard
+            title="Convocação"
+            subtitle="Veja como foi a convocação dos jogadores para a Copa do Mundo 2026."
+            flex={false}
+          />
+          <NationalPlayers players={convocadosBrasil} title="Convocados" subtitle="Copa do Mundo 2026" />
+        </View>
       </>)}
+
       {category === WorldCupCategories.GROUPS && (<>
         <AppText style={styles.titleSection}>Grupos</AppText>
         <CountriesGroup groups={groups} />
@@ -42,6 +49,7 @@ export default function WorldCup({ route }) {
           pendente={false}
         />
       </>)}
+
       {category === WorldCupCategories.QUALIFIERS && (<>
         <AppText style={styles.titleSection}>Eliminatórias</AppText>
         <NextMatches
@@ -60,7 +68,8 @@ export default function WorldCup({ route }) {
           pendente={true}
         />
       </>)}
-        {category === WorldCupCategories.FINALS && (<>
+
+      {category === WorldCupCategories.FINALS && (<>
         <AppText style={styles.titleSection}>Finais</AppText>
         <NextMatches
           groups={semis}
@@ -78,11 +87,11 @@ export default function WorldCup({ route }) {
           pendente={true}
         />
       </>)}
+
       <NewsList
         title="O que ta rolando por aí?"
         subtitle={"Acompanhe os principais acontecimentos do futebol nacional e internacional."}
         noticias={newsWorldCup}
-        onVerMais={handleVerMais}
       />
     </ScrollView>
   );

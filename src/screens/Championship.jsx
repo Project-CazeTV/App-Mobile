@@ -6,6 +6,8 @@ import SectionTitle from '../components/common/SectionTitle'
 import TabelaClassificacao from "../features/Championships/TabelaClassificacao";
 import ListaDeJogos from "../features/Championships/ListaDeJogos";
 import TabelaGrupo from "../features/Championships/TabelaGrupo";
+import Artilharia from "../features/Championships/Artilharia";
+import HeaderStackReturnPage from '../routes/HeaderStackReturnPage';
 
 export default function Championship({ route }) {
     const { campeonato } = route.params;
@@ -33,11 +35,13 @@ export default function Championship({ route }) {
     ];
 
     return (
+        <>
+        <HeaderStackReturnPage pageTitle={'Campeonato'} />
         <ScrollView style={styles.pagina}>
             <View
                 style={[styles.cabecalho, { borderColor: cor }]}>
                 {campeonato.logo && (
-                    <Image  source={campeonato.logo} style={styles.logoCampeonato} />
+                    <Image source={campeonato.logo} style={styles.logoCampeonato} />
                 )}
                 <View style={styles.infoCabecalho}>
                     <AppText style={styles.nomeCampeonato}>{campeonato.nomeCompleto || campeonato.nome}</AppText>
@@ -53,8 +57,8 @@ export default function Championship({ route }) {
             <View style={styles.conteudo}>
                 {campeonato.tabela && (
                     <section style={styles.secao}>
-                        <SectionTitle title="Tabela" color={cor} number={"00"} inline/>
-                        <TabelaClassificacao tabela={campeonato.tabela} mostrarLegenda={campeonato.id === "brasileirao-2026"}/>
+                        <SectionTitle title="Tabela" color={cor} number={"00"} inline />
+                        <TabelaClassificacao tabela={campeonato.tabela} mostrarLegenda={campeonato.id === "brasileirao-2026"} />
                     </section>
                 )}
 
@@ -89,88 +93,96 @@ export default function Championship({ route }) {
                         <ListaDeJogos jogos={campeonato.confrontos} />
                     </section>
                 )}
+
+                {campeonato.artilharia?.length > 0 && (
+                    <section style={styles.secao}>
+                        <SectionTitle title="Artilharia" color={cor} number={"00"} inline />
+                        <Artilharia artilheiros={campeonato.artilharia} />
+                    </section>
+                )}
             </View>
         </ScrollView>
+        </>
     );
 }
 
 const styles = StyleSheet.create({
-  pagina: {
-    width: '100%',
-    paddingBottom: 40,
-  },
+    pagina: {
+        width: '100%',
+        paddingBottom: 40,
+    },
 
-cabecalho: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 16,
-    padding: 20,
-    marginTop: 20,
-    marginHorizontal: 16,
-    borderLeftWidth: 4,
-    borderLeftColor: '#3b5bdb',
-    borderTopRightRadius: 12,
-    borderBottomRightRadius: 12,
-    backgroundColor: 'rgba(0,0,0,0.02)',
-  },
+    cabecalho: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 16,
+        padding: 20,
+        marginTop: 20,
+        marginHorizontal: 16,
+        borderLeftWidth: 4,
+        borderLeftColor: '#3b5bdb',
+        borderTopRightRadius: 12,
+        borderBottomRightRadius: 12,
+        backgroundColor: 'rgba(0,0,0,0.02)',
+    },
 
-  logoCampeonato: {
-    width: 56,
-    height: 56,
-    resizeMode: 'contain',
-  },
+    logoCampeonato: {
+        width: 56,
+        height: 56,
+        resizeMode: 'contain',
+    },
 
-  infoCabecalho: {
-    flexDirection: 'column',
-    gap: 2,
-    flex: 1,
-  },
+    infoCabecalho: {
+        flexDirection: 'column',
+        gap: 2,
+        flex: 1,
+    },
 
-  nomeCampeonato: {
-    fontSize: 15,
-    fontWeight: '800',
-    color: '#000',
-  },
+    nomeCampeonato: {
+        fontSize: 15,
+        fontWeight: '800',
+        color: '#000',
+    },
 
-  faseAtual: {
-    fontSize: 12,
-    color: '#888',
-  },
+    faseAtual: {
+        fontSize: 12,
+        color: '#888',
+    },
 
-  badgeCampeao: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: '#f59f00',
-    marginTop: 4,
-  },
+    badgeCampeao: {
+        fontSize: 12,
+        fontWeight: '700',
+        color: '#f59f00',
+        marginTop: 4,
+    },
 
-  conteudo: {
-    paddingTop: 24,
-    paddingHorizontal: 16,
+    conteudo: {
+        paddingTop: 24,
+        paddingHorizontal: 16,
 
-    width: '91%',
-    alignSelf: 'center',
-  },
+        width: '91%',
+        alignSelf: 'center',
+    },
 
-  secao: {
-    marginBottom: 40,
-  },
+    secao: {
+        marginBottom: 40,
+    },
 
-  tituloSecao: {
-    fontSize: 18,
-    fontWeight: '800',
-    color: '#000',
-    marginBottom: 20,
-  },
+    tituloSecao: {
+        fontSize: 18,
+        fontWeight: '800',
+        color: '#000',
+        marginBottom: 20,
+    },
 
-  gradeGrupos: {
-    flexDirection: 'column',
-    gap: 20,
-  },
+    gradeGrupos: {
+        flexDirection: 'column',
+        gap: 20,
+    },
 
-  vazio: {
-    textAlign: 'center',
-    color: '#aaa',
-    paddingVertical: 40,
-  },
+    vazio: {
+        textAlign: 'center',
+        color: '#aaa',
+        paddingVertical: 40,
+    },
 });
