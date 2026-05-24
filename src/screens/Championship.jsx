@@ -7,6 +7,7 @@ import TabelaClassificacao from "../features/Championships/TabelaClassificacao";
 import ListaDeJogos from "../features/Championships/ListaDeJogos";
 import TabelaGrupo from "../features/Championships/TabelaGrupo";
 import Artilharia from "../features/Championships/Artilharia";
+import HeaderStackReturnPage from '../routes/HeaderStackReturnPage';
 
 export default function Championship({ route }) {
     const { campeonato } = route.params;
@@ -34,6 +35,8 @@ export default function Championship({ route }) {
     ];
 
     return (
+        <>
+        <HeaderStackReturnPage pageTitle={'Campeonato'} />
         <ScrollView style={styles.pagina}>
             <View
                 style={[styles.cabecalho, { borderColor: cor }]}>
@@ -99,6 +102,7 @@ export default function Championship({ route }) {
                 )}
             </View>
         </ScrollView>
+        </>
     );
 }
 

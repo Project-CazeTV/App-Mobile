@@ -1,7 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Routes from '.';
 import HomeScreen from '../screens/Home';
-import NewsScreen from '../screens/News';
 import SignUpScreen from '../screens/SignUp';
 import LoginScreen from '../screens/Login';
 import ProfileScreen from '../screens/Profile';
@@ -31,13 +30,6 @@ export default function StackNavigation() {
                 component={HomeScreen}
                 options={{ 
                     headerTitle: 'Início' 
-                }}
-            />
-            <Stack.Screen
-                name={Routes.NEWS_DETAIL}
-                component={NewsScreen}
-                options={{ 
-                    headerShown: false 
                 }}
             />
             <Stack.Screen

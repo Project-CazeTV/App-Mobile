@@ -2,12 +2,15 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { StyleSheet, ScrollView, View, Image } from 'react-native';
 import AppText from '../components/common/AppText';
 import ColorTypes from '../enumsCategories/ColorTypes';
+import HeaderStackReturnPage from '../routes/HeaderStackReturnPage';
 
 export default function News({ route }) {
     const noticia  = route.params;
 
     return (
-        <ScrollView style={styles.pageContainer}>
+      <>
+      <HeaderStackReturnPage pageTitle={'Notícia'} />
+      <ScrollView style={styles.pageContainer}>
             <AppText style={[styles.category, styles.tag, { backgroundColor: noticia.tagColor }]}>
                 {noticia.categoria}
             </AppText>
@@ -18,6 +21,7 @@ export default function News({ route }) {
             <AppText style={styles.description}>{noticia.descricao}</AppText>
             <View style={styles.body}>{noticia.corpo?.split('\n\n').map((paragrafo) => (<AppText style={styles.paragraph}>{paragrafo}</AppText>))}</View>
         </ScrollView>
+      </>
     );
 }
 

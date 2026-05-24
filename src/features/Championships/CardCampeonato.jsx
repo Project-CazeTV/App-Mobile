@@ -5,7 +5,7 @@ import ColorTypes from '../../enumsCategories/ColorTypes';
 
 export default function CardCampeonato({ navigation, campeonato }) {
     return (
-        <Pressable onPress={() => navigation.navigate(Routes.CHAMPIONSHIP, { campeonato })}
+        <Pressable onPress={() => navigation.navigate(Routes.CHAMPIONSHIP, { campeonato, returnScreen: Routes.OTHERSCHAMPIONSHIPS})}
             style={[styles.cabecalho, { borderColor: campeonato.cor }]}>
             {campeonato.logo && (
                 <Image source={campeonato.logo} style={styles.logoCampeonato} />
