@@ -1,11 +1,12 @@
 import { StyleSheet, View, Image, Pressable } from 'react-native';
-import { truncateString } from "../../utils/ProductCardUtil";
+import { truncateString } from "./utils/ProductCardUtil";
 import AppText from "../../components/common/AppText";
 import ColorTypes from '../../enumsCategories/ColorTypes';
 import Routes from '../../routes/.';
+import { useNavigation } from "@react-navigation/native";
 
-export default function ProductCard({ id, nome, img, preco, cores, addToCart, }) {
-    const navigate = useNavigate();
+export default function ProductCard({ product, addToCart, }) {
+    const navigation = useNavigation();
 
     function handleVerProduto() {
         navigation.navigate(Routes.HOME)
@@ -14,16 +15,16 @@ export default function ProductCard({ id, nome, img, preco, cores, addToCart, })
     return (
         <Pressable style={styles.card} onPress={handleVerProduto}>
             <View style={styles.imgContainer} >
-                <Image style={styles.cardImage} source={img} />
+                <Image style={styles.cardImage} source={product.img} />
             </View>
 
-            <AppText style={styles.cardTitle}>{truncateString(nome, 16)}</AppText>
+            <AppText style={styles.cardTitle}>{truncateString(product.nome, 16)}</AppText>
 
             <View style={styles.secaoPrecoCores}>
-                <AppText style={styles.precoText}>R$ {preco.toFixed(2)}</AppText>
+                <AppText style={styles.precoText}>R$ {product.preco.toFixed(2)}</AppText>
 
                 <View style={styles.secaoCores}>
-                    {cores?.map((cor) => (
+                    {product.coresDisponiveis?.map((cor) => (
                         <AppText
                             key={cor}
                             style={{
@@ -42,13 +43,13 @@ export default function ProductCard({ id, nome, img, preco, cores, addToCart, })
                 style={styles.cardButton}
                 onPress={(e) => {
                     e.stopPropagation();
-                    addToCart({
-                        id,
-                        name: nome,
-                        img,
-                        price: preco,
-                        color: cores?.[0],
-                    })
+                    // addToCart({
+                    //     id: product.id,
+                    //     name: product.nome,
+                    //     img: product.img,
+                    //     price: product.preco,
+                    //     color: product.coresDisponiveis?.[0],
+                    // })
                 }}
             ><AppText style={styles.cardButtonText}>Adicionar ao carrinho</AppText>
             </Pressable>
@@ -58,8 +59,8 @@ export default function ProductCard({ id, nome, img, preco, cores, addToCart, })
 
 const styles = StyleSheet.create({
  card: {
-    width: cardWidth,
-    height: cardHeight,
+    width: 150,
+    height: 240,
     flexDirection: "column",
     gap: 5,
     marginBottom: 12,
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
 
   cardTitle: {
     margin: 0,
-    fontSize: titleSize,
+    fontSize: 14,
     fontWeight: "700",
     color: "#111",
   },
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
   cardDescription: {
     margin: 0,
     color: ColorTypes.GRAYTEXT,
-    fontSize: 13,
+    fontSize: 12,
   },
 
   secaoPrecoCores: {
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
   },
 
   precoText: {
-    fontSize: titleSize,
+    fontSize: 14,
     fontWeight: "700",
     color: "#111",
   },
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
 
   cardButton: {
     backgroundColor: ColorTypes.BLUE,
-    padding: buttonPadding,
+    padding: 10,
     borderRadius: 100,
     alignItems: "center",
     justifyContent: "center",
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
 
   cardButtonText: {
     color: ColorTypes.WHITE,
-    fontSize: buttonFontSize,
+    fontSize: 10,
     fontWeight: "600",
   },
 });
