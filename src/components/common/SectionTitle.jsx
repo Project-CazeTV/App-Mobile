@@ -3,7 +3,7 @@ import AppText from '../common/AppText';
 import ColorTypes from '../../enumsCategories/ColorTypes';
 import FontTypes from '../../enumsCategories/FontTypes';
 
-export default function SectionTitle({ title, simple = false, color = "#3b5bdb", number, inline = false }) {
+export default function SectionTitle({ title = "", simple = false, color = "#3b5bdb", number, inline = false }) {
   if (simple) {
     return (
       <View style={styles.separador}>

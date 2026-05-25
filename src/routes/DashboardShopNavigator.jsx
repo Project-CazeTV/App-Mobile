@@ -5,6 +5,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Entypo from '@expo/vector-icons/Entypo';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import ShopScreen from "../screens/Shop";
+import SearchProductsScreen from "../screens/SearchProducts";
 import ShopCategories from "../enumsCategories/Shops";
 import ColorTypes from "../enumsCategories/ColorTypes";
 
@@ -37,21 +38,21 @@ export default function DashboardShopNavigator() {
                 ),
             }}/>
             <Tabs.Screen 
-            name="Pesquisar" component={ShopScreen}
+            name="Pesquisar" component={SearchProductsScreen}
             initialParams={{ category: ShopCategories.SEARCH }}
             options={{
                     tabBarIcon: ({ focused }) => (
                         <FontAwesome name="search" size={24} color={focused ? ColorTypes.DARK : ColorTypes.GRAY} />
                     )
                 }}/>
-            <Tabs.Screen 
+            {/* <Tabs.Screen 
             name="Pedidos" component={ShopScreen}
             initialParams={{ category: ShopCategories.ORDER }}
             options={{
                     tabBarIcon: ({ focused }) => (
                         <Ionicons name="newspaper-outline" size={24} color={focused ? ColorTypes.DARK : ColorTypes.GRAY} />
                     )
-                }}/>
+                }}/> */}
             <Tabs.Screen 
             name="Carrinho" component={ShopScreen}
             initialParams={{ category: ShopCategories.CART }}
