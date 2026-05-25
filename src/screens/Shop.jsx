@@ -15,7 +15,6 @@ export default function Shop({ route }) {
   const acessoriosProdutos = productsMock.filter((product) => product.categoria === ProductTypes.ACESSORY)
   const tecnologicosProdutos = productsMock.filter((product) => product.categoria === ProductTypes.TECH)
   const outrosProdutos = productsMock.filter((product) => product.categoria !== ProductTypes.CLOTH && product.categoria !== ProductTypes.ACESSORY && product.categoria !== ProductTypes.TECH)
-  const { category } = route.params;
 
   return (
     <ScrollView style={styles.container}>

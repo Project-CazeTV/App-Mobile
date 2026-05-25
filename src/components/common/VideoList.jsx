@@ -4,7 +4,6 @@ import AppText from '../common/AppText';
 import ColorTypes from '../../enumsCategories/ColorTypes';
 
 export default function VideoList({ videos, title }) {
-    console.log('VideoList recebeu:', videos);
     return (
         <View style={styles.section}>
             {title && (

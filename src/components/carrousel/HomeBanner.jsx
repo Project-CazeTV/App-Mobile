@@ -25,7 +25,7 @@ export default function HomeBanner({ news }) {
 
     const navigation = useNavigation();
     function onVerMais(noticia) {
-        navigation.navigate(Routes.NEWS_DETAIL, noticia);
+        navigation.push(Routes.NEWS_DETAIL, {noticia});
     }
 
     const goTo = useCallback(

@@ -5,7 +5,7 @@ import ColorTypes from '../enumsCategories/ColorTypes';
 import HeaderStackReturnPage from '../routes/HeaderStackReturnPage';
 
 export default function News({ route }) {
-    const noticia  = route.params;
+    const {noticia}  = route.params;
 
     return (
       <>

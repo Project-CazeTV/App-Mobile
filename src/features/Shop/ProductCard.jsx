@@ -3,13 +3,13 @@ import { truncateString } from "./utils/ProductCardUtil";
 import AppText from "../../components/common/AppText";
 import ColorTypes from '../../enumsCategories/ColorTypes';
 import Routes from '../../routes/.';
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation } from '@react-navigation/native';
 
 export default function ProductCard({ product, addToCart, }) {
     const navigation = useNavigation();
 
     function handleVerProduto() {
-        navigation.navigate(Routes.HOME)
+        navigation.push(Routes.PRODUCT, {product});
     };
 
     return (

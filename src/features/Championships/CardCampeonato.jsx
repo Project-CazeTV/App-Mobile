@@ -2,10 +2,13 @@ import { StyleSheet, View, Image, Pressable } from 'react-native';
 import Routes from '../../routes/.';
 import AppText from '../../components/common/AppText';
 import ColorTypes from '../../enumsCategories/ColorTypes';
+import { useNavigation } from '@react-navigation/native';
 
-export default function CardCampeonato({ navigation, campeonato }) {
+export default function CardCampeonato({ campeonato }) {
+    const navigation = useNavigation();
+
     return (
-        <Pressable onPress={() => navigation.navigate(Routes.CHAMPIONSHIP, { campeonato, returnScreen: Routes.OTHERSCHAMPIONSHIPS})}
+        <Pressable onPress={() => navigation.push(Routes.CHAMPIONSHIP, {campeonato})}
             style={[styles.cabecalho, { borderColor: campeonato.cor }]}>
             {campeonato.logo && (
                 <Image source={campeonato.logo} style={styles.logoCampeonato} />

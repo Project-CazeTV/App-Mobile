@@ -30,7 +30,7 @@ export default function DashboardShopNavigator() {
             tabBarActiveBackgroundColor: ColorTypes.GRAY,
         }}>
             <Tabs.Screen 
-            name="Produtos" component={ShopScreen}
+            name={Routes.SHOP} component={ShopScreen}
             initialParams={{ category: ShopCategories.PRODUCTS }}
             options={{
                 tabBarIcon: ({ focused }) => (
@@ -38,7 +38,7 @@ export default function DashboardShopNavigator() {
                 ),
             }}/>
             <Tabs.Screen 
-            name="Pesquisar" component={SearchProductsScreen}
+            name={Routes.SHOPSEARCH} component={SearchProductsScreen}
             initialParams={{ category: ShopCategories.SEARCH }}
             options={{
                     tabBarIcon: ({ focused }) => (
@@ -54,7 +54,7 @@ export default function DashboardShopNavigator() {
                     )
                 }}/> */}
             <Tabs.Screen 
-            name="Carrinho" component={ShopScreen}
+            name={"Carrinho"} component={ShopScreen}
             initialParams={{ category: ShopCategories.CART }}
             options={{
                     tabBarIcon: ({ focused }) => (

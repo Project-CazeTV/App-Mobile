@@ -16,7 +16,7 @@ export default function NewsList({ noticias = [], title, subtitle }) {
     const navigation = useNavigation();
     const actualRoute = useRoute()
     function onVerMais(noticia) {
-        navigation.navigate(Routes.NEWS_DETAIL, noticia, { returnScreen: actualRoute, });
+        navigation.push(Routes.NEWS_DETAIL, {noticia});
     }
 
     return (

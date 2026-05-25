@@ -12,7 +12,7 @@ export default function HeaderStackReturnPage({ pageTitle }) {
 
   return (
     <View style={styles.topBar}>
-      <Pressable style={styles.backBtn} onPress={() => navigation.navigate(returnScreenRoute)}>
+      <Pressable style={styles.backBtn} onPress={() => navigation.goBack()}>
         <FontAwesome6 name="arrow-left" size={24} color={ColorTypes.DARK} />
       </Pressable>
       <AppText style={styles.pageTitle}>Voltar</AppText>
