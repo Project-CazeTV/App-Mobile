@@ -33,7 +33,7 @@ searchContainer: {
   icon: {
     position: "absolute",
     left: 10,
-    top: "40%",
+    top: "41%",
     color: ColorTypes.GRAYTEXT,
     transform: [{ translateY: -11 }],
     zIndex: 1,
