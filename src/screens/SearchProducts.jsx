@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { StyleSheet, ScrollView, View } from 'react-native';
+import { StyleSheet, ScrollView, View, Pressable } from 'react-native';
 import ColorTypes from '../enumsCategories/ColorTypes';
+import AppText from '../components//common/AppText';
 import ProductTypes from '../enumsCategories/ProductTypes';
 import { ShopFilters } from '../enumsCategories/ShopFilters';
 import SearchBar from '../features/Shop/SearchBar';
 import SectionTitle from '../components/common/SectionTitle';
 import ProductCard from '../features/Shop/ProductCard';
 import FilterSection from '../features/Shop/FilterSection';
+import ProgressBar from '../features/Shop/ProgressBar';
 import { productsMock } from '../mocks/products';
 
 export default function SearchProducts() {
@@ -84,6 +86,31 @@ export default function SearchProducts() {
                         />
                     ))}
             </View>
+            <View style={styles.sectionButtonPlusProducts}>
+            <AppText style={styles.amountProducts}>
+                <AppText>
+                    {productsLoaded(maxProductsLoaded, produtosFiltrados)} de{" "}
+                    {produtosFiltrados.length}
+                </AppText>{" "}
+                produtos
+            </AppText>
+
+            <ProgressBar
+                current={productsLoaded(
+                    maxProductsLoaded,
+                    produtosFiltrados
+                )}
+                total={produtosFiltrados.length}
+            />
+
+            {maxProductsLoaded < produtosFiltrados.length && (
+                <Pressable
+                    onPress={loadMoreProducts}
+                    style={styles.viewMoreButton}
+                ><AppText>Ver mais</AppText>
+                </Pressable>
+            )}
+            </View>
         </ScrollView>
     );
 }
@@ -95,7 +122,7 @@ const styles = StyleSheet.create({
         padding: 20,
         gap: 20,
     },
-    
+
     productsArea: {
         width: "90%",
         maxWidth: 1200,
@@ -107,6 +134,10 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         justifyContent: "center",
         gap: 12,
+    },
+
+    sectionButtonPlusProducts: {
+        alignItems: 'center',
     },
 
     viewMoreButton: {
