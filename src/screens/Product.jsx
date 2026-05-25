@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { StyleSheet, View, Image, Pressable } from 'react-native';
+import { StyleSheet,ScrollView, View, Image, Pressable } from 'react-native';
 import AppText from '../components/common/AppText';
 import ColorTypes from '../enumsCategories/ColorTypes';
 import HeaderStackReturnPage from '../routes/HeaderStackReturnPage';
+import RelatedProducts from '../features/Shop/RelatedProducts';
 
 export default function Product({ route }) {
     const { product } = route.params
@@ -15,7 +16,7 @@ export default function Product({ route }) {
     function diminuir() { setAmount(prev => (prev > 1 ? prev - 1 : 1)); }
 
     return (
-        <>
+        <ScrollView>
             <HeaderStackReturnPage pageTitle={'Produto'} />
             <View style={styles.page}>
                 <View style={styles.content}>
@@ -59,7 +60,8 @@ export default function Product({ route }) {
                     <View style={styles.dividerFull} />
                 </View>
             </View>
-        </>
+            <RelatedProducts categoria={product.categoria} id={product.id}/>
+        </ScrollView>
     );
 }
 
@@ -102,7 +104,6 @@ const styles = StyleSheet.create({
 
     content: {
         flex: 1,
-        paddingBottom: 48,
     },
 
     imgWrapper: {

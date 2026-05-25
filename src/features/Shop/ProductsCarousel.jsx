@@ -48,7 +48,7 @@ useEffect(() => {
         contentContainerStyle={styles.carousel}
       >
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} appearButton={false} product={product} />
         ))}
       </ScrollView>
     </View>
