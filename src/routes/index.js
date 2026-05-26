@@ -15,7 +15,8 @@ const Routes = {
         SHOP: 'Shop',
         SHOPDASHBOARD: 'ShopDashboard',
         SHOPSEARCH: 'ShopSearch',
-        PRODUCT: 'Product'
+        PRODUCT: 'Product',
+        CART: 'Cart',
     }
 
 export default Routes;

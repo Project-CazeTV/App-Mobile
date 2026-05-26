@@ -5,6 +5,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Entypo from '@expo/vector-icons/Entypo';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import ShopScreen from "../screens/Shop";
+import CartScreen from "../screens/Cart";
 import SearchProductsScreen from "../screens/SearchProducts";
 import ShopCategories from "../enumsCategories/Shops";
 import ColorTypes from "../enumsCategories/ColorTypes";
@@ -29,22 +30,20 @@ export default function DashboardShopNavigator() {
             tabBarInactiveTintColor: ColorTypes.GRAY,
             tabBarActiveBackgroundColor: ColorTypes.GRAY,
         }}>
-            <Tabs.Screen 
-            name={Routes.SHOP} component={ShopScreen}
-            initialParams={{ category: ShopCategories.PRODUCTS }}
-            options={{
-                tabBarIcon: ({ focused }) => (
-                <AntDesign name="product" size={24} color={focused ? ColorTypes.DARK : ColorTypes.GRAY} />
-                ),
-            }}/>
-            <Tabs.Screen 
-            name={Routes.SHOPSEARCH} component={SearchProductsScreen}
-            initialParams={{ category: ShopCategories.SEARCH }}
-            options={{
+            <Tabs.Screen
+                name={Routes.SHOP} component={ShopScreen}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <AntDesign name="product" size={24} color={focused ? ColorTypes.DARK : ColorTypes.GRAY} />
+                    ),
+                }} />
+            <Tabs.Screen
+                name={Routes.SHOPSEARCH} component={SearchProductsScreen}
+                options={{
                     tabBarIcon: ({ focused }) => (
                         <FontAwesome name="search" size={24} color={focused ? ColorTypes.DARK : ColorTypes.GRAY} />
                     )
-                }}/>
+                }} />
             {/* <Tabs.Screen 
             name="Pedidos" component={ShopScreen}
             initialParams={{ category: ShopCategories.ORDER }}
@@ -53,14 +52,17 @@ export default function DashboardShopNavigator() {
                         <Ionicons name="newspaper-outline" size={24} color={focused ? ColorTypes.DARK : ColorTypes.GRAY} />
                     )
                 }}/> */}
-            <Tabs.Screen 
-            name={"Carrinho"} component={ShopScreen}
-            initialParams={{ category: ShopCategories.CART }}
-            options={{
+            <Tabs.Screen
+                name={Routes.CART} component={CartScreen}
+                options={{
+                    headerShown: false,
+                    tabBarStyle: {
+                        display: "none",
+                    },
                     tabBarIcon: ({ focused }) => (
                         <AntDesign name="shopping-cart" size={24} color={focused ? ColorTypes.DARK : ColorTypes.GRAY} />
                     )
-                }}/>
+                }} />
         </Tabs.Navigator>
     )
 }
