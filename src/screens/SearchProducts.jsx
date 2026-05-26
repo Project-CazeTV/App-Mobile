@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { StyleSheet, ScrollView, View, Pressable } from 'react-native';
 import ColorTypes from '../enumsCategories/ColorTypes';
 import AppText from '../components//common/AppText';
@@ -10,11 +11,24 @@ import ProductCard from '../features/Shop/ProductCard';
 import FilterSection from '../features/Shop/FilterSection';
 import ProgressBar from '../features/Shop/ProgressBar';
 import { productsMock } from '../mocks/products';
+import TagCartLength from '../features/Shop/TagCartLength';
+import { returnProductsLength } from '../features/Shop/utils/CartProducts';
 
 export default function SearchProducts() {
+    const [cartLength, setCartLength] = useState(0);
     const [filtroAtivo, setFiltroAtivo] = useState("Todos");
     const [maxProductsLoaded, setMaxProductsLoaded] = useState(6);
     const [pesquisa, setPesquisa] = useState("");
+
+  useFocusEffect(
+    useCallback(() => {
+      async function loadCartLength() {
+        const productsLength = await returnProductsLength();
+        setCartLength(productsLength);
+      }
+      loadCartLength()
+    }, [])
+  );
 
     const ultimosProdutos = productsMock.slice((productsMock.length - 5), productsMock.length);
     const roupasProdutos = productsMock.filter((product) => product.categoria === ProductTypes.CLOTH)
@@ -62,56 +76,59 @@ export default function SearchProducts() {
     };
 
     return (
-        <ScrollView style={styles.container}>
-            <SectionTitle title={'Pesquisar Produtos'} simple />
-            <SearchBar
-                placeHolder={"Procurar produto"}
-                value={pesquisa}
-                onChange={(e) =>
-                    setPesquisa(e.target.value)
-                }
-            />
-            <FilterSection
-                titulo={"Filtro de preços"}
-                filtros={ShopFilters}
-                filtroAtivo={filtroAtivo}
-                setFiltroAtivo={setFiltroAtivo}
-            />
-            <View style={styles.productsArea}>
-                {produtosFiltrados
-                    .slice(0, maxProductsLoaded)
-                    .map((produto) => (
-                        <ProductCard
-                            product={produto}
-                        />
-                    ))}
-            </View>
-            <View style={styles.sectionButtonPlusProducts}>
-            <AppText style={styles.amountProducts}>
-                <AppText>
-                    {productsLoaded(maxProductsLoaded, produtosFiltrados)} de{" "}
-                    {produtosFiltrados.length}
-                </AppText>{" "}
-                produtos
-            </AppText>
+        <>
+            <ScrollView style={styles.container}>
+                <SectionTitle title={'Pesquisar Produtos'} simple />
+                <SearchBar
+                    placeHolder={"Procurar produto"}
+                    value={pesquisa}
+                    onChange={(e) =>
+                        setPesquisa(e.target.value)
+                    }
+                />
+                <FilterSection
+                    titulo={"Filtro de preços"}
+                    filtros={ShopFilters}
+                    filtroAtivo={filtroAtivo}
+                    setFiltroAtivo={setFiltroAtivo}
+                />
+                <View style={styles.productsArea}>
+                    {produtosFiltrados
+                        .slice(0, maxProductsLoaded)
+                        .map((produto) => (
+                            <ProductCard
+                                product={produto}
+                            />
+                        ))}
+                </View>
+                <View style={styles.sectionButtonPlusProducts}>
+                    <AppText style={styles.amountProducts}>
+                        <AppText>
+                            {productsLoaded(maxProductsLoaded, produtosFiltrados)} de{" "}
+                            {produtosFiltrados.length}
+                        </AppText>{" "}
+                        produtos
+                    </AppText>
 
-            <ProgressBar
-                current={productsLoaded(
-                    maxProductsLoaded,
-                    produtosFiltrados
-                )}
-                total={produtosFiltrados.length}
-            />
+                    <ProgressBar
+                        current={productsLoaded(
+                            maxProductsLoaded,
+                            produtosFiltrados
+                        )}
+                        total={produtosFiltrados.length}
+                    />
 
-            {maxProductsLoaded < produtosFiltrados.length && (
-                <Pressable
-                    onPress={loadMoreProducts}
-                    style={styles.viewMoreButton}
-                ><AppText>Ver mais</AppText>
-                </Pressable>
-            )}
-            </View>
-        </ScrollView>
+                    {maxProductsLoaded < produtosFiltrados.length && (
+                        <Pressable
+                            onPress={loadMoreProducts}
+                            style={styles.viewMoreButton}
+                        ><AppText>Ver mais</AppText>
+                        </Pressable>
+                    )}
+                </View>
+            </ScrollView>
+            <TagCartLength cartLength={cartLength} />
+        </>
     );
 }
 
