@@ -4,33 +4,28 @@ import AppText from "../../components/common/AppText";
 import { truncateString } from './utils/ProductCardUtil';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
-// export default function ProductCard({ produto, onAumentar, onDiminuir, onRemover }) {
-export default function CartProductCard({ produto }) {
-    console.log(produto)
+export default function ProductCard({ produto, onAumentar, onDiminuir, onRemover }) {
     return (
         <View style={styles.card}>
             <Image source={produto.img} style={styles.img} />
 
             <View style={styles.info}>
-                <AppText style={styles.name}>{truncateString(produto.nome, 22)}</AppText>
+                <AppText style={styles.name} numberOfLines={1}>{truncateString(produto.nome, 22)}</AppText>
                 <AppText style={styles.unitPrice}>R$ {produto.preco.toFixed(2)}</AppText>
 
                 <View style={styles.qtyRow}>
-                    {/* <Pressable style={styles.btnMinus} onPress={() => onDiminuir(produto.id)}>−</Pressable> */}
-                    <Pressable style={styles.btnMinus} onPress={() => console.log("a")}><AppText style={styles.btnRemoveText}>-</AppText></Pressable>
-                    <AppText style={styles.qtyVal}>{produto.preco}</AppText>
-                    {/* <Pressable style={styles.btnPlus} onPress={() => onAumentar(produto.id)}>+</Pressable> */}
-                    <Pressable style={styles.btnPlus} onPress={() => console.log("a")}><AppText style={styles.btnRemoveText}>+</AppText></Pressable>
+                    <Pressable style={styles.btnMinus} onPress={() => onDiminuir(produto.id)}><AppText style={styles.btnRemoveText}>-</AppText></Pressable>
+                    <AppText style={styles.qtyVal}>{produto.amount}</AppText>
+                    <Pressable style={styles.btnPlus} onPress={() => onAumentar(produto.id)}><AppText style={styles.btnRemoveText}>+</AppText></Pressable>
                 </View>
             </View>
 
             <View style={styles.right}>
-                {/* <Pressable style={styles.btnRemove} onPress={() => onRemover(produto.id)}> */}
-                <Pressable style={styles.btnRemove} onPress={() => console.log("a")}>
+                <Pressable style={styles.btnRemove} onPress={() => onRemover(produto.id)}>
                     <FontAwesome5 name="trash" size={14} color={ColorTypes.WHITE} />
                 </Pressable>
                 <AppText style={styles.total}>
-                    R$ {(produto.price * produto.preco).toFixed(2)}
+                    R$ {(produto.amount * produto.preco).toFixed(2)}
                 </AppText>
             </View>
         </View>

@@ -1,12 +1,17 @@
 import { useState } from "react";
-import { StyleSheet,ScrollView, View, Image, Pressable } from 'react-native';
+import { StyleSheet, ScrollView, View, Image, Pressable } from 'react-native';
 import AppText from '../components/common/AppText';
 import ColorTypes from '../enumsCategories/ColorTypes';
+import Routes from '../routes/.';
 import HeaderStackReturnPage from '../routes/HeaderStackReturnPage';
 import RelatedProducts from '../features/Shop/RelatedProducts';
+import { useNavigation } from '@react-navigation/native';
+import { returnProducts, setCart } from '../features/Shop/utils/CartProducts';
 
 export default function Product({ route }) {
     const { product } = route.params
+    const navigation = useNavigation();
+
     const [amount, setAmount] = useState(1);
 
     const nome = product.nome ?? product.name;
@@ -14,6 +19,28 @@ export default function Product({ route }) {
 
     function aumentar() { setAmount(prev => prev + 1); }
     function diminuir() { setAmount(prev => (prev > 1 ? prev - 1 : 1)); }
+
+    async function addToCart() {
+        const cart = await returnProducts();
+        const exists = cart.find(item => item.id === product.id);
+
+        const itemCart = {
+            ...product,
+            amount,
+        };
+
+        if (exists) {
+            const updated = cart.map(item =>
+                item.id === product.id
+                    ? { ...item, amount: item.amount + amount }
+                    : item
+            );
+            await setCart(updated);
+        } else {
+            await setCart([...cart, itemCart]);
+        }
+        navigation.navigate(Routes.SHOPDASHBOARD);
+    }
 
     return (
         <ScrollView>
@@ -37,9 +64,9 @@ export default function Product({ route }) {
                         <View style={styles.qtySection}>
                             <AppText style={styles.qtyLabel}>Quantidade</AppText>
                             <View style={styles.qtyRow}>
-                                <Pressable style={styles.btnMinus} onPress={diminuir}>−</Pressable>
+                                <Pressable style={styles.btnMinus} onPress={diminuir}><AppText style={styles.btnText}>−</AppText></Pressable>
                                 <AppText style={styles.qtyVal}>{amount}</AppText>
-                                <Pressable style={styles.btnPlus} onPress={aumentar}>+</Pressable>
+                                <Pressable style={styles.btnPlus} onPress={aumentar}><AppText style={styles.btnText}>+</AppText></Pressable>
                             </View>
                         </View>
 
@@ -52,7 +79,7 @@ export default function Product({ route }) {
 
                         <Pressable
                             style={styles.btnCart}
-                            // onPress={addToCart}
+                            onPress={addToCart}
                         >
                             <AppText style={styles.btnText}>Adicionar ao carrinho</AppText>
                         </Pressable>
@@ -60,7 +87,7 @@ export default function Product({ route }) {
                     <View style={styles.dividerFull} />
                 </View>
             </View>
-            <RelatedProducts categoria={product.categoria} id={product.id}/>
+            <RelatedProducts categoria={product.categoria} id={product.id} />
         </ScrollView>
     );
 }
@@ -175,9 +202,6 @@ const styles = StyleSheet.create({
     qtyRow: {
         flexDirection: "row",
         alignItems: "center",
-        backgroundColor: "#fafafa",
-        borderWidth: 1,
-        borderColor: "#dcdcdc",
         borderRadius: 12,
         paddingVertical: 6,
         paddingHorizontal: 10,
@@ -188,7 +212,7 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         borderRadius: 8,
-        backgroundColor: "#222",
+        backgroundColor: ColorTypes.GRAY,
         alignItems: "center",
         justifyContent: "center",
     },
@@ -197,7 +221,7 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         borderRadius: 8,
-        backgroundColor: "#0047d6",
+        backgroundColor: ColorTypes.BLUE,
         alignItems: "center",
         justifyContent: "center",
     },
@@ -236,7 +260,7 @@ const styles = StyleSheet.create({
     },
 
     totalLabel: {
-        color: "#777",
+        color: ColorTypes.GRAYTEXT,
         fontSize: 14,
     },
 
@@ -249,7 +273,7 @@ const styles = StyleSheet.create({
     btnCart: {
         width: "100%",
         padding: 16,
-        backgroundColor: "#0047d6",
+        backgroundColor: ColorTypes.BLUE,
         borderRadius: 14,
         alignItems: "center",
         justifyContent: "center",
@@ -258,10 +282,6 @@ const styles = StyleSheet.create({
     btnCartPressed: {
         opacity: 0.85,
         transform: [{ scale: 0.98 }],
-    },
-
-    btnCartAdded: {
-        backgroundColor: "#1a6e2e",
     },
 
     btnCartText: {

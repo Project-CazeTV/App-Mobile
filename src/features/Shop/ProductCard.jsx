@@ -4,13 +4,38 @@ import AppText from "../../components/common/AppText";
 import ColorTypes from '../../enumsCategories/ColorTypes';
 import Routes from '../../routes/.';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { returnProducts, setCart } from './utils/CartProducts';
 
-export default function ProductCard({ product, appearButton = true, addToCart, }) {
+export default function ProductCard({ product, appearButton = true }) {
   const navigation = useNavigation();
 
   function handleVerProduto() {
     navigation.push(Routes.PRODUCT, { product });
   };
+
+const addToCart = async (product) => {
+    const cart = await returnProducts();
+
+    const existingProduct = cart.find(
+      (item) => item.id === product.id
+    );
+
+    if (existingProduct) {
+      existingProduct.amount += 1;
+    } else {
+      cart.push({
+        ...product,
+        amount: 1,
+      });
+    }
+
+    await setCart(cart);
+
+    const amount = cart.reduce((total, item) => {
+      return total + item.amount;
+    }, 0);
+};
 
   return (
     <Pressable style={styles.card} onPress={handleVerProduto}>
@@ -39,20 +64,14 @@ export default function ProductCard({ product, appearButton = true, addToCart, }
         </View>
       </View>
       {appearButton && (
-      <Pressable
-        style={styles.cardButton}
-        onPress={(e) => {
-          e.stopPropagation();
-          // addToCart({
-          //     id: product.id,
-          //     name: product.nome,
-          //     img: product.img,
-          //     price: product.preco,
-          //     color: product.coresDisponiveis?.[0],
-          // })
-        }}
-      ><AppText style={styles.cardButtonText}>Adicionar ao carrinho</AppText>
-      </Pressable>
+        <Pressable
+          style={styles.cardButton}
+          onPress={(e) => {
+            e.stopPropagation();
+            addToCart(product)
+          }}
+        ><AppText style={styles.cardButtonText}>Adicionar ao carrinho</AppText>
+        </Pressable>
       )}
     </Pressable>
   );

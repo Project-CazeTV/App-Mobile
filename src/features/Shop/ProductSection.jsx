@@ -23,9 +23,9 @@ export default function ProductSection({ produtos, onAumentar, onDiminuir, onRem
                     <CartProductCard
                         key={produto.id}
                         produto={produto}
-                    // onAumentar={onAumentar}
-                    // onDiminuir={onDiminuir}
-                    // onRemover={onRemover}
+                        onAumentar={onAumentar}
+                        onDiminuir={onDiminuir}
+                        onRemover={onRemover}
                     />
                 ))}
             </ScrollView>
