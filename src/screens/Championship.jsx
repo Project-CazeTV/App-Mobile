@@ -2,12 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ScrollView, Image } from 'react-native';
 import AppText from '../components/common/AppText';
 import ColorTypes from '../enumsCategories/ColorTypes';
+import HeaderStackReturnPage from '../routes/HeaderStackReturnPage';
 import SectionTitle from '../components/common/SectionTitle'
 import TabelaClassificacao from "../features/Championships/TabelaClassificacao";
 import ListaDeJogos from "../features/Championships/ListaDeJogos";
 import TabelaGrupo from "../features/Championships/TabelaGrupo";
 import Artilharia from "../features/Championships/Artilharia";
-import HeaderStackReturnPage from '../routes/HeaderStackReturnPage';
 
 export default function Championship({ route }) {
     const { campeonato } = route.params;

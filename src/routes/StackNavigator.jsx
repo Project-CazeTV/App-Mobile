@@ -1,9 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Routes from '.';
 import HomeScreen from '../screens/Home';
+import NewsScreen from '../screens/News';
 import SignUpScreen from '../screens/SignUp';
 import LoginScreen from '../screens/Login';
 import ProfileScreen from '../screens/Profile';
+import ProductScreen from '../screens/Product';
 import DrawerNavigator from './DrawerNagivator';
 import DashboardWorldcupNavigator from './DashboardWorldCupNavigator';
 import DashboardOlympicNavigator from './DashboardOlympicNavigator';
@@ -54,6 +56,13 @@ export default function StackNavigation() {
                 }}
             />
             <Stack.Screen
+                name={Routes.NEWS_DETAIL}
+                component={NewsScreen}
+                options={{ 
+                    headerShown: false 
+                }}
+            />
+            <Stack.Screen
                 name={Routes.WORLDCUPDASHBOARD}
                 component={DashboardOlympicNavigator}
                 options={{ 
@@ -84,6 +93,13 @@ export default function StackNavigation() {
             <Stack.Screen
                 name={Routes.SHOPDASHBOARD}
                 component={DashboardShopNavigator}
+                options={{ 
+                    headerShown: false 
+                }}
+            />
+            <Stack.Screen
+                name={Routes.PRODUCT}
+                component={ProductScreen}
                 options={{ 
                     headerShown: false 
                 }}

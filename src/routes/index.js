@@ -14,6 +14,9 @@ const Routes = {
         OTHERSCHAMPIONSHIPS: 'OthersChampionships',
         SHOP: 'Shop',
         SHOPDASHBOARD: 'ShopDashboard',
+        SHOPSEARCH: 'ShopSearch',
+        PRODUCT: 'Product',
+        CART: 'Cart',
     }
 
 export default Routes;

@@ -5,18 +5,18 @@ import ColorTypes from '../enumsCategories/ColorTypes';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-export default function HeaderStackReturnPage({ pageTitle }) {
+export default function HeaderStackReturnPage({ pageTitle,  pageSubTitle}) {
   const navigation = useNavigation();
   const route = useRoute()
   const returnScreenRoute = route.params?.returnScreen || Routes.HOME;
 
   return (
     <View style={styles.topBar}>
-      <Pressable style={styles.backBtn} onPress={() => navigation.navigate(returnScreenRoute)}>
+      <Pressable style={styles.backBtn} onPress={() => navigation.goBack()}>
         <FontAwesome6 name="arrow-left" size={24} color={ColorTypes.DARK} />
       </Pressable>
-      <AppText style={styles.pageTitle}>Voltar</AppText>
-      <AppText style={styles.pageName}>{pageTitle}</AppText>
+      <AppText style={styles.pageTitle}>{pageSubTitle ? pageTitle : 'Voltar'}</AppText>
+      <AppText style={styles.pageName}>{pageSubTitle ? pageSubTitle : pageTitle}</AppText>
     </View>
   );
 }
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 20,
     color: ColorTypes.WHITE,
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: "700",
   },
 });
