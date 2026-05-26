@@ -39,7 +39,7 @@ export default function Product({ route }) {
         } else {
             await setCart([...cart, itemCart]);
         }
-        navigation.navigate(Routes.SHOPDASHBOARD);
+        navigation.goBack();
     }
 
     return (

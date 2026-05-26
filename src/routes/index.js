@@ -16,6 +16,7 @@ const Routes = {
         SHOPDASHBOARD: 'ShopDashboard',
         SHOPSEARCH: 'ShopSearch',
         PRODUCT: 'Product',
+        CART_TAB: 'CartTab',
         CART: 'Cart',
     }
 
