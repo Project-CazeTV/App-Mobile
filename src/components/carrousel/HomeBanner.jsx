@@ -183,7 +183,7 @@ export const styles = StyleSheet.create({
 
     title: {
         fontSize: 26,
-        fontWeight: '800',
+        fontWeight: 800,
         marginBottom: 15,
         color: ColorTypes.DARK,
         textAlign: 'center',
@@ -207,7 +207,7 @@ export const styles = StyleSheet.create({
     },
     btnText: {
         color: ColorTypes.WHITE,
-        fontWeight: '500',
+        fontWeight: 500,
         fontSize: 14,
     },
 

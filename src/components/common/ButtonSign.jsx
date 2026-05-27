@@ -12,14 +12,13 @@ export default function ButtonSign(props) {
 const styles = StyleSheet.create({
   submitBtn: {
     width: '80%',
-    padding: '10px',
+    padding: 10,
     backgroundColor: '#212121',
     color: 'white',
-    border: 'none',
-    borderRadius: '12px',
+    borderRadius: 12,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: '15px',
+    marginTop: 15,
   },
 });

@@ -53,11 +53,10 @@ const addToCart = async (product) => {
             <AppText
               key={cor}
               style={{
-                display: "inline-block",
-                height: "15px",
-                width: "15px",
+                height: 15,
+                width: 15,
                 backgroundColor: cor,
-                borderRadius: "50%",
+                borderRadius: 7.5,
               }}
             ></AppText>
           ))}
@@ -104,7 +103,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     margin: 0,
     fontSize: 14,
-    fontWeight: "700",
+    fontWeight: 700,
     color: "#111",
   },
 
@@ -122,7 +121,7 @@ const styles = StyleSheet.create({
 
   precoText: {
     fontSize: 14,
-    fontWeight: "700",
+    fontWeight: 700,
     color: "#111",
   },
 
@@ -142,6 +141,6 @@ const styles = StyleSheet.create({
   cardButtonText: {
     color: ColorTypes.WHITE,
     fontSize: 10,
-    fontWeight: "600",
+    fontWeight: 600,
   },
 });

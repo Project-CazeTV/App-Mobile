@@ -33,7 +33,6 @@ export default function NewsList({ noticias = [], title, subtitle }) {
                         <Image
                             source={noticia.imagem}
                             style={styles.image}
-                            onError={(e) => { e.target.src = '/placeholder-news.jpg'; }}
                         />
                     </View>
                     <View style={styles.content}>
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     },
 
     sectionTitle: {
-        fontWeight: '700',
+        fontWeight: 700,
         fontSize: 24,
     },
 
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
         paddingVertical: 4,
         paddingHorizontal: 12,
         fontSize: 12,
-        fontWeight: '900',
+        fontWeight: 900,
         color: '#fff',
         textTransform: 'uppercase',
         marginBottom: 8,
@@ -108,7 +107,7 @@ const styles = StyleSheet.create({
 
     newsTitle: {
         fontSize: 16,
-        fontWeight: '900',
+        fontWeight: 900,
         lineHeight: 21,
         marginBottom: 10,
     },
@@ -132,7 +131,7 @@ const styles = StyleSheet.create({
         gap: 5,
         opacity: 0.8,
         fontSize: 13,
-        fontWeight: '600',
+        fontWeight: 600,
         fontFamily: FontTypes.SORA,
         color: ColorTypes.DARK,
     },

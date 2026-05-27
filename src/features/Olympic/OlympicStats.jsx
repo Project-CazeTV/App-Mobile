@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 
   number: {
     fontSize: 32,
-    fontWeight: "900",
+    fontWeight: 900,
     color: "#111",
     letterSpacing: -1.5,
     lineHeight: 32,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
 
   label: {
     fontSize: 12,
-    fontWeight: "500",
+    fontWeight: 500,
     color: "rgba(0,0,0,0.45)",
     letterSpacing: 1,
     textTransform: "uppercase",

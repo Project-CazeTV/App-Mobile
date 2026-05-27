@@ -23,28 +23,28 @@ export default function ButtonGoogle(props) {
 
 const styles = StyleSheet.create({
   borderGoogleBtn: {
-    marginTop: '30px',
+    marginTop: 30,
     width: '80%',
-    borderRadius: '10px',
-    borderWidth: '2px',
+    borderRadius: 10,
+    borderWidth: 2,
     borderColor: 'transparent',
     borderStyle: 'solid',
   },
 
   googleBtn: {
     width: '100%',
-    padding: '12px',
+    padding: 12,
     paddingInline: 20,
     backgroundColor: ColorTypes.WHITE,
-    borderRadius: '10px',
+    borderRadius: 10,
     display: 'flex',
     flexDirection: 'row',
     fontFamily: FontTypes.SORA,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '10px',
+    gap: 10,
     fontWeight: 600,
-    fontSize: '13px',
+    fontSize: 13,
     color: '#333',
     shadowColor: ColorTypes.DARK,
     shadowOffset: {

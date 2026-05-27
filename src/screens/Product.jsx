@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     topBarTitle: {
         color: ColorTypes.DARK,
         fontSize: 16,
-        fontWeight: "500",
+        fontWeight: 500,
     },
 
     content: {
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     name: {
         color: ColorTypes.DARK,
         fontSize: 20,
-        fontWeight: "700",
+        fontWeight: 700,
         marginBottom: 6,
         lineHeight: 26,
     },
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     price: {
         color: ColorTypes.DARK,
         fontSize: 22,
-        fontWeight: "700",
+        fontWeight: 700,
     },
 
     pricePer: {
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     qtyLabel: {
         color: "#777",
         fontSize: 13,
-        fontWeight: "500",
+        fontWeight: 500,
     },
 
     qtyRow: {
@@ -234,14 +234,14 @@ const styles = StyleSheet.create({
     btnText: {
         color: ColorTypes.WHITE,
         fontSize: 18,
-        fontWeight: "600",
+        fontWeight: 600,
         lineHeight: 20,
     },
 
     qtyVal: {
         color: ColorTypes.DARK,
         fontSize: 16,
-        fontWeight: "600",
+        fontWeight: 600,
         minWidth: 24,
         textAlign: "center",
     },
@@ -267,7 +267,7 @@ const styles = StyleSheet.create({
     totalValue: {
         color: ColorTypes.DARK,
         fontSize: 18,
-        fontWeight: "700",
+        fontWeight: 700,
     },
 
     btnCart: {
@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
     btnCartText: {
         color: ColorTypes.WHITE,
         fontSize: 16,
-        fontWeight: "700",
+        fontWeight: 700,
     },
 
     dividerFull: {

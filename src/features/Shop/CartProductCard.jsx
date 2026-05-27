@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     name: {
         color: ColorTypes.DARK,
         fontSize: 14,
-        fontWeight: "500",
+        fontWeight: 500,
     },
 
     unitPrice: {
@@ -100,14 +100,14 @@ const styles = StyleSheet.create({
     btnText: {
         color: ColorTypes.WHITE,
         fontSize: 16,
-        fontWeight: "600",
+        fontWeight: 600,
         lineHeight: 18,
     },
 
     qtyVal: {
         color: ColorTypes.DARK,
         fontSize: 14,
-        fontWeight: "600",
+        fontWeight: 600,
         minWidth: 18,
         textAlign: "center",
     },
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     total: {
         color: ColorTypes.TEXT,
         fontSize: 15,
-        fontWeight: "700",
+        fontWeight: 700,
     },
 
     btnRemove: {

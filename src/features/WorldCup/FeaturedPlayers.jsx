@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     title: {
         textAlign: 'center',
         fontSize: 14,
-        fontWeight: '700',
+        fontWeight: 700,
         letterSpacing: 1.5,
         marginBottom: 6,
     },
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 
     playerPosition: {
         fontSize: 10,
-        fontWeight: '600',
+        fontWeight: 600,
         color: ColorTypes.GRAY,
         letterSpacing: 1,
         textTransform: 'uppercase',
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
 
     playerName: {
         fontSize: 15,
-        fontWeight: '800',
+        fontWeight: 800,
         color: ColorTypes.WHITE,
         lineHeight: 18,
     },

@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
 
     nomeCampeonato: {
         fontSize: 15,
-        fontWeight: '800',
+        fontWeight: 800,
         color: '#000',
     },
 
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
 
     badgeCampeao: {
         fontSize: 12,
-        fontWeight: '700',
+        fontWeight: 700,
         color: '#f59f00',
         marginTop: 4,
     },
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
 
     tituloSecao: {
         fontSize: 18,
-        fontWeight: '800',
+        fontWeight: 800,
         color: '#000',
         marginBottom: 20,
     },

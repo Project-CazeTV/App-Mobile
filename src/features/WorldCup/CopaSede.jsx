@@ -21,7 +21,6 @@ export default function CopaSede(props) {
                             <Image
                                 source={s.foto}
                                 style={styles.fotoEstadio}
-                                onError={(e) => { e.target.style.background = '#222'; }}
                             />
                             <View style={styles.fotoOverlay} />
                             <AppText style={styles.estadioLabel}>{s.estadio}</AppText>
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
 
     heroSub: {
         fontSize: 16,
-        fontWeight: '700',
+        fontWeight: 700,
         letterSpacing: 3,
         color: ColorTypes.DARK,
     },
@@ -63,13 +62,13 @@ const styles = StyleSheet.create({
     heroAno: {
         fontSize: 100,
         fontFamily: FontTypes.COPA,
-        fontWeight: '900',
+        fontWeight: 900,
         color: ColorTypes.YELLOW,
     },
 
     heroDesc: {
         fontSize: 11,
-        fontWeight: '500',
+        fontWeight: 500,
         marginTop: 24,
         letterSpacing: 1,
         textTransform: 'uppercase',
@@ -122,7 +121,7 @@ const styles = StyleSheet.create({
         bottom: 10,
         left: 14,
         fontSize: 11,
-        fontWeight: '600',
+        fontWeight: 600,
         color: 'rgba(255,255,255,0.85)',
         letterSpacing: 1,
         textTransform: 'uppercase',
@@ -146,7 +145,7 @@ const styles = StyleSheet.create({
 
     sedePais: {
         fontSize: 13,
-        fontWeight: '700',
+        fontWeight: 700,
         textTransform: 'uppercase',
         letterSpacing: 0.5,
     },
@@ -155,6 +154,6 @@ const styles = StyleSheet.create({
         fontSize: 11,
         color: '#888',
         marginTop: 2,
-        fontWeight: '500',
+        fontWeight: 500,
     },
 });

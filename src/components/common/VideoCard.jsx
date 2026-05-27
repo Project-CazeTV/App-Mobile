@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
 
     category: {
         fontSize: 11,
-        fontWeight: "700",
+        fontWeight: 700,
         color: "#f5a700",
         letterSpacing: 1,
         textTransform: "uppercase",
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 
     title: {
         fontSize: 14,
-        fontWeight: "600",
+        fontWeight: 600,
         color: ColorTypes.DARK,
         lineHeight: 20,
     },

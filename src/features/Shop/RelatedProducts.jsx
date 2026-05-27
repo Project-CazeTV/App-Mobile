@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   sectionLabel: {
     color: ColorTypes.GRAYTEXT,
     fontSize: 11,
-    fontWeight: '600',
+    fontWeight: 600,
     letterSpacing: 1.2,
     textTransform: 'uppercase',
     marginBottom: 14,

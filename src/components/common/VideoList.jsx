@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 20.6,
-    fontWeight: "800",
+    fontWeight: 800,
     color: ColorTypes.DARK,
     letterSpacing: -0.3,
     flexShrink: 0,

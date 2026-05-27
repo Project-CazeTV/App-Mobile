@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     title: {
         textAlign: 'center',
         fontSize: 14,
-        fontWeight: '700',
+        fontWeight: 700,
         letterSpacing: 1.5,
         marginBottom: 6,
     },
@@ -90,14 +90,14 @@ const styles = StyleSheet.create({
         right: -8,
         top: -12,
         fontSize: 80,
-        fontWeight: '900',
+        fontWeight: 900,
         color: ColorTypes.GRAY,
         lineHeight: 80,
     },
 
     groupTitle: {
         fontSize: 12,
-        fontWeight: '700',
+        fontWeight: 700,
         color: ColorTypes.BLUE,
         letterSpacing: 1.5,
         zIndex: 1,
@@ -144,14 +144,14 @@ const styles = StyleSheet.create({
 
     countryName: {
         fontSize: 12,
-        fontWeight: '700',
+        fontWeight: 700,
         color: ColorTypes.DARK,
         letterSpacing: 0.5,
     },
 
     countryNameBrasil: {
         color: '#009b3a',
-        fontWeight: '800',
+        fontWeight: 800,
     },
 
     noInfo: {

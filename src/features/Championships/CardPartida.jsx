@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
 
 nomeTime: {
     fontSize: 11,
-    fontWeight: '600',
+    fontWeight: 600,
     color: ColorTypes.DARK,
     textAlign: 'center',
     maxWidth: 90,
@@ -125,13 +125,13 @@ infoPartida: {
  
   placar: {
     fontSize: 18,
-    fontWeight: '800',
+    fontWeight: 800,
     color: ColorTypes.DARK,
   },
 
 versus: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: 600,
     color: '#bbb',
   },
  

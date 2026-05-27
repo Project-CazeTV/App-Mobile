@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 
   playerName: {
     flex: 1,
-    fontWeight: "800",
+    fontWeight: 800,
     fontSize: 14,
     color: ColorTypes.DARK,
   },
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 
   playerGoals: {
     width: 60,
-    fontWeight: "800",
+    fontWeight: 800,
     fontSize: 26,
     color: ColorTypes.DARK,
     textAlign: "center",

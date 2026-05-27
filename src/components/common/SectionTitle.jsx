@@ -8,7 +8,7 @@ export default function SectionTitle({ title = "", simple = false, color = "#3b5
     return (
       <View style={styles.separador}>
         <AppText style={styles.titulo}>{title}</AppText>
-        <View style={[styles.separadorLinha, {background: ColorTypes.GRAY}]} />
+        <View style={[styles.separadorLinha, { backgroundColor: ColorTypes.GRAY }]} />
       </View>
     )
   }
@@ -18,7 +18,7 @@ export default function SectionTitle({ title = "", simple = false, color = "#3b5
       <View style={styles.wrapperInline}>
         <AppText style={styles.tituloInline}>{title}</AppText>
         <View
-          style={{ background: color, ...styles.separadorLinhaInline }}
+          style={{ backgroundColor: color, ...styles.separadorLinhaInline }}
         />
         {number && (
           <AppText
@@ -35,7 +35,7 @@ export default function SectionTitle({ title = "", simple = false, color = "#3b5
     <View style={styles.wrapper}>
       <View style={styles.separador}>
         <View
-          style={{ background: color, ...styles.separadorLinha }}
+          style={{ backgroundColor: color, ...styles.separadorLinha }}
         />
         {number && (
           <AppText
@@ -54,28 +54,28 @@ const styles = StyleSheet.create({
   wrapper: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '12px',
-    marginBottom: '20px',
+    gap: 12,
+    marginBottom: 20,
   },
 
   separador: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: '16px',
+    gap: 16,
   },
 
   separadorLinha: {
     flex: 1,
-    height: '3px',
-    borderRadius: '999px',
-    display: 'block',
+    height: 3,
+    borderRadius: 999,
   },
 
   separadorNumero: {
-    fontSize: '0.75rem',
+    fontSize: 12,
     fontWeight: 800,
-    letterSpacing: '0.14em',
+    // 0.14em * 12px (0.75rem * 16px)
+    letterSpacing: 1.68,
     fontFamily: `${FontTypes.COPA}, sans-serif`,
     flexShrink: 0,
   },
@@ -86,15 +86,16 @@ const styles = StyleSheet.create({
     color: ColorTypes.DARK,
     margin: 0,
     lineHeight: 28,
-    letterSpacing: '-0.02em',
+    // -0.02em * 20px
+    letterSpacing: -0.4,
   },
 
   wrapperInline: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: '16px',
-    marginBottom: '20px',
+    gap: 16,
+    marginBottom: 20,
   },
 
   tituloInline: {
@@ -103,15 +104,14 @@ const styles = StyleSheet.create({
     color: ColorTypes.DARK,
     margin: 0,
     lineHeight: 28,
-    letterSpacing: '-0.02em',
-    whiteSpace: 'nowrap',
+    // -0.02em * 24px
+    letterSpacing: -0.48,
     flexShrink: 0,
   },
 
   separadorLinhaInline: {
     flex: 1,
-    height: '3px',
-    borderRadius: '999px',
-    display: 'block',
+    height: 3,
+    borderRadius: 999,
   },
 });

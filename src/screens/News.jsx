@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 3,
     fontSize: 11,
-    fontWeight: "700",
+    fontWeight: 700,
     letterSpacing: 1.5,
     textTransform: "uppercase",
     color: ColorTypes.WHITE,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize:  24,
-    fontWeight: "800",
+    fontWeight: 800,
     color: ColorTypes.DARK,
     lineHeight: 32,
     marginBottom: 24,
@@ -85,14 +85,14 @@ const styles = StyleSheet.create({
   description: {
     fontSize:  16,
     color: ColorTypes.DARK,
-    fontWeight: "700",
+    fontWeight: 700,
     opacity: 0.85,
   },
 
   body: {
     fontSize: 14,
     color: ColorTypes.DARK,
-    fontWeight: "300",
+    fontWeight: 300,
     marginVertical: 30,
     opacity: 0.85,
   },

@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
 
     title: {
         fontSize: 22,
-        fontWeight: "800",
+        fontWeight: 800,
         color: "#111",
         textTransform: "uppercase",
         letterSpacing: 0.64,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     zIndex: 3,
     fontSize: 14,
-    fontWeight: "800",
+    fontWeight: 800,
     letterSpacing: 1.6,
     textTransform: "uppercase",
     color: "#fff",
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
 
   playerName: {
     fontSize: 14,
-    fontWeight: "900",
+    fontWeight: 900,
     color: "#111",
     lineHeight: 16,
     textTransform: "uppercase",
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     fontSize: 11.5,
     color: "#111",
     opacity: 0.48,
-    fontWeight: "600",
+    fontWeight: 600,
     textTransform: "uppercase",
     letterSpacing: 1.2,
   },

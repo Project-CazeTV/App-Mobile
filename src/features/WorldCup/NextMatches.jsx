@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     title: {
         textAlign: 'center',
         fontSize: 14,
-        fontWeight: '600',
+        fontWeight: 600,
         letterSpacing: 1,
         marginBottom: 16,
         color: ColorTypes.DARK,
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
         borderColor: '#ddd',
         backgroundColor: 'transparent',
         fontSize: 12,
-        fontWeight: '600',
+        fontWeight: 600,
     },
 
     dateTabActive: {
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     date: {
         textAlign: 'center',
         fontSize: 13,
-        fontWeight: '700',
+        fontWeight: 700,
         color: ColorTypes.DARK,
         marginBottom: 16,
     },
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
 
     teamName: {
         fontSize: 11,
-        fontWeight: '600',
+        fontWeight: 600,
         color: ColorTypes.DARK,
         textAlign: 'center',
         maxWidth: 80,
@@ -303,13 +303,13 @@ const styles = StyleSheet.create({
 
     score: {
         fontSize: 18,
-        fontWeight: '700',
+        fontWeight: 700,
         color: ColorTypes.DARK,
     },
 
     vs: {
         fontSize: 16,
-        fontWeight: '600',
+        fontWeight: 600,
         color: ColorTypes.GRAY,
     },
 

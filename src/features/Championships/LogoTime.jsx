@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
  
   logoFallbackText: {
     fontSize: 11,
-    fontWeight: '800',
+    fontWeight: 800,
     color: '#868e96',
   },
 });

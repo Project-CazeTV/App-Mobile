@@ -231,7 +231,7 @@ const stylesHeader = StyleSheet.create({
     profileButton: {
         width: 45,
         height: 45,
-        borderRadius: '100%',
+        borderRadius: 9999,
         padding: 25,
         backgroundColor: "#86868636",
         justifyContent: 'center',

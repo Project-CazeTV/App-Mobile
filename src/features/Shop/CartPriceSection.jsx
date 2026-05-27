@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     title: {
         color: "var(--text-color)",
         fontSize: 15,
-        fontWeight: "600",
+        fontWeight: 600,
         marginBottom: 5,
     },
 
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         color: ColorTypes.GRAYTEXT,
         opacity: 0.8,
         fontSize: 13,
-        fontWeight: "500",
+        fontWeight: 500,
     },
 
     rowTotal: {
@@ -103,13 +103,13 @@ const styles = StyleSheet.create({
     totalLabel: {
         color: ColorTypes.DARK,
         fontSize: 15,
-        fontWeight: "700",
+        fontWeight: 700,
     },
 
     totalValue: {
         color: ColorTypes.DARK,
         fontSize: 18,
-        fontWeight: "700",
+        fontWeight: 700,
     },
 
     btnFinalizar: {
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     btnFinalizarText: {
         color: ColorTypes.WHITE,
         fontSize: 14,
-        fontWeight: "700",
+        fontWeight: 700,
         letterSpacing: 0.3,
     },
 });

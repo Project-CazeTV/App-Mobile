@@ -73,20 +73,20 @@ export default function TabelaClassificacao({ tabela, mostrarLegenda = true }) {
                 </View>
             </View>
 
-            <View style={[styles.legendaTabela, mostrarLegenda ? { display: 'block' } : { display: 'none' }]}>
+            {mostrarLegenda && <View style={styles.legendaTabela}>
                 <AppText>
-                    <View style={[styles.ponto, { background: "#3b5bdb" }]} />Libertadores
+                    <View style={[styles.ponto, { backgroundColor: "#3b5bdb" }]} />Libertadores
                 </AppText>
                 <AppText>
-                    <View style={[styles.ponto, { background: "#74b816" }]} />Pré-Libertadores
+                    <View style={[styles.ponto, { backgroundColor: "#74b816" }]} />Pré-Libertadores
                 </AppText>
                 <AppText>
-                    <View style={[styles.ponto, { background: "#f59f00" }]} />Sul-Americana
+                    <View style={[styles.ponto, { backgroundColor: "#f59f00" }]} />Sul-Americana
                 </AppText>
                 <AppText>
-                    <View style={[styles.ponto, { background: "#fa5252" }]} />Rebaixamento
+                    <View style={[styles.ponto, { backgroundColor: "#fa5252" }]} />Rebaixamento
                 </AppText>
-            </View>
+            </View>}
 
         </ScrollView>
     );
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     th: {
         minWidth: '7%',
         fontSize: 11,
-        fontWeight: '700',
+        fontWeight: 700,
         color: '#888',
         textAlign: 'center',
         paddingVertical: 8,
@@ -143,17 +143,17 @@ const styles = StyleSheet.create({
     },
 
     pontos: {
-        fontWeight: '800',
+        fontWeight: 800,
     },
 
     saldoPositivo: {
         color: '#2f9e44',
-        fontWeight: '700',
+        fontWeight: 700,
     },
 
     saldoNegativo: {
         color: '#e03131',
-        fontWeight: '700',
+        fontWeight: 700,
     },
 
     legendaTabela: {
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 14,
-        fontWeight: '300',
+        fontWeight: 300,
         color: '#666',
     },
 
