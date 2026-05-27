@@ -40,7 +40,7 @@ export default function SignUp({ navigation }) {
     }
   };
 
-    const handleSignUp = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
 
     try {
@@ -51,7 +51,7 @@ export default function SignUp({ navigation }) {
     }
   };
 
-    const signUpWithGoogle = async () => {
+  const signUpWithGoogle = async () => {
     try {
       await registerWithGoogle();
       navigation.navigate(Routes.DRAWER);
@@ -126,7 +126,6 @@ export default function SignUp({ navigation }) {
 const styles = StyleSheet.create({
   pageWrapper: {
     flex: 1,
-    padding: 20,
     display: 'flex',
     backgroundColor: ColorTypes.BACKGROUNDWHITE,
     color: ColorTypes.TEXTDARK,
@@ -135,8 +134,8 @@ const styles = StyleSheet.create({
   backButton: {
     position: 'absolute',
     zIndex: 10,
-    top: '10px',
-    left: '0px',
+    top: '20px',
+    left: '20px',
     border: 'none',
     display: 'flex',
     alignItems: 'center',
@@ -148,6 +147,8 @@ const styles = StyleSheet.create({
 
   loginContainer: {
     width: '100%',
+    paddingTop: 50,
+    paddingBottom: 70,
     maxWidth: '300px',
     display: 'flex',
     flexDirection: 'column',

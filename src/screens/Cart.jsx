@@ -1,5 +1,5 @@
 import { StyleSheet, View, ScrollView, Image } from 'react-native';
-import { useState, useCallback} from 'react';
+import { useState, useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import AppText from '../components/common/AppText';
 import ColorTypes from '../enumsCategories/ColorTypes';
@@ -15,16 +15,15 @@ export default function Cart() {
     const itens = cart.length
     const subTitle = itens + (itens <= 1 ? " Item" : " Itens")
 
-useFocusEffect(
-    useCallback(() => {
-        async function loadCart() {
-            const products = await returnProducts();
-            setCart(products);
-        }
-
-        loadCart();
-    }, [])
-);
+    useFocusEffect(
+        useCallback(() => {
+            async function loadCart() {
+                const products = await returnProducts();
+                setCart(products);
+            }
+            loadCart();
+        }, [])
+    );
 
     function saveCart(updated) {
         setCart(updated);

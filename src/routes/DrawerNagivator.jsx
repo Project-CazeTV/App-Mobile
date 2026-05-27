@@ -18,6 +18,7 @@ import DashboardShopNavigator from './DashboardShopNavigator';
 import HistoryScreen from '../screens/History';
 import { userAuth } from '../hooks/UserAuth';
 import { useAccountMenu } from '../hooks/useAccountMenu';
+import LogoutTogglePortal from '../features/Sign/LogoutTogglePortal';
 
 const Drawer = createDrawerNavigator();
 
@@ -97,9 +98,7 @@ function CustomHeader({ navigation }) {
 
         const firstName = user.displayName.split(' ')[0];
         return (
-            <Pressable onPress={() => accountMenu.logout()}>
-                <AppText style={styles.avatarInitial}>Olá, {firstName}</AppText>
-            </Pressable>
+            <LogoutTogglePortal onLogout={accountMenu.logout} name={firstName} />
         );
     }
 
@@ -131,6 +130,7 @@ function CustomHeader({ navigation }) {
 }
 
 function CustomDrawerContent(props) {
+    const { user } = userAuth();
     return (
         <DrawerContentScrollView
             {...props}
@@ -177,7 +177,7 @@ function CustomDrawerContent(props) {
             <View style={stylesDrawerContent.divider} />
             <DrawerItem
                 label="LOJA"
-                onPress={() => props.navigation.navigate(Routes.SHOPDASHBOARD)}
+                onPress={() => (user ? props.navigation.navigate(Routes.SHOPDASHBOARD) : props.navigation.navigate(Routes.LOGIN))}
             />
 
             <View style={stylesDrawerContent.divider} />
@@ -236,19 +236,6 @@ const stylesHeader = StyleSheet.create({
         backgroundColor: "#86868636",
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    avatarInitial: {
-        width: 80,
-        paddingTop: 20,
-        paddingBottom: 20,
-        color: ColorTypes.DARK,
-        opacity: 0.9,
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        fontWeight: 800,
-        fontSize: 14,
-        position: 'relative',
     },
 });
 
