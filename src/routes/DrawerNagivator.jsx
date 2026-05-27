@@ -4,6 +4,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import ColorTypes from '../enumsCategories/ColorTypes';
+import AppText from '../components/common/AppText';
 import Routes from '.';
 import ProfileScreen from '../screens/Profile';
 import LoginScreen from '../screens/Login';
@@ -15,6 +16,8 @@ import OthersChampionshipsScreen from '../screens/OthersChampionships';
 import ChampionshipScreen from '../screens/Championship';
 import DashboardShopNavigator from './DashboardShopNavigator';
 import HistoryScreen from '../screens/History';
+import { userAuth } from '../hooks/UserAuth';
+import { useAccountMenu } from '../hooks/useAccountMenu';
 
 const Drawer = createDrawerNavigator();
 
@@ -79,6 +82,27 @@ export default function DrawerNavigator() {
 }
 
 function CustomHeader({ navigation }) {
+    const { user } = userAuth();
+    const accountMenu = useAccountMenu();
+
+    function renderUserButtonContent(styles) {
+        if (!user?.displayName) {
+            return (
+                <Pressable style={styles.profileButton}
+                    onPress={() => navigation.navigate(Routes.LOGIN)}>
+                    <Ionicons name="person" size={25} color="black" />
+                </Pressable>
+            );
+        }
+
+        const firstName = user.displayName.split(' ')[0];
+        return (
+            <Pressable onPress={() => accountMenu.logout()}>
+                <AppText style={styles.avatarInitial}>Olá, {firstName}</AppText>
+            </Pressable>
+        );
+    }
+
     return (
         <View>
             <View style={stylesHeader.topBar}>
@@ -95,10 +119,7 @@ function CustomHeader({ navigation }) {
                 />
 
                 <View style={stylesHeader.rightIcons}>
-                    <Pressable style={stylesHeader.profileButton}
-                        onPress={() => navigation.navigate(Routes.LOGIN)}>
-                        <Ionicons name="person" size={25} color="black" />
-                    </Pressable>
+                    {renderUserButtonContent(stylesHeader)}
 
                     <Pressable onPress={() => navigation.openDrawer()}>
                         <FontAwesome6 name="align-right" size={35} color="black" />
@@ -215,6 +236,19 @@ const stylesHeader = StyleSheet.create({
         backgroundColor: "#86868636",
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    avatarInitial: {
+        width: 80,
+        paddingTop: 20,
+        paddingBottom: 20,
+        color: ColorTypes.DARK,
+        opacity: 0.9,
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        fontWeight: 800,
+        fontSize: 14,
+        position: 'relative',
     },
 });
 
