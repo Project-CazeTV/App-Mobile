@@ -13,12 +13,20 @@
       "backgroundColor": "#0047BB"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Cazé TV needs access to your Camera to capture photos and videos.",
+        "NSMicrophoneUsageDescription": "Cazé TV needs access to your Microphone to record audio for video recordings."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/logos/caze.png",
-        "backgroundColor": "#0047BB"
+        "backgroundColor": "#0047BB",
+        "permissions": [
+          "android.permission.CAMERA",
+          "android.permission.RECORD_AUDIO"
+        ]
       },
       "edgeToEdgeEnabled": true,
       "package": "com.cazetv"

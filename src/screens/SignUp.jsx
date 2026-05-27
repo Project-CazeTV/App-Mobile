@@ -20,6 +20,7 @@ import { createUserWithEmailAndPassword, updateProfile, signInWithPopup } from "
 import { registerWithEmail, registerWithGoogle } from '../services/firebase/authService.js';
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
 import Routes from '../routes/.';
+import VerifyCamera from '../services/Camera/VerifyCamera';
 
 export default function SignUp({ navigation }) {
   const [formData, setFormData] = useState({ nome: '', email: '', cep: '', cidade: '', estado: '', senha: '' });
@@ -36,14 +37,16 @@ export default function SignUp({ navigation }) {
       const endereco = await buscarCep(cep);
       setFormData(prev => ({ ...prev, cidade: endereco.cidade, estado: endereco.estado }));
     } catch (err) {
-      console.error("Erro no CEP", err);
+      alert("CEP não encontrado");
     }
   };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-
     try {
+      if (Platform.OS != "web") {
+        <VerifyCamera/>
+      }
       await registerWithEmail(formData);
       navigation.navigate(Routes.DRAWER);
     } catch (error) {
@@ -53,10 +56,13 @@ export default function SignUp({ navigation }) {
 
   const signUpWithGoogle = async () => {
     try {
+      if (Platform.OS != "web") {
+        <VerifyCamera/>
+      }
       await registerWithGoogle();
       navigation.navigate(Routes.DRAWER);
     } catch (error) {
-      alert(error);
+      alert(error.message);
     }
   };
 

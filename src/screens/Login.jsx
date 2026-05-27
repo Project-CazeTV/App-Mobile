@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import { StyleSheet, View, Image, Pressable, TextInput } from 'react-native';
+import { Platform, StyleSheet, View, Image, Pressable, TextInput } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import ColorTypes from '../enumsCategories/ColorTypes';
@@ -14,6 +14,7 @@ import FontTypes from '../enumsCategories/FontTypes';
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../services/firebase/firebaseConfig";
 import Routes from '../routes/.';
+import VerifyCamera from '../services/Camera/VerifyCamera';
 
 export default function LoginPage({ navigation }) {
   const [email, setEmail] = useState('');
@@ -23,6 +24,9 @@ export default function LoginPage({ navigation }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      if (Platform.OS != "web") {
+        <VerifyCamera />
+      }
       await signInWithEmailAndPassword(auth, email, senha);
       navigation.navigate(Routes.DRAWER)
     } catch (error) {
@@ -32,6 +36,7 @@ export default function LoginPage({ navigation }) {
 
   const loginWithGoogle = async () => {
     try {
+      <VerifyCamera />
       await signInWithPopup(auth, googleProvider);
       navigation.navigate(Routes.DRAWER)
     } catch (error) {
