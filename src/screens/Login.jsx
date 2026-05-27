@@ -11,44 +11,20 @@ import ButtonGoogle from '../components/common/ButtonGoogle';
 import ButtonSign from '../components/common/ButtonSign';
 import FontTypes from '../enumsCategories/FontTypes';
 
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
-import * as WebBrowser from 'expo-web-browser';
-import * as Google from 'expo-auth-session/providers/google';
-import { auth } from '../services/firebase/firebaseConfig';
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "../services/firebase/firebaseConfig";
 import Routes from '../routes/.';
-
-WebBrowser.maybeCompleteAuthSession();
 
 export default function LoginPage({ navigation }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-
-  const [request, response, promptAsync] = Google.useAuthRequest({
-    expoClientId: 'SEU_EXPO_CLIENT_ID',
-    androidClientId: 'SEU_ANDROID_CLIENT_ID',
-    iosClientId: 'SEU_IOS_CLIENT_ID',
-    webClientId: 'SEU_WEB_CLIENT_ID',
-  });
-
-  useEffect(() => {
-    if (response?.type === 'success') {
-      const { id_token } = response.params;
-      const credential = GoogleAuthProvider.credential(id_token);
-      signInWithCredential(auth, credential)
-        .then(() => {
-          navigation.navigate(Routes.HOME);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  }, [response]);
+  const [error, setError] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, senha);
-      navigation.navigate(Routes.HOME)
+      navigation.navigate(Routes.DRAWER)
     } catch (error) {
       alert("Email ou senha incorretos.");
     }
@@ -56,9 +32,10 @@ export default function LoginPage({ navigation }) {
 
   const loginWithGoogle = async () => {
     try {
-      await promptAsync();
+      await signInWithPopup(auth, googleProvider);
+      navigation.navigate(Routes.DRAWER)
     } catch (error) {
-      console.error('Erro ao logar com Google', error);
+      alert('Erro ao logar com Google', error);
     }
   };
 
@@ -114,7 +91,6 @@ const styles = StyleSheet.create({
     zIndex: 10,
     top: '20px',
     left: '20px',
-    background: 'transparent',
     border: 'none',
     display: 'flex',
     alignItems: 'center',
@@ -150,7 +126,6 @@ const styles = StyleSheet.create({
   },
 
   registerLink: {
-    background: 'transparent',
     border: 'none',
     color: ColorTypes.DARK,
     fontWeight: 700,

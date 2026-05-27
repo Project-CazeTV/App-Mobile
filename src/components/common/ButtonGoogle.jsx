@@ -1,5 +1,6 @@
 import { StyleSheet, Image, Pressable } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import AppText from './AppText';
 import ColorTypes from '../../enumsCategories/ColorTypes';
 import FontTypes from '../../enumsCategories/FontTypes';
 
@@ -14,7 +15,7 @@ export default function ButtonGoogle(props) {
         >
           <Pressable style={styles.googleBtn} onPress={props.function}>
             <Image source={require('../../assets/images/logos/logoGoogle.png')} style={styles.googleLogo}/>
-            {props.hasAccount ? "Logar" : "Cadastrar"} com Google
+            <AppText  style={styles.textBtn}>{props.hasAccount ? "Logar" : "Cadastrar"} com Google</AppText>
           </Pressable>
         </LinearGradient>
     );
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
   googleBtn: {
     width: '100%',
     padding: '12px',
-    paddingInline: '40px',
+    paddingInline: 20,
     backgroundColor: ColorTypes.WHITE,
     borderRadius: '10px',
     display: 'flex',
@@ -58,5 +59,9 @@ const styles = StyleSheet.create({
   googleLogo: {
     height: 20,
     width: 20,
+  },
+
+  textBtn: {
+    fontSize: 14,
   },
 });

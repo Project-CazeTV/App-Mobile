@@ -13,56 +13,39 @@ import ButtonGoogle from '../components/common/ButtonGoogle';
 import ButtonSign from '../components/common/ButtonSign';
 import FontTypes from '../enumsCategories/FontTypes';
 
+import { buscarCep } from '../services/cepService';
+import { auth, db, googleProvider } from '../services/firebase/firebaseConfig.js';
+import { doc, setDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword, updateProfile, signInWithPopup } from "firebase/auth";
+import { registerWithEmail, registerWithGoogle } from '../services/firebase/authService.js';
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
-import * as WebBrowser from 'expo-web-browser';
-import * as Google from 'expo-auth-session/providers/google';
-import { auth } from '../services/firebase/firebaseConfig';
 import Routes from '../routes/.';
 
-WebBrowser.maybeCompleteAuthSession();
-
 export default function SignUp({ navigation }) {
-  const [formData, setFormData] = useState({
-    nome: '', sobrenome: '', email: '', cep: '',
-    rua: '', bairro: '', cidade: '', estado: '', senha: ''
-  });
+  const [formData, setFormData] = useState({ nome: '', email: '', cep: '', cidade: '', estado: '', senha: '' });
 
-const handleCepChange = async (e) => {
-    const cep = e.replace(/\D/g, '');
-    setFormData({ ...formData, cep });
+  const handleCepChange = async (e) => {
+    const cep = e.replace("-", "");
+    if (cep.length < 8) {
+      setFormData(prev => ({ ...prev, cidade: '', estado: '' }));
+    }
+    setFormData(prev => ({ ...prev, cep }));
+    if (cep.length !== 8) return;
 
-    if (cep.length === 8) {
-      try {
-        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-        const data = await response.json();
-        if (!data.erro) {
-          setFormData(prev => ({
-            ...prev,
-            rua: data.logradouro,
-            bairro: data.bairro,
-            cidade: data.localidade,
-            estado: data.uf
-          }));
-        }
-      } catch (err) { console.error("Erro no CEP", err); }
+    try {
+      const endereco = await buscarCep(cep);
+      setFormData(prev => ({ ...prev, cidade: endereco.cidade, estado: endereco.estado }));
+    } catch (err) {
+      console.error("Erro no CEP", err);
     }
   };
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.senha);
-      const user = userCredential.user;
-
-      await updateProfile(user, { displayName: formData.nome });
-
-      await setDoc(doc(db, "usuarios", user.uid), {
-        nome: formData.nome,
-        sobrenome: formData.sobrenome,
-        cep: formData.cep,
-        tipoCadastro: 'manual'
-      });
-
-      navigation.navigate(Routes.DRAWER)
+      await registerWithEmail(formData);
+      navigation.navigate(Routes.DRAWER);
     } catch (error) {
       alert(error.message);
     }
@@ -70,22 +53,12 @@ const handleCepChange = async (e) => {
 
   const signUpWithGoogle = async () => {
     try {
-      const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
-
-      await setDoc(doc(db, "usuarios", user.uid), {
-        nome: user.displayName.split(' ')[0],
-        sobrenome: user.displayName.split(' ').slice(1).join(' '),
-        email: user.email,
-        tipoCadastro: 'google'
-      }, { merge: true });
-
-      navigation.navigate(Routes.DRAWER)
+      await registerWithGoogle();
+      navigation.navigate(Routes.DRAWER);
     } catch (error) {
-      console.error(error);
+      alert(error);
     }
   };
-
 
   return (
     <ScrollView style={styles.pageWrapper} contentContainerStyle={{ alignItems: 'center', justifyContent: 'center' }}>
@@ -108,23 +81,23 @@ const handleCepChange = async (e) => {
             onChangeText={(e) => setFormData(prev => ({ ...prev, email: e }))}
           />
           <AppInput
-            icon={<AntDesign name="audit" size={20} color={ColorTypes.GRAYTEXT} />}
+            icon={<AntDesign name="audit" size={8} color={ColorTypes.GRAYTEXT} />}
             placeholder="CEP"
             value={formData.cep}
             onChangeText={handleCepChange}
           />
           <AppInput
-            icon={<MaterialCommunityIcons name="home-city-outline" size={20} color={ColorTypes.GRAYTEXT} />}
-            placeholder="Rua"
-            value={formData.rua}
-            onChangeText={(e) => setFormData(prev => ({ ...prev, rua: e }))}
+            icon={<MaterialCommunityIcons name="home-city-outline" color={ColorTypes.GRAYTEXT} />}
+            placeholder="Cidade"
+            value={formData.cidade}
+            onChangeText={(e) => setFormData(prev => ({ ...prev, cidade: e }))}
             editable={false}
           />
           <AppInput
-            icon={<MaterialCommunityIcons name="city-variant-outline" size={20} color={ColorTypes.GRAYTEXT} />}
-            placeholder="Cidade"
-            value={formData.cidade}
-            onChangeText={(val) => setFormData(prev => ({ ...prev, cidade: val }))}
+            icon={<MaterialCommunityIcons name="city-variant-outline" color={ColorTypes.GRAYTEXT} />}
+            placeholder="Estado"
+            value={formData.estado}
+            onChangeText={(val) => setFormData(prev => ({ ...prev, estado: val }))}
             editable={false}
           />
           <AppInput
@@ -153,7 +126,6 @@ const handleCepChange = async (e) => {
 const styles = StyleSheet.create({
   pageWrapper: {
     flex: 1,
-    padding: 20,
     display: 'flex',
     backgroundColor: ColorTypes.BACKGROUNDWHITE,
     color: ColorTypes.TEXTDARK,
@@ -162,9 +134,8 @@ const styles = StyleSheet.create({
   backButton: {
     position: 'absolute',
     zIndex: 10,
-    top: '10px',
-    left: '0px',
-    background: 'transparent',
+    top: '20px',
+    left: '20px',
     border: 'none',
     display: 'flex',
     alignItems: 'center',
@@ -176,6 +147,8 @@ const styles = StyleSheet.create({
 
   loginContainer: {
     width: '100%',
+    paddingTop: 50,
+    paddingBottom: 70,
     maxWidth: '300px',
     display: 'flex',
     flexDirection: 'column',
@@ -200,7 +173,6 @@ const styles = StyleSheet.create({
   },
 
   registerLink: {
-    background: 'transparent',
     border: 'none',
     color: ColorTypes.DARK,
     fontWeight: 700,

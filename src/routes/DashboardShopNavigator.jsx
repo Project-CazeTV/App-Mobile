@@ -13,6 +13,10 @@ import ColorTypes from "../enumsCategories/ColorTypes";
 const Tabs = createBottomTabNavigator()
 
 export default function DashboardShopNavigator() {
+    function EmptyScreen() {
+        return null;
+    }
+
     return (
         <Tabs.Navigator screenOptions={{
             headerShown: false,
@@ -53,7 +57,15 @@ export default function DashboardShopNavigator() {
                     )
                 }}/> */}
             <Tabs.Screen
-                name={Routes.CART} component={CartScreen}
+                name={Routes.CART}
+                // component={CartScreen}
+                component={EmptyScreen}
+                listeners={({ navigation }) => ({
+                    tabPress: (e) => {
+                        e.preventDefault();
+                        navigation.push(Routes.CART);
+                    },
+                })}
                 options={{
                     headerShown: false,
                     tabBarStyle: {
