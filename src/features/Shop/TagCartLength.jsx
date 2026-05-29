@@ -1,0 +1,52 @@
+import { StyleSheet, ScrollView, View } from 'react-native';
+import ColorTypes from '../../enumsCategories/ColorTypes';
+import AppText from "../../components/common/AppText";
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+
+export default function TagCartLength({ cartLength }) {
+    return (
+        (cartLength > 0 && (
+                    <View style={styles.container}>
+            <View style={styles.triangle}>
+                <AppText style={[styles.tagText, { left: (cartLength > 99 ? 85 : 90)}]}>
+                    {cartLength}
+                <FontAwesome5 style={styles.icon} name="cart-plus" size={20} color={ColorTypes.WHITE} />
+
+                </AppText>
+            </View>
+        </View>
+        ))
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        position: "absolute",
+        bottom: 0,
+        right: 0,
+    },
+
+    triangle: {
+        width: 0,
+        height: 0,
+        borderTopWidth: 60,
+        borderRightWidth: 150,
+        borderTopColor: "transparent",
+        borderRightColor: ColorTypes.BLUE,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    tagText: {
+        position: "absolute",
+        top: -32,
+        // left: 90,
+        color: ColorTypes.WHITE,
+        fontSize: 18,
+        fontWeight: 700,
+    },
+
+    icon: {
+        marginLeft: 5,
+    },
+});
