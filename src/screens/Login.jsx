@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Platform, StyleSheet, View, Image, Pressable, TextInput } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, View, Pressable } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import ColorTypes from '../enumsCategories/ColorTypes';
@@ -9,26 +8,26 @@ import HeaderSign from '../components/common/HeaderSign';
 import AppInput from '../components/common/AppInput';
 import ButtonGoogle from '../components/common/ButtonGoogle';
 import ButtonSign from '../components/common/ButtonSign';
-import FontTypes from '../enumsCategories/FontTypes';
 
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../services/firebase/firebaseConfig";
 import Routes from '../routes/.';
-import VerifyCamera from '../services/Camera/VerifyCamera';
+// IMPORTAÇÃO NOVA AQUI:
+import { authenticateWithBiometrics } from '../services/Camera/FaceIdService'; 
 
 export default function LoginPage({ navigation }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [error, setError] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      if (Platform.OS != "web") {
-        <VerifyCamera />
-      }
+      const isAuth = await authenticateWithBiometrics();
+
+      if (!isAuth) return; 
+
       await signInWithEmailAndPassword(auth, email, senha);
-      navigation.navigate(Routes.DRAWER)
+      navigation.navigate(Routes.DRAWER);
     } catch (error) {
       alert("Email ou senha incorretos.");
     }
@@ -36,11 +35,15 @@ export default function LoginPage({ navigation }) {
 
   const loginWithGoogle = async () => {
     try {
-      <VerifyCamera />
+
+      const isAuth = await authenticateWithBiometrics();
+
+      if (!isAuth) return;
+
       await signInWithPopup(auth, googleProvider);
-      navigation.navigate(Routes.DRAWER)
+      navigation.navigate(Routes.DRAWER);
     } catch (error) {
-      alert('Erro ao logar com Google', error);
+      alert('Erro ao logar com Google');
     }
   };
 
@@ -88,9 +91,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: ColorTypes.BACKGROUNDWHITE,
-    color: ColorTypes.TEXTDARK,
   },
-
   backButton: {
     position: 'absolute',
     zIndex: 10,
@@ -101,9 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 8,
     borderRadius: 9999,
-    color: ColorTypes.DARK,
   },
-
   loginContainer: {
     width: '100%',
     maxWidth: 300,
@@ -111,7 +110,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
   },
-
   form: {
     width: '100%',
     display: 'flex',
@@ -119,19 +117,16 @@ const styles = StyleSheet.create({
     gap: 15,
     alignItems: 'center',
   },
-
   switchArea: {
     display: 'flex',
     alignItems: 'center',
     gap: 5,
     marginTop: 25,
-    fontSize: 12,
     opacity: 0.8,
   },
-
   registerLink: {
     color: ColorTypes.DARK,
-    fontWeight: 700,
+    fontWeight: '700',
     padding: 0,
     fontSize: 12,
   },
