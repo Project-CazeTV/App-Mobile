@@ -16,7 +16,7 @@ export default function News({ route }) {
             </AppText>
             <AppText style={styles.date}><FontAwesome5 name="clock" size={14}/> {noticia.tempo}</AppText>
             <AppText style={styles.title}>{noticia.titulo}</AppText>
-            <Image source={noticia.imagem} style={styles.image}/>
+            <Image source={{ uri: noticia.imagem }} style={styles.image} />
             <View style={[styles.separator, { backgroundColor: noticia.tagColor }]} />
             <AppText style={styles.description}>{noticia.descricao}</AppText>
             <View style={styles.body}>{noticia.corpo?.split('\n\n').map((paragrafo) => (<AppText style={styles.paragraph}>{paragrafo}</AppText>))}</View>

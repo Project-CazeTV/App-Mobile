@@ -30,10 +30,7 @@ export default function NewsList({ noticias = [], title, subtitle }) {
                         {noticia.categoria}
                     </AppText>
                     <View style={styles.imageWrapper}>
-                        <Image
-                            source={noticia.imagem}
-                            style={styles.image}
-                        />
+                        <Image source={{ uri: noticia.imagem }} style={styles.image} />
                     </View>
                     <View style={styles.content}>
                         <AppText style={styles.newsTitle}>{noticia.titulo}</AppText>
