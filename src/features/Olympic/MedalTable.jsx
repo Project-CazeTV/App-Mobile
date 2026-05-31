@@ -37,10 +37,10 @@ export default function MedalTable({ edicao }) {
               return (
                 <View key={item.id} style={styles.row}>
                   <AppText style={styles.tdRank}>{rank}</AppText>
-                  <AppText style={styles.tdCountry}>
-                    <Image style={styles.flag} source={item.flag}/>
+                  <View style={styles.tdCountry}>
+                    <Image style={styles.flag} source={item.flag} />
                     <AppText style={styles.country}>{item.country}</AppText>
-                  </AppText>
+                  </View>
                   <AppText style={[styles.tdMedal, styles.gold]}>{item.gold}</AppText>
                   <AppText style={[styles.tdMedal, styles.silver]}>{item.silver}</AppText>
                   <AppText style={[styles.tdMedal, styles.bronze]}>{item.bronze}</AppText>

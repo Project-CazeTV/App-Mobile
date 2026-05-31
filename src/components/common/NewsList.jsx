@@ -30,10 +30,7 @@ export default function NewsList({ noticias = [], title, subtitle }) {
                         {noticia.categoria}
                     </AppText>
                     <View style={styles.imageWrapper}>
-                        <Image
-                            source={noticia.imagem}
-                            style={styles.image}
-                        />
+                        <Image source={{ uri: noticia.imagem }} style={styles.image} />
                     </View>
                     <View style={styles.content}>
                         <AppText style={styles.newsTitle}>{noticia.titulo}</AppText>
@@ -44,8 +41,9 @@ export default function NewsList({ noticias = [], title, subtitle }) {
                             <Pressable
                                 style={styles.verMais}
                                 onPress={() => onVerMais?.(noticia)}
-                            >
+                            ><AppText>
                                 Ver mais <Entypo name="arrow-with-circle-right" size={16} style={{ opacity: 0.8 }} color={ColorTypes.DARK} />
+                            </AppText>
                             </Pressable>
                             <AppText style={styles.tempo}>
                                 <FontAwesome5 name="clock" size={15} /> {noticia.tempo}

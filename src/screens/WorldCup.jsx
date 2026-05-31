@@ -28,7 +28,7 @@ export default function WorldCup({ route }) {
       {category === WorldCupCategories.INFORMATIONS && (<>
         <CopaSede sedes={sedes} />
         <FeaturedPlayers players={players} />
-        <View className={styles.convocadosSection}>
+        <View style={styles.convocadosSection}>
           <ConvocationCard
             title="Convocação"
             subtitle="Veja como foi a convocação dos jogadores para a Copa do Mundo 2026."

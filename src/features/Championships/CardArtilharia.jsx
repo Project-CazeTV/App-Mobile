@@ -8,9 +8,9 @@ export default function CardArtilharia({ artilheiro, logoTeam, showGoals = false
     return (
         <View style={styles.playerCard}>
             <Image
-                source={artilheiro.imagem}
-                style={styles.playerPhoto}
-            />
+              source={{ uri: artilheiro.imagem }}
+              style={styles.playerPhoto}
+          />
             <View style={styles.playerOverlay}>
                 <AppText style={styles.playerPosition}>{artilheiro.posicao}</AppText>
                 <AppText style={styles.playerName}>{artilheiro.nome}</AppText>

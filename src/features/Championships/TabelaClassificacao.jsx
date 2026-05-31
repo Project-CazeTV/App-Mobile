@@ -73,20 +73,29 @@ export default function TabelaClassificacao({ tabela, mostrarLegenda = true }) {
                 </View>
             </View>
 
-            {mostrarLegenda && <View style={styles.legendaTabela}>
-                <AppText>
-                    <View style={[styles.ponto, { backgroundColor: "#3b5bdb" }]} />Libertadores
-                </AppText>
-                <AppText>
-                    <View style={[styles.ponto, { backgroundColor: "#74b816" }]} />Pré-Libertadores
-                </AppText>
-                <AppText>
-                    <View style={[styles.ponto, { backgroundColor: "#f59f00" }]} />Sul-Americana
-                </AppText>
-                <AppText>
-                    <View style={[styles.ponto, { backgroundColor: "#fa5252" }]} />Rebaixamento
-                </AppText>
-            </View>}
+            {mostrarLegenda && (
+                <View style={styles.legendaTabela}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                        <View style={[styles.ponto, { backgroundColor: "#3b5bdb" }]} />
+                        <AppText>Libertadores</AppText>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                        <View style={[styles.ponto, { backgroundColor: "#74b816" }]} />
+                        <AppText>Pré-Libertadores</AppText>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                        <View style={[styles.ponto, { backgroundColor: "#f59f00" }]} />
+                        <AppText>Sul-Americana</AppText>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                        <View style={[styles.ponto, { backgroundColor: "#fa5252" }]} />
+                        <AppText>Rebaixamento</AppText>
+                    </View>
+                </View>
+            )}
 
         </ScrollView>
     );
