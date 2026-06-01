@@ -46,7 +46,7 @@ export default function App() {
       {Platform.OS != 'web' && <FontAwesome5 style={styles.iconPlatform} name={icon} size={60} color={ColorTypes.GRAY} />}
     </View>
   );
-}
+
 
 const styles = StyleSheet.create({
   loadingContainer: {
