@@ -14,6 +14,7 @@ export default function App() {
       [FontTypes.COPA]: require('./src/assets/fonts/fifa-26.otf'),
       [FontTypes.SORA]: require('./src/assets/fonts/Sora-VariableFont_wght.ttf'),
   });
+  const icon = Platform.OS === 'android' ? "android" : Platform.OS === 'ios' ? "apple" : ''};
 
   const [showLoadingScreen, setLoadingScreen] = useState(true);
   useEffect(() => {
@@ -42,6 +43,7 @@ export default function App() {
     <View style={styles.loadingContainer}>
       <Image style={styles.logo} source={require('./src/assets/images/logos/caze.png')}/>
       <Image style={styles.loadingBar} source={require('./src/assets/videos/loadingBar.gif')}/>
+      {Platform.OS != 'web' && <FontAwesome5 style={styles.iconPlatform} name={icon} size={60} color={ColorTypes.GRAY} />}
     </View>
   );
 }
@@ -63,5 +65,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     marginBottom: -100,
     width: 200,
+  },
+    iconPlatform: {
+    position: 'absolute',
+    marginBottom: -120,
   },
 });
