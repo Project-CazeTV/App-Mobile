@@ -32,12 +32,12 @@ const cores = [ColorTypes.ORANGE, ColorTypes.RED, ColorTypes.GREEN, ColorTypes.B
 
 const styles = StyleSheet.create({
     section: {
-        maxWidth: '780px',
+        maxWidth: 780,
         margin: 'auto',
-        paddingBottom: '80px',
-        paddingTop: '48px',
-        paddingLeft: '20px',
-        paddingRight: '20px',
+        paddingBottom: 80,
+        paddingTop: 48,
+        paddingLeft: 20,
+        paddingRight: 20,
         display: 'flex',
         flexDirection: 'column',
         gap: 0,
@@ -46,14 +46,14 @@ const styles = StyleSheet.create({
     capitulo: {
         display: 'flex',
         flexDirection: 'column',
-        gap: '20px',
+        gap: 20,
         paddingBottom: 80,
     },
 
     conteudo: {
         display: 'flex',
         flexDirection: 'column',
-        gap: '16px',
+        gap: 16,
     },
 
     paragrafo: {

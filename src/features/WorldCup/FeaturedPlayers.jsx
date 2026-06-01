@@ -8,15 +8,19 @@ export default function FeaturedPlayers({ players }) {
     const PlayerCard = ({ object }) => (
         <View style={styles.playerCard}>
             <Image
-                source={object.imagem}
+                source={
+                    typeof object.imagem === 'string'
+                        ? { uri: object.imagem }
+                        : object.imagem
+                }
                 style={styles.playerPhoto}
             />
             <LinearGradient style={styles.playerOverlay}
-            colors={[
-                'transparent',
-                'rgba(0,0,0,0.75)',
-                'rgba(0,0,0,0.85)',
-            ]}>
+                colors={[
+                    'transparent',
+                    'rgba(0,0,0,0.75)',
+                    'rgba(0,0,0,0.85)',
+                ]}>
                 <AppText style={styles.playerPosition}>{object.posicao}</AppText>
                 <AppText style={styles.playerName}>{object.nome}</AppText>
                 <AppText style={styles.playerCountry}>{object.pais} · {object.clube}</AppText>
@@ -25,12 +29,12 @@ export default function FeaturedPlayers({ players }) {
     );
 
     return (
-        <View>            
+        <View>
             <View style={styles.container}>
                 <AppText style={styles.title}>JOGADORES DE DESTAQUE</AppText>
                 <AppText style={styles.subtitle}>Os craques que vão fazer história na Copa do Mundo 2026</AppText>
             </View>
-            <CardGesturePass list={players} CardComponent={PlayerCard}/>
+            <CardGesturePass list={players} CardComponent={PlayerCard} />
         </View>
     );
 }
@@ -45,7 +49,7 @@ const styles = StyleSheet.create({
     title: {
         textAlign: 'center',
         fontSize: 14,
-        fontWeight: '700',
+        fontWeight: 700,
         letterSpacing: 1.5,
         marginBottom: 6,
     },
@@ -92,7 +96,7 @@ const styles = StyleSheet.create({
 
     playerPosition: {
         fontSize: 10,
-        fontWeight: '600',
+        fontWeight: 600,
         color: ColorTypes.GRAY,
         letterSpacing: 1,
         textTransform: 'uppercase',
@@ -100,7 +104,7 @@ const styles = StyleSheet.create({
 
     playerName: {
         fontSize: 15,
-        fontWeight: '800',
+        fontWeight: 800,
         color: ColorTypes.WHITE,
         lineHeight: 18,
     },

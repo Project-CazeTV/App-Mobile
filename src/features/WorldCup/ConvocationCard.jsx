@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
 
     sectionTitle: {
         fontSize: 30,
-        fontWeight: "800",
+        fontWeight: 800,
         color: "#111",
     },
 

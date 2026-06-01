@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
 
     title: {
         fontSize: 14,
-        fontWeight: "700",
+        fontWeight: 700,
         letterSpacing: 1.5,
         color: "#111",
         marginBottom: 4,
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
 
     athleteModality: {
         fontSize: 10,
-        fontWeight: "600",
+        fontWeight: 600,
         color: "rgba(255,255,255,0.65)",
         letterSpacing: 1,
         textTransform: "uppercase",
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
 
     athleteName: {
         fontSize: 15,
-        fontWeight: "800",
+        fontWeight: 800,
         color: "#fff",
         lineHeight: 18,
     },

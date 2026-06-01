@@ -37,10 +37,10 @@ export default function MedalTable({ edicao }) {
               return (
                 <View key={item.id} style={styles.row}>
                   <AppText style={styles.tdRank}>{rank}</AppText>
-                  <AppText style={styles.tdCountry}>
-                    <Image style={styles.flag} source={item.flag}/>
+                  <View style={styles.tdCountry}>
+                    <Image style={styles.flag} source={item.flag} />
                     <AppText style={styles.country}>{item.country}</AppText>
-                  </AppText>
+                  </View>
                   <AppText style={[styles.tdMedal, styles.gold]}>{item.gold}</AppText>
                   <AppText style={[styles.tdMedal, styles.silver]}>{item.silver}</AppText>
                   <AppText style={[styles.tdMedal, styles.bronze]}>{item.bronze}</AppText>
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 22,
-    fontWeight: "800",
+    fontWeight: 800,
     color: "#111",
     letterSpacing: -0.3,
   },
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
 
   th: {
     fontSize: 11,
-    fontWeight: "700",
+    fontWeight: 700,
     color: "rgba(0,0,0,0.4)",
     textTransform: "uppercase",
     letterSpacing: 1,
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     width: 48,
     textAlign: "center",
     fontSize: 13,
-    fontWeight: "700",
+    fontWeight: 700,
     color: "rgba(0,0,0,0.35)",
   },
 
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
 
   country: {
     fontSize: 14,
-    fontWeight: "600",
+    fontWeight: 600,
     color: "#111",
     paddingLeft: 12,
   },
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
   tdMedal: {
     width: 52,
     textAlign: "center",
-    fontWeight: "800",
+    fontWeight: 800,
     fontSize: 14,
   },
 
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
   tdTotal: {
     width: 60,
     textAlign: "center",
-    fontWeight: "800",
+    fontWeight: 800,
     fontSize: 14,
     color: "#111",
   },

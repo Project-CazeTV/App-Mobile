@@ -99,42 +99,42 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '20px',
-        marginBottom: '25px',
+        gap: 20,
+        marginBottom: 25,
     },
 
     logoFifa: {
-        height: '60px',
-        width: '60px',
+        height: 60,
+        width: 60,
         resizeMode: 'contain',
     },
 
     logoCbf: {
-        height: '60px',
-        width: '60px',
+        height: 60,
+        width: 60,
         resizeMode: 'contain',
     },
 
     divider: {
-        width: '1px',
-        height: '50px',
+        width: 1,
+        height: 50,
         backgroundColor: ColorTypes.GRAY,
         opacity: 0.3,
     },
 
     titleText: {
-        fontSize: '1.1rem',
+        fontSize: 17.6,
         fontWeight: 800,
         textTransform: 'uppercase',
-        letterSpacing: '0.5px',
-        marginBottom: '50px',
-        lineHeight: '1.2',
+        letterSpacing: 0.5,
+        marginBottom: 50,
+        lineHeight: 1.2,
         color: ColorTypes.WHITE,
     },
 
     countdownGrid: {
         flexDirection: 'row',
-        gap: '15px',
+        gap: 15,
         boxSizing: 'border-box',
     },
 
@@ -144,14 +144,14 @@ const styles = StyleSheet.create({
     },
 
     value: {
-        fontSize: '2rem',
+        fontSize: 32,
         fontWeight: 900,
         lineHeight: 1,
         color: ColorTypes.WHITE,
     },
 
     label: {
-        fontSize: '0.8rem',
+        fontSize: 12.8,
         fontWeight: 400,
         textTransform: 'capitalize',
         opacity: 0.7,

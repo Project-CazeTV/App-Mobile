@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        gap: '20px',
-        marginBottom: '30px',
+        gap: 20,
+        marginBottom: 30,
     },
 
     logoCaze: {
@@ -44,15 +44,15 @@ const styles = StyleSheet.create({
     },
 
     divider: {
-        width: '2px',
-        height: '50px',
+        width: 2,
+        height: 50,
         backgroundColor: ColorTypes.GRAY,
     },
 
     welcomeText: {
-        fontSize: '13px',
+        fontSize: 13,
         textAlign: 'center',
-        marginBottom: '30px',
-        maxWidth: '300px',
+        marginBottom: 30,
+        maxWidth: 300,
     },
 });

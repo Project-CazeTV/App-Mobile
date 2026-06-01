@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import { LinearGradient } from 'expo-linear-gradient';
-import { StyleSheet, ScrollView, View, Image, Pressable, TextInput } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, ScrollView, View, Pressable } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import Feather from '@expo/vector-icons/Feather';
@@ -11,15 +10,12 @@ import HeaderSign from '../components/common/HeaderSign';
 import AppInput from '../components/common/AppInput';
 import ButtonGoogle from '../components/common/ButtonGoogle';
 import ButtonSign from '../components/common/ButtonSign';
-import FontTypes from '../enumsCategories/FontTypes';
 
 import { buscarCep } from '../services/cepService';
-import { auth, db, googleProvider } from '../services/firebase/firebaseConfig.js';
-import { doc, setDoc } from "firebase/firestore";
-import { createUserWithEmailAndPassword, updateProfile, signInWithPopup } from "firebase/auth";
 import { registerWithEmail, registerWithGoogle } from '../services/firebase/authService.js';
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
 import Routes from '../routes/.';
+// IMPORTAÇÃO NOVA AQUI:
+import { authenticateWithBiometrics } from '../services/Camera/FaceIdService';
 
 export default function SignUp({ navigation }) {
   const [formData, setFormData] = useState({ nome: '', email: '', cep: '', cidade: '', estado: '', senha: '' });
@@ -36,14 +32,16 @@ export default function SignUp({ navigation }) {
       const endereco = await buscarCep(cep);
       setFormData(prev => ({ ...prev, cidade: endereco.cidade, estado: endereco.estado }));
     } catch (err) {
-      console.error("Erro no CEP", err);
+      alert("CEP não encontrado");
     }
   };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-
     try {
+      const isAuth = await authenticateWithBiometrics();
+      if (!isAuth) return;
+      
       await registerWithEmail(formData);
       navigation.navigate(Routes.DRAWER);
     } catch (error) {
@@ -53,10 +51,13 @@ export default function SignUp({ navigation }) {
 
   const signUpWithGoogle = async () => {
     try {
+      const isAuth = await authenticateWithBiometrics();
+      if (!isAuth) return;
+
       await registerWithGoogle();
       navigation.navigate(Routes.DRAWER);
     } catch (error) {
-      alert(error);
+      alert(error.message);
     }
   };
 
@@ -128,55 +129,45 @@ const styles = StyleSheet.create({
     flex: 1,
     display: 'flex',
     backgroundColor: ColorTypes.BACKGROUNDWHITE,
-    color: ColorTypes.TEXTDARK,
   },
-
   backButton: {
     position: 'absolute',
     zIndex: 10,
-    top: '20px',
-    left: '20px',
-    border: 'none',
+    top: 20,
+    left: 20,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '8px',
-    borderRadius: '50%',
-    color: ColorTypes.DARK,
+    padding: 8,
+    borderRadius: 9999,
   },
-
   loginContainer: {
     width: '100%',
     paddingTop: 50,
     paddingBottom: 70,
-    maxWidth: '300px',
+    maxWidth: 300,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
-
   form: {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    gap: '15px',
+    gap: 15,
     alignItems: 'center',
   },
-
   switchArea: {
     display: 'flex',
     alignItems: 'center',
-    gap: '5px',
-    marginTop: '25px',
-    fontSize: '12px',
+    gap: 5,
+    marginTop: 25,
     opacity: 0.8,
   },
-
   registerLink: {
-    border: 'none',
     color: ColorTypes.DARK,
-    fontWeight: 700,
-    padding: '0',
-    fontSize: '12px',
+    fontWeight: '700',
+    padding: 0,
+    fontSize: 12,
   },
 });

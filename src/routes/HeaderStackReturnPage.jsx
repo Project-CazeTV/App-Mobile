@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     color: "#111",
     fontSize: 17,
-    fontWeight: "600",
+    fontWeight: 600,
     letterSpacing: 0.2,
   },
 
@@ -60,6 +60,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     color: ColorTypes.WHITE,
     fontSize: 13,
-    fontWeight: "700",
+    fontWeight: 700,
   },
 });

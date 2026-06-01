@@ -82,14 +82,14 @@ const styles = StyleSheet.create({
 
   label: {
     fontSize: 10,
-    fontWeight: '700',
+    fontWeight: 700,
     letterSpacing: 0.16 * 10,
     color: '#aaa',
   },
   
   letraGrupo: {
     fontSize: 18,
-    fontWeight: '800',
+    fontWeight: 800,
     letterSpacing: -0.02 * 18,
   },
  
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   headerPos: {
     width: 24,
     fontSize: 10,
-    fontWeight: '700',
+    fontWeight: 700,
     letterSpacing: 0.8,
     color: '#bbb',
     textAlign: 'center',
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   headerTime: {
     flex: 1,
     fontSize: 10,
-    fontWeight: '700',
+    fontWeight: 700,
     letterSpacing: 0.08 * 10,
     color: '#bbb',
     textAlign: 'left',
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   headerStat: {
     width: 20,
     fontSize: 10,
-    fontWeight: '700',
+    fontWeight: 700,
     letterSpacing: 0.8,
     color: '#bbb',
     textAlign: 'center',
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
 pos: {
     width: 24,
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: 600,
     color: '#999',
     textAlign: 'center',
   },
@@ -176,7 +176,7 @@ pos: {
  
   pais: {
     fontSize: 8,
-    fontWeight: '700',
+    fontWeight: 700,
     letterSpacing: 0.08 * 9,
     color: '#ccc',
     width: 22,
@@ -185,7 +185,7 @@ pos: {
 nomeTime: {
     flex: 1,
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: 600,
     color: ColorTypes.DARK,
   },
  
@@ -197,18 +197,18 @@ nomeTime: {
   },
 
   pontos: {
-    fontWeight: '800',
+    fontWeight: 800,
     color: ColorTypes.DARK,
   },
  
   saldoPos: {
     color: '#2f9e44',
-    fontWeight: '700',
+    fontWeight: 700,
   },
  
   saldoNeg: {
     color: '#e03131',
-    fontWeight: '700',
+    fontWeight: 700,
   },
 });
 

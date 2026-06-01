@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 
     tabDataText: {
         fontSize: 12,
-        fontWeight: '600',
+        fontWeight: 600,
         color: ColorTypes.DARK,
     },
 
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     dataLabel: {
         textAlign: 'center',
         fontSize: 13,
-        fontWeight: '700',
+        fontWeight: 700,
         color: ColorTypes.DARK,
         marginBottom: 16,
     },

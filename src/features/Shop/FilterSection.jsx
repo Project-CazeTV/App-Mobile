@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
   tituloSecao: {
     fontSize: 20,
-    fontWeight: "800",
+  fontWeight: 800,
     color: ColorTypes.DARK,
   },
 
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   filtroBtnText: {
     color: ColorTypes.DARK,
     fontSize: 14,
-    fontWeight: "300",
+    fontWeight: 300,
   },
   
   filtroBtnActive: {

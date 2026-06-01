@@ -83,10 +83,12 @@ export default function DrawerNavigator() {
 }
 
 function CustomHeader({ navigation }) {
-    const { user } = userAuth();
+    const { user, loading } = userAuth();
     const accountMenu = useAccountMenu();
 
     function renderUserButtonContent(styles) {
+        if (loading) return null;
+
         if (!user?.displayName) {
             return (
                 <Pressable style={styles.profileButton}
@@ -231,8 +233,8 @@ const stylesHeader = StyleSheet.create({
     profileButton: {
         width: 45,
         height: 45,
-        borderRadius: '100%',
-        padding: 25,
+        borderRadius: 9999,
+        padding: 10,
         backgroundColor: "#86868636",
         justifyContent: 'center',
         alignItems: 'center',

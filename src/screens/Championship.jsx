@@ -36,72 +36,75 @@ export default function Championship({ route }) {
 
     return (
         <>
-        <HeaderStackReturnPage pageTitle={'Campeonato'} />
-        <ScrollView style={styles.pagina}>
-            <View
-                style={[styles.cabecalho, { borderColor: cor }]}>
-                {campeonato.logo && (
-                    <Image source={campeonato.logo} style={styles.logoCampeonato} />
-                )}
-                <View style={styles.infoCabecalho}>
-                    <AppText style={styles.nomeCampeonato}>{campeonato.nomeCompleto || campeonato.nome}</AppText>
-                    <AppText style={styles.faseAtual}>{campeonato.fase}</AppText>
-                    {campeonato.campeao && (
-                        <AppText style={styles.badgeCampeao}>
-                            🏆 Campeão {campeonato.campeao}
-                        </AppText>
+            <HeaderStackReturnPage pageTitle={'Campeonato'} />
+            <ScrollView style={styles.pagina}>
+                <View
+                    style={[styles.cabecalho, { borderColor: cor }]}>
+                    {campeonato.logo && (
+                        <Image source={campeonato.logo} style={styles.logoCampeonato} />
+                    )}
+                    <View style={styles.infoCabecalho}>
+                        <AppText style={styles.nomeCampeonato}>{campeonato.nomeCompleto || campeonato.nome}</AppText>
+                        <AppText style={styles.faseAtual}>{campeonato.fase}</AppText>
+                        {campeonato.campeao && (
+                            <AppText style={styles.badgeCampeao}>
+                                🏆 Campeão {campeonato.campeao}
+                            </AppText>
+                        )}
+                    </View>
+                </View>
+
+                <View style={styles.conteudo}>
+                    {campeonato.tabela && (
+                        <View style={styles.secao}>
+                            <SectionTitle title="Tabela" color={cor} number={"00"} inline />
+                            <TabelaClassificacao
+                                tabela={campeonato.tabela}
+                                mostrarLegenda={campeonato.id === "brasileirao-2026"}
+                            />
+                        </View>
+                    )}
+
+                    {campeonato.grupos && (
+                        <View style={styles.secao}>
+                            <SectionTitle title="Grupos" color={cor} number={"00"} inline />
+                            <View style={styles.gradeGrupos}>
+                                {campeonato.grupos.map((grupo, indice) => (
+                                    <TabelaGrupo key={indice} grupo={grupo} cor={cor} />
+                                ))}
+                            </View>
+                        </View>
+                    )}
+
+                    {proximosJogos.length > 0 && (
+                        <View style={styles.secao}>
+                            <SectionTitle title="Próximos jogos" color={cor} number={"00"} inline />
+                            <ListaDeJogos jogos={proximosJogos} />
+                        </View>
+                    )}
+
+                    {jogosPassados.length > 0 && (
+                        <View style={styles.secao}>
+                            <SectionTitle title="Jogos passados" color={cor} number={"00"} inline />
+                            <ListaDeJogos jogos={jogosPassados} />
+                        </View>
+                    )}
+
+                    {campeonato.confrontos?.length > 0 && (
+                        <View style={styles.secao}>
+                            <SectionTitle title="Confrontos" color={cor} number={"00"} inline />
+                            <ListaDeJogos jogos={campeonato.confrontos} />
+                        </View>
+                    )}
+
+                    {campeonato.artilharia?.length > 0 && (
+                        <View style={styles.secao}>
+                            <SectionTitle title="Artilharia" color={cor} number={"00"} inline />
+                            <Artilharia artilheiros={campeonato.artilharia} />
+                        </View>
                     )}
                 </View>
-            </View>
-
-            <View style={styles.conteudo}>
-                {campeonato.tabela && (
-                    <section style={styles.secao}>
-                        <SectionTitle title="Tabela" color={cor} number={"00"} inline />
-                        <TabelaClassificacao tabela={campeonato.tabela} mostrarLegenda={campeonato.id === "brasileirao-2026"} />
-                    </section>
-                )}
-
-                {campeonato.grupos && (
-                    <section style={styles.secao}>
-                        <SectionTitle title="Grupos" color={cor} number={"00"} inline />
-                        <View style={styles.gradeGrupos}>
-                            {campeonato.grupos.map((grupo, indice) => (
-                                <TabelaGrupo key={indice} grupo={grupo} cor={cor} />
-                            ))}
-                        </View>
-                    </section>
-                )}
-
-                {proximosJogos.length > 0 && (
-                    <section style={styles.secao}>
-                        <SectionTitle title="Próximos jogos" color={cor} number={"00"} inline />
-                        <ListaDeJogos jogos={proximosJogos} />
-                    </section>
-                )}
-
-                {jogosPassados.length > 0 && (
-                    <section style={styles.secao}>
-                        <SectionTitle title="Jogos passados" color={cor} number={"00"} inline />
-                        <ListaDeJogos jogos={jogosPassados} />
-                    </section>
-                )}
-
-                {campeonato.confrontos?.length > 0 && (
-                    <section style={styles.secao}>
-                        <SectionTitle title="Confrontos" color={cor} number={"00"} inline />
-                        <ListaDeJogos jogos={campeonato.confrontos} />
-                    </section>
-                )}
-
-                {campeonato.artilharia?.length > 0 && (
-                    <section style={styles.secao}>
-                        <SectionTitle title="Artilharia" color={cor} number={"00"} inline />
-                        <Artilharia artilheiros={campeonato.artilharia} />
-                    </section>
-                )}
-            </View>
-        </ScrollView>
+            </ScrollView>
         </>
     );
 }
@@ -140,7 +143,7 @@ const styles = StyleSheet.create({
 
     nomeCampeonato: {
         fontSize: 15,
-        fontWeight: '800',
+        fontWeight: 800,
         color: '#000',
     },
 
@@ -151,7 +154,7 @@ const styles = StyleSheet.create({
 
     badgeCampeao: {
         fontSize: 12,
-        fontWeight: '700',
+        fontWeight: 700,
         color: '#f59f00',
         marginTop: 4,
     },
@@ -170,7 +173,7 @@ const styles = StyleSheet.create({
 
     tituloSecao: {
         fontSize: 18,
-        fontWeight: '800',
+        fontWeight: 800,
         color: '#000',
         marginBottom: 20,
     },

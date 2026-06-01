@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     fontSize: 30,
     lineHeight: 32,
-    fontWeight: "800",
+    fontWeight: 800,
     color: "#111",
     textAlign: "center",
   },
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     marginBottom: 28,
     fontSize: 16,
     lineHeight: 25,
-    fontWeight: "400",
+    fontWeight: 400,
     color: ColorTypes.GRAYTEXT,
     textAlign: "center",
   },
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   homeKitButtonText: {
     color: "#fff",
     fontSize: 14,
-    fontWeight: "500",
+    fontWeight: 500,
   },
 
   homeKitBanner: {

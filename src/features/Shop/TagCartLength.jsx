@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         // left: 90,
         color: ColorTypes.WHITE,
         fontSize: 18,
-        fontWeight: "700",
+        fontWeight: 700,
     },
 
     icon: {

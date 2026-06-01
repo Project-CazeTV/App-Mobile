@@ -16,7 +16,7 @@ export default function News({ route }) {
             </AppText>
             <AppText style={styles.date}><FontAwesome5 name="clock" size={14}/> {noticia.tempo}</AppText>
             <AppText style={styles.title}>{noticia.titulo}</AppText>
-            <Image source={noticia.imagem} style={styles.image}/>
+            <Image source={{ uri: noticia.imagem }} style={styles.image} />
             <View style={[styles.separator, { backgroundColor: noticia.tagColor }]} />
             <AppText style={styles.description}>{noticia.descricao}</AppText>
             <View style={styles.body}>{noticia.corpo?.split('\n\n').map((paragrafo) => (<AppText style={styles.paragraph}>{paragrafo}</AppText>))}</View>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 3,
     fontSize: 11,
-    fontWeight: "700",
+    fontWeight: 700,
     letterSpacing: 1.5,
     textTransform: "uppercase",
     color: ColorTypes.WHITE,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize:  24,
-    fontWeight: "800",
+    fontWeight: 800,
     color: ColorTypes.DARK,
     lineHeight: 32,
     marginBottom: 24,
@@ -85,14 +85,14 @@ const styles = StyleSheet.create({
   description: {
     fontSize:  16,
     color: ColorTypes.DARK,
-    fontWeight: "700",
+    fontWeight: 700,
     opacity: 0.85,
   },
 
   body: {
     fontSize: 14,
     color: ColorTypes.DARK,
-    fontWeight: "300",
+    fontWeight: 300,
     marginVertical: 30,
     opacity: 0.85,
   },

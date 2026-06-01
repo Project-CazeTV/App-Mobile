@@ -30,11 +30,7 @@ export default function NewsList({ noticias = [], title, subtitle }) {
                         {noticia.categoria}
                     </AppText>
                     <View style={styles.imageWrapper}>
-                        <Image
-                            source={noticia.imagem}
-                            style={styles.image}
-                            onError={(e) => { e.target.src = '/placeholder-news.jpg'; }}
-                        />
+                        <Image source={{ uri: noticia.imagem }} style={styles.image} />
                     </View>
                     <View style={styles.content}>
                         <AppText style={styles.newsTitle}>{noticia.titulo}</AppText>
@@ -45,8 +41,9 @@ export default function NewsList({ noticias = [], title, subtitle }) {
                             <Pressable
                                 style={styles.verMais}
                                 onPress={() => onVerMais?.(noticia)}
-                            >
+                            ><AppText>
                                 Ver mais <Entypo name="arrow-with-circle-right" size={16} style={{ opacity: 0.8 }} color={ColorTypes.DARK} />
+                            </AppText>
                             </Pressable>
                             <AppText style={styles.tempo}>
                                 <FontAwesome5 name="clock" size={15} /> {noticia.tempo}
@@ -68,7 +65,7 @@ const styles = StyleSheet.create({
     },
 
     sectionTitle: {
-        fontWeight: '700',
+        fontWeight: 700,
         fontSize: 24,
     },
 
@@ -100,7 +97,7 @@ const styles = StyleSheet.create({
         paddingVertical: 4,
         paddingHorizontal: 12,
         fontSize: 12,
-        fontWeight: '900',
+        fontWeight: 900,
         color: '#fff',
         textTransform: 'uppercase',
         marginBottom: 8,
@@ -108,7 +105,7 @@ const styles = StyleSheet.create({
 
     newsTitle: {
         fontSize: 16,
-        fontWeight: '900',
+        fontWeight: 900,
         lineHeight: 21,
         marginBottom: 10,
     },
@@ -132,7 +129,7 @@ const styles = StyleSheet.create({
         gap: 5,
         opacity: 0.8,
         fontSize: 13,
-        fontWeight: '600',
+        fontWeight: 600,
         fontFamily: FontTypes.SORA,
         color: ColorTypes.DARK,
     },

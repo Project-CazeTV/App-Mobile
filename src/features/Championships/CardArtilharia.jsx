@@ -8,9 +8,9 @@ export default function CardArtilharia({ artilheiro, logoTeam, showGoals = false
     return (
         <View style={styles.playerCard}>
             <Image
-                source={artilheiro.imagem}
-                style={styles.playerPhoto}
-            />
+              source={{ uri: artilheiro.imagem }}
+              style={styles.playerPhoto}
+          />
             <View style={styles.playerOverlay}>
                 <AppText style={styles.playerPosition}>{artilheiro.posicao}</AppText>
                 <AppText style={styles.playerName}>{artilheiro.nome}</AppText>
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 
   playerName: {
     flex: 1,
-    fontWeight: "800",
+    fontWeight: 800,
     fontSize: 14,
     color: ColorTypes.DARK,
   },
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 
   playerGoals: {
     width: 60,
-    fontWeight: "800",
+    fontWeight: 800,
     fontSize: 26,
     color: ColorTypes.DARK,
     textAlign: "center",
