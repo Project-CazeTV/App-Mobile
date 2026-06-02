@@ -1,20 +1,20 @@
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigation from './src/routes/StackNavigator';
 import { useEffect, useState } from 'react';
-import { View, StyleSheet, Image} from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
 import ColorTypes from './src/enumsCategories/ColorTypes';
 import FontTypes from './src/enumsCategories/FontTypes';
 
-SplashScreen.preventAutoHideAsync().catch(() => {});
+SplashScreen.preventAutoHideAsync().catch(() => { });
 
 export default function App() {
-    const [fontsLoaded] = useFonts({
-      [FontTypes.COPA]: require('./src/assets/fonts/fifa-26.otf'),
-      [FontTypes.SORA]: require('./src/assets/fonts/Sora-VariableFont_wght.ttf'),
+  const [fontsLoaded] = useFonts({
+    [FontTypes.COPA]: require('./src/assets/fonts/fifa-26.otf'),
+    [FontTypes.SORA]: require('./src/assets/fonts/Sora-VariableFont_wght.ttf'),
   });
-  const icon = Platform.OS === 'android' ? "android" : Platform.OS === 'ios' ? "apple" : ''};
+  const icon = Platform.OS === 'android' ? "android" : Platform.OS === 'ios' ? "apple" : '';
 
   const [showLoadingScreen, setLoadingScreen] = useState(true);
   useEffect(() => {
@@ -41,12 +41,12 @@ export default function App() {
 
   return (
     <View style={styles.loadingContainer}>
-      <Image style={styles.logo} source={require('./src/assets/images/logos/caze.png')}/>
-      <Image style={styles.loadingBar} source={require('./src/assets/videos/loadingBar.gif')}/>
+      <Image style={styles.logo} source={require('./src/assets/images/logos/caze.png')} />
+      <Image style={styles.loadingBar} source={require('./src/assets/videos/loadingBar.gif')} />
       {Platform.OS != 'web' && <FontAwesome5 style={styles.iconPlatform} name={icon} size={60} color={ColorTypes.GRAY} />}
     </View>
   );
-
+};
 
 const styles = StyleSheet.create({
   loadingContainer: {
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     marginBottom: -100,
     width: 200,
   },
-    iconPlatform: {
+  iconPlatform: {
     position: 'absolute',
     marginBottom: -120,
   },
