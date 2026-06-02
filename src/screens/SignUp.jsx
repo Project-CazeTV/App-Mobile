@@ -14,7 +14,6 @@ import ButtonSign from '../components/common/ButtonSign';
 import { buscarCep } from '../services/cepService';
 import { registerWithEmail, registerWithGoogle } from '../services/firebase/authService.js';
 import Routes from '../routes/.';
-// IMPORTAÇÃO NOVA AQUI:
 import { authenticateWithBiometrics } from '../services/Camera/FaceIdService';
 
 export default function SignUp({ navigation }) {

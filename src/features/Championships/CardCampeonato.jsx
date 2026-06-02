@@ -6,12 +6,13 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function CardCampeonato({ campeonato }) {
     const navigation = useNavigation();
+    const logoSource = typeof campeonato.logo === 'string' ? { uri: campeonato.logo } : campeonato.logo;
 
     return (
         <Pressable onPress={() => navigation.push(Routes.CHAMPIONSHIP, {campeonato})}
             style={[styles.cabecalho, { borderColor: campeonato.cor }]}>
             {campeonato.logo && (
-                <Image source={campeonato.logo} style={styles.logoCampeonato} />
+                <Image source={logoSource} style={styles.logoCampeonato} />
             )}
             <View style={styles.infoCabecalho}>
                 <AppText style={styles.nomeCampeonato}>{campeonato.nomeCompleto || campeonato.nome}</AppText>

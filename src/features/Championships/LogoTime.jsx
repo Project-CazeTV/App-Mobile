@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export default function LogoTime({ url, nomeTime, pendente }) {
   const [imagemQuebrou, setImagemQuebrou] = useState(false);
+  const logoSource = typeof url === 'string' ? { uri: url } : url;
 
   if (pendente) {
     return <View style={styles.logoVazio} />;
@@ -22,7 +23,7 @@ export default function LogoTime({ url, nomeTime, pendente }) {
 
   return (
     <Image
-      source={url}
+      source={logoSource}
       style={styles.logoTime}
       onError={() => setImagemQuebrou(true)}
     />

@@ -106,7 +106,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontFamily: FontTypes.COPA,
     fontSize: 50,
-    fontWeight: 900,
     color: ColorTypes.YELLOW,
     letterSpacing: 3,
     textAlign: 'center',

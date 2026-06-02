@@ -26,7 +26,7 @@ export default function ShopHeader() {
             <View style={styles.carouselContainer}>
                 <View
                     style={[styles.carouselTrack, {
-                        transform: `translateX(-${bannerAtual * 100}%)`,
+                        transform: [{ translateX: -bannerAtual * 320 }],
                     }]}
                 >
                     {banners.map((banner, index) => (

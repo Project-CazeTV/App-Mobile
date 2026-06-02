@@ -9,15 +9,16 @@ import FeaturedAthletes from "../features/Olympic/FeaturedAthletes";
 import NewsList from "../components/common/NewsList";
 
 import { noticiasOlimpiadasMock, noticiasOlimpiadasMock2026 } from "../mocks/news.js";
-import imgOlympicSummer2024 from "../assets/images/banners/jogos_paris_2024.png";
-import imgOlympicWinter2026 from "../assets/images/banners/jogos_olimpicos.png";
 import { Summer2024, winter2026 } from '../mocks/medalData.js';
 import { featuredAthletes, featuredAthletes2026 } from '../mocks/olimpiadas.js';
 import { olympicsStats, olympicsStats2026 } from "../mocks/olimpiadas.js";
 
 export default function Olympic({ route }) {
-  const { category } = route.params;
-  const banner = category === OlympicCategories.SUMMER ? imgOlympicSummer2024 : imgOlympicWinter2026;
+  const category = route?.params?.category ?? OlympicCategories.SUMMER;
+  const banner =
+    category === OlympicCategories.SUMMER
+      ? { uri: 'https://images.pexels.com/photos/863988/pexels-photo-863988.jpeg' }
+      : { uri: 'https://images.pexels.com/photos/848618/pexels-photo-848618.jpeg' };
   const stats = category === OlympicCategories.SUMMER ? olympicsStats : olympicsStats2026;
   const medalData = category === OlympicCategories.SUMMER ? Summer2024 : winter2026;
   const athletes = category === OlympicCategories.SUMMER ? featuredAthletes : featuredAthletes2026;

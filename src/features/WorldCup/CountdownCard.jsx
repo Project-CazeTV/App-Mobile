@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
 
     titleText: {
         fontSize: 17.6,
-        fontWeight: 800,
+        fontFamily: FontTypes.COPA,
         textTransform: 'uppercase',
         letterSpacing: 0.5,
         marginBottom: 50,

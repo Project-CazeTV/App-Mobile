@@ -11,6 +11,7 @@ import { returnProducts, setCart } from '../features/Shop/utils/CartProducts';
 export default function Product({ route }) {
     const { product } = route.params
     const navigation = useNavigation();
+    const imageSource = typeof product.img === 'string' ? { uri: product.img } : product.img;
 
     const [amount, setAmount] = useState(1);
 
@@ -48,7 +49,7 @@ export default function Product({ route }) {
             <View style={styles.page}>
                 <View style={styles.content}>
                     <View style={styles.imgWrapper}>
-                        <Image source={product.img} style={styles.img} />
+                        <Image source={imageSource} style={styles.img} />
                     </View>
 
                     <View style={styles.info}>

@@ -11,6 +11,7 @@ import Artilharia from "../features/Championships/Artilharia";
 
 export default function Championship({ route }) {
     const { campeonato } = route.params;
+    const logoSource = typeof campeonato?.logo === 'string' ? { uri: campeonato.logo } : campeonato?.logo;
 
     if (!campeonato) {
         return (
@@ -41,7 +42,7 @@ export default function Championship({ route }) {
                 <View
                     style={[styles.cabecalho, { borderColor: cor }]}>
                     {campeonato.logo && (
-                        <Image source={campeonato.logo} style={styles.logoCampeonato} />
+                        <Image source={logoSource} style={styles.logoCampeonato} />
                     )}
                     <View style={styles.infoCabecalho}>
                         <AppText style={styles.nomeCampeonato}>{campeonato.nomeCompleto || campeonato.nome}</AppText>

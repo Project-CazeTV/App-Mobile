@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontFamily: FontTypes.COPA,
         fontSize: 40,
-        fontWeight: 800,
         color: ColorTypes.YELLOW,
         letterSpacing: 3,
         textAlign: 'center',

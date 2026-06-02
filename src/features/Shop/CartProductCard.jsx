@@ -5,9 +5,10 @@ import { truncateString } from './utils/ProductCardUtil';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 export default function ProductCard({ produto, onAumentar, onDiminuir, onRemover }) {
+    const imageSource = typeof produto.img === 'string' ? { uri: produto.img } : produto.img;
     return (
         <View style={styles.card}>
-            <Image source={produto.img} style={styles.img} />
+            <Image source={imageSource} style={styles.img} />
 
             <View style={styles.info}>
                 <AppText style={styles.name} numberOfLines={1}>{truncateString(produto.nome, 22)}</AppText>

@@ -9,6 +9,7 @@ import { returnProducts, setCart } from './utils/CartProducts';
 
 export default function ProductCard({ product, appearButton = true }) {
   const navigation = useNavigation();
+  const imageSource = typeof product.img === 'string' ? { uri: product.img } : product.img;
 
   function handleVerProduto() {
     navigation.push(Routes.PRODUCT, { product });
@@ -35,12 +36,13 @@ const addToCart = async (product) => {
     const amount = cart.reduce((total, item) => {
       return total + item.amount;
     }, 0);
+    navigation.push(Routes.CART);
 };
 
   return (
     <Pressable style={styles.card} onPress={handleVerProduto}>
       <View style={styles.imgContainer} >
-        <Image style={styles.cardImage} source={product.img} />
+        <Image style={styles.cardImage} source={imageSource} />
       </View>
 
       <AppText style={styles.cardTitle}>{truncateString(product.nome, 16)}</AppText>
