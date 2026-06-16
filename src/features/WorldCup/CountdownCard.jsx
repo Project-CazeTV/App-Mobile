@@ -22,7 +22,7 @@ export default function CountdownCard() {
                     <Image source={logoCbf} style={styles.logoCbf} />
                 </View>
 
-                <AppText style={styles.titleText}>COPA DO MUNDO É NA CAZÉ TV.</AppText>
+                <AppText style={styles.titleText}>CONTAGEM REGRESSIVA ATÉ O HEXA</AppText>
 
                 <View style={styles.countdownGrid}>
                     {Object.entries(timeLeft).map(([label, value]) => (
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         zIndex: 1,
     },
 
-        DetailsBackground: {
+    DetailsBackground: {
         position: 'absolute',
         overflow: 'hidden',
         width: '100%',
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
 
     titleText: {
         fontSize: 17.6,
-        fontFamily: FontTypes.COPA,
+        fontWeight: 700,
         textTransform: 'uppercase',
         letterSpacing: 0.5,
         marginBottom: 50,
