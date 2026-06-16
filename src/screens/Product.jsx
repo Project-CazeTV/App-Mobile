@@ -7,8 +7,10 @@ import HeaderStackReturnPage from '../routes/HeaderStackReturnPage';
 import RelatedProducts from '../features/Shop/RelatedProducts';
 import { useNavigation } from '@react-navigation/native';
 import { returnProducts, setCart } from '../features/Shop/utils/CartProducts';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Product({ route }) {
+    const insets = useSafeAreaInsets();
     const { product } = route.params
     const navigation = useNavigation();
     const imageSource = typeof product.img === 'string' ? { uri: product.img } : product.img;
@@ -44,7 +46,7 @@ export default function Product({ route }) {
     }
 
     return (
-        <ScrollView>
+        <ScrollView contentContainerStyle={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
             <HeaderStackReturnPage pageTitle={'Produto'} />
             <View style={styles.page}>
                 <View style={styles.content}>

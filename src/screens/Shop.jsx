@@ -36,6 +36,9 @@ export default function Shop({ route }) {
       <ScrollView style={styles.container}>
         <ShopBanner />
         <StatusBar style="auto" />
+        
+        <View style={styles.space}/>
+
         <SectionTitle title={'Últimos Lançamentos'} simple />
         <ProductsCarousel products={ultimosProdutos} autoScroll />
 
@@ -62,4 +65,8 @@ const styles = StyleSheet.create({
     backgroundColor: ColorTypes.WHITE,
     padding: 20,
   },
+
+  space: {
+    height: 30,
+  }
 });

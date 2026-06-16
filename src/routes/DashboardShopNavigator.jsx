@@ -9,10 +9,13 @@ import CartScreen from "../screens/Cart";
 import SearchProductsScreen from "../screens/SearchProducts";
 import ShopCategories from "../enumsCategories/Shops";
 import ColorTypes from "../enumsCategories/ColorTypes";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const Tabs = createBottomTabNavigator()
 
 export default function DashboardShopNavigator() {
+    const insets = useSafeAreaInsets();
+    
     function EmptyScreen() {
         return null;
     }
@@ -25,6 +28,7 @@ export default function DashboardShopNavigator() {
                 height: 65,
                 borderTopWidth: 1,
                 elevation: 0,
+                paddingBottom: insets.bottom,
             },
             tabBarLabelStyle: {
                 fontSize: 12,

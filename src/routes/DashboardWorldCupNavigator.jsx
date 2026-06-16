@@ -8,10 +8,13 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import WorldCupScreen from "../screens/WorldCup";
 import WorldCupCategories from "../enumsCategories/WorldCup";
 import ColorTypes from "../enumsCategories/ColorTypes";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const Tabs = createBottomTabNavigator()
 
 export default function DashboardWorldCupNavigator() {
+    const insets = useSafeAreaInsets();
+
     return (
         <Tabs.Navigator screenOptions={{
             headerShown: false,
@@ -20,6 +23,7 @@ export default function DashboardWorldCupNavigator() {
                 height: 65,
                 borderTopWidth: 1,
                 elevation: 0,
+                paddingBottom: insets.bottom,
             },
             tabBarLabelStyle: {
                 fontSize: 12,

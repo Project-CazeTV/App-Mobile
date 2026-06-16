@@ -6,11 +6,13 @@ import FontTypes from '../enumsCategories/FontTypes';
 import SectionTitle from '../components/common/SectionTitle';
 import CardCampeonato from '../features/Championships/CardCampeonato';
 import { paulista, carioca, mineiro, gauchao, championsLeague, premierLeague, laLiga, bundesliga, serieA, brasileirao, copaDoBrasil, libertadores, sulAmericana } from '../mocks/championships';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function OthersChampionships() {
+    const insets = useSafeAreaInsets();
 
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView style={styles.container} contentContainerStyle={{ paddingTop: insets.top }}>
             <AppText style={styles.titleSection}>Campeonatos</AppText>
             <SectionTitle
                 title={'Estaduais'}
@@ -60,9 +62,9 @@ const styles = StyleSheet.create({
     titleSection: {
         paddingHorizontal: 20,
         marginTop: 20,
-        marginBottom: 20,
+        marginBottom: 30,
         fontFamily: FontTypes.COPA,
-        fontSize: 40,
+        fontSize: 32,
         color: ColorTypes.YELLOW,
         letterSpacing: 3,
         textAlign: 'center',

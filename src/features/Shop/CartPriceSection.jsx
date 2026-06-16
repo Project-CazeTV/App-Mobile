@@ -4,12 +4,22 @@ import AppText from '../../components/common/AppText';
 import ColorTypes from '../../enumsCategories/ColorTypes';
 import { useNavigation } from "@react-navigation/native";
 import { removerCart } from './utils/CartProducts';
+import { userAuth } from '../../hooks/UserAuth';
 
 export default function CartPriceSection({ products }) {
     const navigation = useNavigation()
+    const { user, loading } = userAuth();
+    
+    const verificarLogin = () => {
+        if (!user) {
+            alert("Faça login para finalizar sua compra!");
+            navigation.navigate(Routes.LOGIN);
+        }
+    }
 
     const finalizarCompra = () => {
-        alert("Obrigado por comprar na Cazé Store!")
+        verificarLogin();
+        alert("Obrigado por comprar na Cazé Store!");
         removerCart();
         navigation.navigate(Routes.DRAWER);
     }

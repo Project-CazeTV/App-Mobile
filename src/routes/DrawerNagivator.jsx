@@ -19,6 +19,7 @@ import HistoryScreen from '../screens/History';
 import { userAuth } from '../hooks/UserAuth';
 import { useAccountMenu } from '../hooks/useAccountMenu';
 import LogoutTogglePortal from '../features/Sign/LogoutTogglePortal';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const Drawer = createDrawerNavigator();
 
@@ -83,6 +84,7 @@ export default function DrawerNavigator() {
 }
 
 function CustomHeader({ navigation }) {
+    const insets = useSafeAreaInsets();
     const { user, loading } = userAuth();
     const accountMenu = useAccountMenu();
 
@@ -106,7 +108,7 @@ function CustomHeader({ navigation }) {
 
     return (
         <View>
-            <View style={stylesHeader.topBar}>
+            <View style={[stylesHeader.topBar, { paddingTop: insets.top }]}>
                 <View style={[stylesHeader.color, { backgroundColor: ColorTypes.YELLOW }]} />
                 <View style={[stylesHeader.color, { backgroundColor: ColorTypes.RED }]} />
                 <View style={[stylesHeader.color, { backgroundColor: ColorTypes.GREEN }]} />
@@ -179,7 +181,7 @@ function CustomDrawerContent(props) {
             <View style={stylesDrawerContent.divider} />
             <DrawerItem
                 label="LOJA"
-                onPress={() => (user ? props.navigation.navigate(Routes.SHOPDASHBOARD) : props.navigation.navigate(Routes.LOGIN))}
+                onPress={() => props.navigation.navigate(Routes.SHOPDASHBOARD)}
             />
 
             <View style={stylesDrawerContent.divider} />

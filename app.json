@@ -14,8 +14,10 @@
     },
     "ios": {
       "infoPlist": {
-        "NSFaceIDUsageDescription": "Este aplicativo precisa usar o Face ID para garantir a sua segurança no login."
-      }
+        "NSFaceIDUsageDescription": "Este aplicativo precisa usar o Face ID para garantir a sua segurança no login.",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "bundleIdentifier": "CazeTV-IOS"
     },
     "android": {
       "adaptiveIcon": {

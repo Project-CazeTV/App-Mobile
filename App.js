@@ -24,7 +24,7 @@ export default function App() {
     const endLoadingScreen = setTimeout(async () => {
       setLoadingScreen(false);
       await SplashScreen.hideAsync();
-    }, 3500);
+    }, 5000);
     return () => {
       clearTimeout(endLoadingScreen);
     };
@@ -35,19 +35,12 @@ export default function App() {
   }
 
   if (!showLoadingScreen) {
-    if (platform === 'ios') {
-      return (
-        <SafeAreaProvider>
-          <NavigationContainer>
-            <StackNavigation />
-          </NavigationContainer>
-        </SafeAreaProvider>
-      );
-    }
     return (
-      <NavigationContainer>
-        <StackNavigation />
-      </NavigationContainer>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <StackNavigation />
+        </NavigationContainer>
+      </SafeAreaProvider>
     );
   }
 

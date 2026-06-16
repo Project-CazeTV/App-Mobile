@@ -59,7 +59,7 @@ export default function MedalTable({ edicao }) {
               key={page}
               onPress={() => setCurrentPage(page)}
             >
-              <AppText style={[styles.pageBtn, page === currentPage ? styles.active : '']}>{page}</AppText>
+              <AppText style={[styles.pageBtn, page === currentPage && styles.active]}>{page}</AppText>
             </Pressable>
           ))}
         </View>

@@ -5,10 +5,13 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import OlympicScreen from "../screens/Olympic";
 import OlympicCategories from "../enumsCategories/Olympics";
 import ColorTypes from "../enumsCategories/ColorTypes";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const Tabs = createBottomTabNavigator()
 
 export default function DashboardOlympicNavigator() {
+    const insets = useSafeAreaInsets();
+    
     return (
         <Tabs.Navigator screenOptions={{
             headerShown: false,
@@ -17,6 +20,7 @@ export default function DashboardOlympicNavigator() {
                 height: 65,
                 borderTopWidth: 1,
                 elevation: 0,
+                paddingBottom: insets.bottom,
             },
             tabBarLabelStyle: {
                 fontSize: 12,

@@ -9,6 +9,7 @@ import ProductSection from "../features/Shop/ProductSection";
 import CartPriceSection from "../features/Shop/CartPriceSection";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { returnProducts } from '../features/Shop/utils/CartProducts';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Cart() {
     const [cart, setCart] = useState([]);
@@ -51,7 +52,7 @@ export default function Cart() {
     }
 
     return (
-        <>
+        <SafeAreaView>
             <HeaderStackReturnPage pageTitle={'Meu Carrinho'} pageSubTitle={subTitle} />
             <View style={styles.page}>
                 <View style={styles.content}>
@@ -64,7 +65,7 @@ export default function Cart() {
                 </View>
             </View>
             <CartPriceSection products={cart} />
-        </>
+        </SafeAreaView>
     );
 }
 
