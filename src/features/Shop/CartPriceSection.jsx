@@ -14,11 +14,13 @@ export default function CartPriceSection({ products }) {
         if (!user) {
             alert("Faça login para finalizar sua compra!");
             navigation.navigate(Routes.LOGIN);
+            return false;
         }
+        return true;
     }
 
     const finalizarCompra = () => {
-        verificarLogin();
+        if (!verificarLogin()) return;
         alert("Obrigado por comprar na Cazé Store!");
         removerCart();
         navigation.navigate(Routes.DRAWER);

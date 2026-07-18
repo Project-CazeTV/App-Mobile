@@ -20,7 +20,7 @@ export default function DashboardWorldCupNavigator() {
             headerShown: false,
             tabBarStyle: {
                 backgroundColor: ColorTypes.BACKGROUNDWHITE,
-                height: 65,
+                height: 65 + insets.bottom,
                 borderTopWidth: 1,
                 elevation: 0,
                 paddingBottom: insets.bottom,

@@ -52,7 +52,7 @@ export default function Cart() {
     }
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.safeArea} edges={['bottom']}>
             <HeaderStackReturnPage pageTitle={'Meu Carrinho'} pageSubTitle={subTitle} />
             <View style={styles.page}>
                 <View style={styles.content}>
@@ -70,6 +70,10 @@ export default function Cart() {
 }
 
 const styles = StyleSheet.create({
+    safeArea: {
+        flex: 1,
+        backgroundColor: ColorTypes.BACKGROUNDWHITE,
+    },
     page: {
         flex: 1,
     },

@@ -82,9 +82,7 @@ export default function SearchProducts() {
                 <SearchBar
                     placeHolder={"Procurar produto"}
                     value={pesquisa}
-                    onChange={(e) =>
-                        setPesquisa(e.target.value)
-                    }
+                    onChangeText={setPesquisa}
                 />
                 <FilterSection
                     titulo={"Filtro de preços"}

@@ -36,7 +36,7 @@ export default function ListaDeJogos({ jogos, pendente, }) {
     const jogosDeHoje = jogosPorData[dataAtual] || [];
 
     const goTo = (index) => {
-        if (index < 0 || index > list.length - 1) return;
+        if (index < 0 || index > datas.length - 1) return;
         setIndiceDateAtual(index);
     };
 
@@ -52,7 +52,7 @@ export default function ListaDeJogos({ jogos, pendente, }) {
             <View style={[styles.carouselMobile, styles.apenasMobile]}>
 
                 <Pressable
-                    onPress={() => goTo(currentIndex - 1)}
+                    onPress={() => goTo(indiceDateAtual - 1)}
                     disabled={indiceDateAtual === 0}
                     style={[styles.botaoNavegar, styles.botaoAnterior]}
                 >
@@ -76,7 +76,7 @@ export default function ListaDeJogos({ jogos, pendente, }) {
                 </GestureDetector>
 
                 <Pressable
-                    onPress={() => goTo(currentIndex + 1)}
+                    onPress={() => goTo(indiceDateAtual + 1)}
                     disabled={indiceDateAtual === datas.length - 1}
                     style={[styles.botaoNavegar, styles.botaoProximo]}
                 >

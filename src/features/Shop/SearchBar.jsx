@@ -4,18 +4,17 @@ import ColorTypes from '../../enumsCategories/ColorTypes';
 import { useNavigation } from "@react-navigation/native";
 import EvilIcons from '@expo/vector-icons/EvilIcons';
 
-export default function SearchBar({placeHolder,value,onChange, maxLength=20}) {
+export default function SearchBar({placeHolder,value,onChangeText, maxLength=20}) {
 
     return (
         <View style={styles.searchContainer}>
             <EvilIcons style={styles.icon} name="search" size={26} color="black" />
             <TextInput
-                type="text"
                 placeholder={placeHolder}
                 style={styles.searchBar}
                 value={value}
                 maxLength={maxLength}
-                onChange={onChange}
+                onChangeText={onChangeText}
             />
         </View>
     );

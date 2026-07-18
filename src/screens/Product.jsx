@@ -46,7 +46,7 @@ export default function Product({ route }) {
     }
 
     return (
-        <ScrollView contentContainerStyle={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
+        <ScrollView contentContainerStyle={{ paddingBottom: insets.bottom }}>
             <HeaderStackReturnPage pageTitle={'Produto'} />
             <View style={styles.page}>
                 <View style={styles.content}>

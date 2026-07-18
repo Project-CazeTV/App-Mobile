@@ -4,14 +4,16 @@ import AppText from '../components/common/AppText';
 import ColorTypes from '../enumsCategories/ColorTypes';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function HeaderStackReturnPage({ pageTitle,  pageSubTitle}) {
   const navigation = useNavigation();
   const route = useRoute()
+  const insets = useSafeAreaInsets();
   const returnScreenRoute = route.params?.returnScreen || Routes.HOME;
 
   return (
-    <View style={styles.topBar}>
+    <View style={[styles.topBar, { paddingTop: insets.top + 14 }]}>
       <Pressable style={styles.backBtn} onPress={() => navigation.goBack()}>
         <FontAwesome6 name="arrow-left" size={24} color={ColorTypes.DARK} />
       </Pressable>
