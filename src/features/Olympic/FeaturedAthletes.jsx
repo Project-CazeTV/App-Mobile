@@ -14,7 +14,7 @@ export default function FeaturedAthletes({ athletes }) {
     const AthleteCard = ({ object }) => (
         <View style={styles.athleteCard}>
             <Image
-                source={object.image}
+                source={typeof object.image === 'string' ? { uri: object.image } : object.image}
                 style={styles.athletePhoto}
             />
             <LinearGradient style={styles.athleteOverlay}

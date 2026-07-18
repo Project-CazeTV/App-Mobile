@@ -13,7 +13,6 @@ export default function CountdownCard() {
         <View style={styles.countdownWrapper}>
             <View style={styles.DetailsBackground}>
                 <AppText style={styles.DetailBackground}>2026</AppText>
-                <AppText style={styles.DetailBackground2}>2026</AppText>
             </View>
             <View style={styles.content}>
                 <View style={styles.headerLogos}>
@@ -22,7 +21,7 @@ export default function CountdownCard() {
                     <Image source={logoCbf} style={styles.logoCbf} />
                 </View>
 
-                <AppText style={styles.titleText}>CONTAGEM REGRESSIVA ATÉ O HEXA</AppText>
+                <AppText style={styles.titleText}>CONTAGEM REGRESSIVA PARA A GRANDE FINAL</AppText>
 
                 <View style={styles.countdownGrid}>
                     {Object.entries(timeLeft).map(([label, value]) => (
@@ -60,30 +59,17 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         width: '100%',
         height: 250,
-        zIndex: 2,
+        alignItems: 'center',
+        zIndex: 1,
     },
 
     DetailBackground: {
-        position: 'absolute',
         fontFamily: FontTypes.COPA,
         color: ColorTypes.GRAY,
         opacity: 0.1,
-        zIndex: 1,
-        fontSize: 180,
-        top: -50,
-        left: 20,
-    },
-
-    DetailBackground2: {
-        position: 'absolute',
-        fontFamily: FontTypes.COPA,
-        color: ColorTypes.GRAY,
-        opacity: 0.1,
-        fontSize: 180,
-        zIndex: 1,
-        top: 50,
-        left: -190,
-        zIndex: 1,
+        fontSize: 160,
+        letterSpacing: 4,
+        top: -30,
     },
 
     content: {
@@ -141,6 +127,7 @@ const styles = StyleSheet.create({
     timeBlock: {
         alignItems: 'center',
         gap: 20,
+        width: 60,
     },
 
     value: {
@@ -148,6 +135,8 @@ const styles = StyleSheet.create({
         fontWeight: 900,
         lineHeight: 1,
         color: ColorTypes.WHITE,
+        textAlign: 'center',
+        width: '100%',
     },
 
     label: {

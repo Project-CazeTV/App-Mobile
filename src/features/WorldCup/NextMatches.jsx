@@ -57,7 +57,7 @@ export default function NextMatches({
             <View style={styles.teamSide}>
                 {jogo.flagA ? (
                     <Image
-                        source={jogo.flagA}
+                        source={typeof jogo.flagA === 'string' ? { uri: jogo.flagA } : jogo.flagA}
                         style={[styles.flag, pendente && styles.flagPendente]}
                     />
                 ) : (
@@ -86,7 +86,7 @@ export default function NextMatches({
             <View style={[styles.teamSide, styles.teamRight]}>
                 {jogo.flagB ? (
                     <Image
-                        source={jogo.flagB}
+                        source={typeof jogo.flagB === 'string' ? { uri: jogo.flagB } : jogo.flagB}
                         style={[styles.flag, pendente && styles.flagPendente]}
                     />
                 ) : (

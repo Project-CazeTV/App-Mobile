@@ -14,7 +14,7 @@ export default function CardArtilharia({ artilheiro, logoTeam, showGoals = false
             <View style={styles.playerOverlay}>
                 <AppText style={styles.playerPosition}>{artilheiro.posicao}</AppText>
                 <AppText style={styles.playerName}>{artilheiro.nome}</AppText>
-                <AppText style={styles.playerCountry}>{artilheiro.pais} {logoTeam ? <Image style={styles.teamLogo} source={logoTeam}/> : <AppText> · {player.clube}</AppText>}</AppText>
+                <AppText style={styles.playerCountry}>{artilheiro.pais} {logoTeam ? <Image style={styles.teamLogo} source={typeof logoTeam === 'string' ? { uri: logoTeam } : logoTeam}/> : <AppText> · {player.clube}</AppText>}</AppText>
             {showGoals && (
                 <AppText style={styles.playerGoals}>{artilheiro.gols}</AppText>
             )}

@@ -19,7 +19,7 @@ export default function CopaSede(props) {
                     <View key={s.pais} style={styles.sedeCard}>
                         <View style={styles.fotoWrapper}>
                             <Image
-                                source={s.foto}
+                                source={typeof s.foto === 'string' ? { uri: s.foto } : s.foto}
                                 style={styles.fotoEstadio}
                             />
                             <View style={styles.fotoOverlay} />
@@ -27,7 +27,7 @@ export default function CopaSede(props) {
                         </View>
 
                         <View style={styles.sedeInfo}>
-                            <Image source={s.bandeira} style={styles.bandeira} />
+                            <Image source={typeof s.bandeira === 'string' ? { uri: s.bandeira } : s.bandeira} style={styles.bandeira} />
                             <View>
                                 <AppText style={styles.sedePais}>{s.pais}</AppText>
                                 <AppText style={styles.sedeJogos}>{s.jogos} jogos</AppText>

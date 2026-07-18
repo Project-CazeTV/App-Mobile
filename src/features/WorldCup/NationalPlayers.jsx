@@ -8,7 +8,7 @@ export default function PlayersNational({ players = [], title, subtitle }) {
     const PlayerCard = ({ object }) => (
         <View style={styles.playerCard}>
             <Image
-                source={object.imagem}
+                source={typeof object.imagem === 'string' ? { uri: object.imagem } : object.imagem}
                 style={styles.playerPhoto}
             />
             <View style={styles.playerOverlay}

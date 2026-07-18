@@ -17,7 +17,7 @@ export default function CountriesGroup({ groups }) {
                     <View
                         style={[styles.countryRow, pais.nome == 'Brasil' && styles.countryRowBrasil]}
                     >
-                        <Image source={pais.imagem} style={[styles.flag, pais.nome == 'Brasil' && styles.flagBrasil]} />
+                        <Image source={typeof pais.imagem === 'string' ? { uri: pais.imagem } : pais.imagem} style={[styles.flag, pais.nome == 'Brasil' && styles.flagBrasil]} />
                         <AppText style={[styles.countryName, pais.nome == 'Brasil' && styles.countryNameBrasil]}>{pais.nome.toUpperCase()}</AppText>
                     </View>
                 ))}
